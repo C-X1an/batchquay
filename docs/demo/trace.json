@@ -1,0 +1,144 @@
+{
+  "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
+  "model": {
+    "kind": "SYNTHETIC_RANDOM_WEIGHTS",
+    "seed": 1729,
+    "config": {
+      "vocab": 37,
+      "dim": 16,
+      "hidden": 32,
+      "layers": 2,
+      "heads": 4,
+      "kv_heads": 2,
+      "max_positions": 256,
+      "epsilon": 1e-05,
+      "rope_theta": 10000.0
+    },
+    "sha256": "43bad1cfb9503daba382829e1ca983c7c819c5d2546a09b1b992ed261a790d9f",
+    "bytes": 21164
+  },
+  "trace": [
+    {
+      "label": "Admit alpha",
+      "response": {
+        "event": "accepted",
+        "owner": "alpha",
+        "id": "a",
+        "generation": 1
+      }
+    },
+    {
+      "label": "Admit beta",
+      "response": {
+        "event": "accepted",
+        "owner": "beta",
+        "id": "b",
+        "generation": 2
+      }
+    },
+    {
+      "label": "Deny over-capacity work",
+      "response": {
+        "event": "error",
+        "code": "E_CAPACITY"
+      }
+    },
+    {
+      "label": "Prefill one bounded round",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "prefill",
+            "owner": "alpha",
+            "id": "a",
+            "generation": 1,
+            "index": 2
+          },
+          {
+            "event": "prefill",
+            "owner": "beta",
+            "id": "b",
+            "generation": 2,
+            "index": 3
+          }
+        ]
+      }
+    },
+    {
+      "label": "Cancel beta",
+      "response": {
+        "event": "cancelled",
+        "owner": "beta",
+        "id": "b",
+        "generation": 2,
+        "index": 0
+      }
+    },
+    {
+      "label": "Decode round 1",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "token",
+            "owner": "alpha",
+            "id": "a",
+            "generation": 1,
+            "token": 2,
+            "index": 1
+          }
+        ]
+      }
+    },
+    {
+      "label": "Decode round 2",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "token",
+            "owner": "alpha",
+            "id": "a",
+            "generation": 1,
+            "token": 2,
+            "index": 2
+          }
+        ]
+      }
+    },
+    {
+      "label": "Decode round 3",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "token",
+            "owner": "alpha",
+            "id": "a",
+            "generation": 1,
+            "token": 36,
+            "index": 3
+          },
+          {
+            "event": "finished",
+            "owner": "alpha",
+            "id": "a",
+            "generation": 1,
+            "index": 3
+          }
+        ]
+      }
+    },
+    {
+      "label": "All terminal resources reclaimed",
+      "response": {
+        "event": "status",
+        "live": 0,
+        "reserved": 0,
+        "physical": 0,
+        "capacity": 4
+      }
+    }
+  ]
+}

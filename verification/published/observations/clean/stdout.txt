@@ -1,0 +1,56 @@
+make[1]: Entering directory '/tmp/batchquay-clean-t979lc6j'
+python3 scripts/style_check.py
+PASS text hygiene; clang-format is a separate optional command
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/batchquay-clean-t979lc6j/build
+cmake --build build -j 2
+[1/8] Building CXX object CMakeFiles/bq.dir/src/model.cpp.o
+[2/8] Building CXX object CMakeFiles/bq.dir/src/cache.cpp.o
+[3/8] Building CXX object CMakeFiles/batchquay.dir/src/main.cpp.o
+[4/8] Building CXX object CMakeFiles/bq.dir/src/scheduler.cpp.o
+[5/8] Linking CXX static library libbq.a
+[6/8] Linking CXX executable batchquay
+[7/8] Building CXX object CMakeFiles/native_tests.dir/tests/native_tests.cpp.o
+[8/8] Linking CXX executable native_tests
+ctest --test-dir build --output-on-failure
+Internal ctest changing into directory: /tmp/batchquay-clean-t979lc6j/build
+Test project /tmp/batchquay-clean-t979lc6j/build
+    Start 1: native
+1/1 Test #1: native ...........................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.01 sec
+BQ_BINARY=build/batchquay python3 -m unittest discover -s tests -p test_numerics.py -v
+{"sequences": 100, "variants": 3, "logit_values": 176934, "max_absolute_error": 2.9268134849047556e-07, "rms_error": 4.329997188272048e-08, "oracle": "independent full-prefix float64 over FP32 weights"}
+BQ_BINARY=build/batchquay python3 -m unittest discover -s tests -p test_system.py -v
+python3 -m unittest discover -s tests -p test_evidence.py -v
+python3 -m unittest discover -s tests -p test_fetch.py -v
+python3 -m compileall -q src tests tools scripts
+python3 scripts/check_integrity.py
+Acceptance lock fields: ['algorithm', 'files']
+PASS locked acceptance and phase plan
+python3 scripts/audit_public.py
+PASS local path/content export checks for 67 files. Independent full-history scanner remains separate.
+BQ_BINARY=build/batchquay python3 -m tools.demo
+{
+  "report": ".local-runs/demo/report.html",
+  "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
+  "observed": [
+    "admitted",
+    "denied",
+    "cancelled",
+    "finished",
+    "reclaimed"
+  ]
+}
+Core local verification passed. This is NOT full-product release approval.
+make[1]: Leaving directory '/tmp/batchquay-clean-t979lc6j'

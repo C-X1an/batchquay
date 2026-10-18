@@ -1,0 +1,230 @@
+{
+  "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
+  "independent_verifier_completed": false,
+  "criteria": {
+    "AC-001": {
+      "status": "PASS",
+      "requirement": "FR-001",
+      "label": "tiny-numerics",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-002": {
+      "status": "PASS",
+      "requirement": "FR-002",
+      "label": "cache-equivalence",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-003": {
+      "status": "PASS",
+      "requirement": "FR-003",
+      "label": "cache-owner",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-004": {
+      "status": "PASS",
+      "requirement": "SEC-003",
+      "label": "page-reuse",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-005": {
+      "status": "PASS",
+      "requirement": "REL-001",
+      "label": "reclaim",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-006": {
+      "status": "PASS",
+      "requirement": "FR-004",
+      "label": "rounds",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-007": {
+      "status": "PASS",
+      "requirement": "FR-005",
+      "label": "cancel",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-008": {
+      "status": "PASS",
+      "requirement": "PERF-003",
+      "label": "fairness",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-009": {
+      "status": "PASS",
+      "requirement": "PERF-002",
+      "label": "admission",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-010": {
+      "status": "PASS",
+      "requirement": "FR-006",
+      "label": "protocol",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-011": {
+      "status": "PASS",
+      "requirement": "SEC-002",
+      "label": "model-loader",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-012": {
+      "status": "BLOCKED",
+      "requirement": "FR-007",
+      "label": "real-model",
+      "receipts": [
+        "verification/published/pretrained",
+        "verification/published/model-fetch"
+      ],
+      "scope": "Pinned pretrained checkpoint not fetched; Transformers not installed. No numerical conformance claim."
+    },
+    "AC-013": {
+      "status": "BLOCKED",
+      "requirement": "FR-007",
+      "label": "model-convert",
+      "receipts": [
+        "verification/published/conversion",
+        "verification/published/pretrained"
+      ],
+      "scope": "Synthetic deterministic conversion passed; real checkpoint conversion hash gate not run."
+    },
+    "AC-014": {
+      "status": "PASS",
+      "requirement": "SEC-001",
+      "label": "authority",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Trusted local CLI only; no network adapter/authentication claim. Public boundary explicitly documented."
+    },
+    "AC-015": {
+      "status": "PASS",
+      "requirement": "FR-008",
+      "label": "inspector",
+      "receipts": [
+        "verification/published/core",
+        "verification/published/browser"
+      ],
+      "scope": "Actual process report, script-string escaping tests and set_content browser keyboard/layout inspection; not hosted navigation."
+    },
+    "AC-016": {
+      "status": "FAIL",
+      "requirement": "NFR-001",
+      "label": "clean",
+      "receipts": [
+        "verification/published/clean"
+      ],
+      "scope": "Fresh committed source checkout passed on same installed host; fresh dependency provisioning and hash-lock remain unestablished."
+    },
+    "AC-017": {
+      "status": "PASS",
+      "requirement": "NFR-003",
+      "label": "sanitizers",
+      "receipts": [
+        "verification/published/sanitizers"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-018": {
+      "status": "BLOCKED",
+      "requirement": "SEC-004",
+      "label": "public-audit",
+      "receipts": [
+        "verification/published/core",
+        "verification/published/online-security"
+      ],
+      "scope": "Local export/content checks passed; independent full-history scanner and transitive license inventory not run."
+    },
+    "AC-019": {
+      "status": "FAIL",
+      "requirement": "PERF-001",
+      "label": "benchmark",
+      "receipts": [
+        "verification/published/benchmark"
+      ],
+      "scope": "Five repetitions per variant on one tiny workload; reference-host, mixed-workload, serving-latency and RSS study not done."
+    },
+    "AC-020": {
+      "status": "PASS",
+      "requirement": "REL-002",
+      "label": "restart",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-021": {
+      "status": "PASS",
+      "requirement": "NFR-002",
+      "label": "version",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-022": {
+      "status": "PASS",
+      "requirement": "FR-009",
+      "label": "batching",
+      "receipts": [
+        "verification/published/core",
+        "verification/published/benchmark"
+      ],
+      "scope": "Sequential interleaving is explicitly not called fused batching; source and output baseline checks support this narrow claim."
+    },
+    "AC-023": {
+      "status": "PASS",
+      "requirement": "FR-001",
+      "label": "mutation",
+      "receipts": [
+        "verification/published/mutation"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    },
+    "AC-024": {
+      "status": "PASS",
+      "requirement": "NFR-001",
+      "label": "evidence-integrity",
+      "receipts": [
+        "verification/published/core"
+      ],
+      "scope": "Local finite automated checks only; independent release review remains separate."
+    }
+  },
+  "overall": "NOT_RELEASE_READY",
+  "as_of": "2026-10-19",
+  "remote_publication": "NOT_DONE"
+}

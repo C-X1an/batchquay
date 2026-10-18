@@ -1,0 +1,16 @@
+cmake -S . -B build-sanitize -G Ninja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug -DBQ_SANITIZE=ON
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /mnt/data/batchquay-package/public-repo/build-sanitize
+cmake --build build-sanitize -j 2
+ninja: no work to do.
+ctest --test-dir build-sanitize --output-on-failure
+Internal ctest changing into directory: /mnt/data/batchquay-package/public-repo/build-sanitize
+Test project /mnt/data/batchquay-package/public-repo/build-sanitize
+    Start 1: native
+1/1 Test #1: native ...........................   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.04 sec
+BQ_BINARY=build-sanitize/batchquay python3 -m unittest discover -s tests -p test_system.py -v

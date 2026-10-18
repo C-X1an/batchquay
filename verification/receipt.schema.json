@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BatchQuay local execution receipt",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "name",
+    "command",
+    "started_utc",
+    "ended_utc",
+    "duration_seconds",
+    "exit_code",
+    "source_sha256",
+    "stdout_sha256",
+    "stderr_sha256",
+    "environment",
+    "scope",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "command": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "started_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ended_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration_seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "exit_code": {
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "environment": {
+      "type": "object"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "stdout_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "stderr_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

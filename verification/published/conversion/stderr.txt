@@ -1,0 +1,9 @@
+test_conversion_exact_and_deterministic (test_conversion.ConversionTests.test_conversion_exact_and_deterministic) ... ok
+test_existing_destination_is_preserved (test_conversion.ConversionTests.test_existing_destination_is_preserved) ... ok
+test_nonfinite_and_extra_tensor_rejected (test_conversion.ConversionTests.test_nonfinite_and_extra_tensor_rejected) ... ok
+test_unsupported_bias_is_not_silently_dropped (test_conversion.ConversionTests.test_unsupported_bias_is_not_silently_dropped) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.031s
+
+OK

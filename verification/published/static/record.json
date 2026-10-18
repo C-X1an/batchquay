@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "name": "static",
+  "command": [
+    "make",
+    "lint"
+  ],
+  "cwd": "public repository root",
+  "started_utc": "2026-10-18T19:20:36.517958+00:00",
+  "ended_utc": "2026-10-18T19:21:01.489091+00:00",
+  "duration_seconds": 24.970659018,
+  "exit_code": 0,
+  "timed_out": false,
+  "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
+  "git_dirty": false,
+  "runtime_versions": {
+    "c++": "c++ (Debian 14.2.0-19) 14.2.0",
+    "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+    "cmake": "cmake version 3.31.6",
+    "git": "git version 2.47.3"
+  },
+  "category": "static",
+  "stdout_file": "stdout.txt",
+  "stderr_file": "stderr.txt",
+  "status": "PASS",
+  "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
+  "stdout_sha256": "86fc963a91efd3216b5a7ccedafa0ad11cc6239cda1271eedcbbb4f57b872f81",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "environment": {
+    "os": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "machine": "x86_64"
+  },
+  "scope": "local execution; no independent-agent or hosted-CI attestation"
+}

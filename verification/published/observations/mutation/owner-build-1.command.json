@@ -1,0 +1,10 @@
+{
+  "command": [
+    "cmake",
+    "--build",
+    "build",
+    "-j",
+    "2"
+  ],
+  "exit_code": 0
+}

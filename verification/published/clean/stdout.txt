@@ -1,0 +1,6 @@
+python3 scripts/clean_verify.py
+{
+  "commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
+  "exit_code": 0,
+  "scope": "fresh committed source checkout on same host and installed dependencies; NOT fresh dependency provisioning"
+}

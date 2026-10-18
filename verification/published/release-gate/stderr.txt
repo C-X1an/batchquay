@@ -1,0 +1,8 @@
+NOT RELEASE READY
+AC-012: BLOCKED
+AC-013: BLOCKED
+AC-016: FAIL
+AC-018: BLOCKED
+AC-019: FAIL
+independent verifier NOT RUN
+make: *** [Makefile:55: release-verify] Error 1
