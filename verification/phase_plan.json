@@ -1,0 +1,154 @@
+[
+  {
+    "id": "I00",
+    "title": "Bootstrap and locked contracts",
+    "objective": "Establish reproducible build, immutable acceptance and evidence tooling",
+    "dependencies": [],
+    "outputs": [
+      "API_SPEC.md",
+      "CMakeLists.txt",
+      "scripts/check_integrity.py"
+    ],
+    "acceptance_criteria": [
+      "AC-021",
+      "AC-024"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  },
+  {
+    "id": "I01",
+    "title": "Original numerical kernel and oracle",
+    "objective": "Implement decoder, checked format, independent full-prefix oracle",
+    "dependencies": [
+      "I00"
+    ],
+    "outputs": [
+      "src/model.cpp",
+      "src/model.hpp",
+      "tools/reference.py"
+    ],
+    "acceptance_criteria": [
+      "AC-001",
+      "AC-002",
+      "AC-011"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  },
+  {
+    "id": "I02",
+    "title": "Owned paged cache",
+    "objective": "Implement bounded arena, handle generations and lifecycle checks",
+    "dependencies": [
+      "I01"
+    ],
+    "outputs": [
+      "src/cache.cpp",
+      "src/cache.hpp",
+      "tests/native_tests.cpp"
+    ],
+    "acceptance_criteria": [
+      "AC-003",
+      "AC-004",
+      "AC-009"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  },
+  {
+    "id": "I03",
+    "title": "Actor scheduler and local protocol",
+    "objective": "Integrate chunked prefill, decode rounds, admission, cancellation and restart boundaries",
+    "dependencies": [
+      "I02"
+    ],
+    "outputs": [
+      "src/scheduler.cpp",
+      "src/scheduler.hpp",
+      "src/main.cpp",
+      "tests/test_system.py"
+    ],
+    "acceptance_criteria": [
+      "AC-005",
+      "AC-006",
+      "AC-007",
+      "AC-008",
+      "AC-010",
+      "AC-014",
+      "AC-020"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  },
+  {
+    "id": "I04",
+    "title": "Pinned pretrained conformance",
+    "objective": "Convert approved real model and compare with independent reference",
+    "dependencies": [
+      "I03"
+    ],
+    "outputs": [
+      "tools/convert_model.py",
+      "tools/real_model.py",
+      "models/manifest.json"
+    ],
+    "acceptance_criteria": [
+      "AC-012",
+      "AC-013"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  },
+  {
+    "id": "I05",
+    "title": "Measured demonstration and comparisons",
+    "objective": "Produce actual offline inspector and all-variant benchmark observations",
+    "dependencies": [
+      "I04"
+    ],
+    "outputs": [
+      "tools/demo.py",
+      "tools/benchmark.py",
+      "docs/demo/README.md"
+    ],
+    "acceptance_criteria": [
+      "AC-015",
+      "AC-019",
+      "AC-022"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  },
+  {
+    "id": "I06",
+    "title": "Adversarial verification and reproduction",
+    "objective": "Independent review, selected mutations, sanitizers, clean checkout and fixes",
+    "dependencies": [
+      "I05"
+    ],
+    "outputs": [
+      "VERIFICATION_REPORT.md",
+      "TEST_MATRIX.md",
+      "verification/published/"
+    ],
+    "acceptance_criteria": [
+      "AC-016",
+      "AC-017",
+      "AC-023",
+      "AC-024"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  },
+  {
+    "id": "I07",
+    "title": "Public release and portfolio evidence",
+    "objective": "Audit allowlisted export, publish only evidence-backed source and docs",
+    "dependencies": [
+      "I06"
+    ],
+    "outputs": [
+      "README.md",
+      "CLAIMS_EVIDENCE.md",
+      "RELEASE_READINESS.md"
+    ],
+    "acceptance_criteria": [
+      "AC-018"
+    ],
+    "verification": "Machine-captured criterion-specific runs plus initial read-only verifier findings"
+  }
+]

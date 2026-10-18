@@ -1,0 +1,24 @@
+name: Manual pretrained conformance
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Prepare reference dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ cmake ninja-build python3-venv
+          python3 -m venv .venv
+          .venv/bin/python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          .venv/bin/python -m pip install -r requirements-reference.txt
+      - name: Fetch pinned checkpoint and compare real numerical results
+        run: |
+          export PATH="$PWD/.venv/bin:$PATH"
+          make build conversion-test fetch-model real-model

@@ -1,0 +1,7 @@
+# Research-verified top-level pins, NOT a resolved/hash-locked environment yet.
+# Resolve transitives, scan and rerun all numerical checks in a fresh venv.
+-r requirements.txt
+torch==2.13.0
+transformers==5.15.0
+safetensors==0.8.0
+tokenizers==0.23.1

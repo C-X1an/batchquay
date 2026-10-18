@@ -1,0 +1,33 @@
+name: Core verification
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: core-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  core:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install build and numerical-test prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ clang cmake ninja-build python3-venv
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -r requirements.txt
+      - name: Core, sanitizer, static analysis and selected negative controls
+        run: |
+          export PATH="$PWD/.venv/bin:$PATH"
+          make verify sanitize lint mutation
+      - name: Same-host clean checkout
+        run: |
+          export PATH="$PWD/.venv/bin:$PATH"
+          make clean-verify

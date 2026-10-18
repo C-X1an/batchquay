@@ -1,0 +1,7 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "ACCEPTANCE_SPEC.md": "062d1b4416ef3947426c236746cb8b56fa4dac02be4860734467d993179d6248",
+    "verification/acceptance.json": "122733502e660cca9089860edc581f51e88d4259a4751d29748691975d68a084"
+  }
+}

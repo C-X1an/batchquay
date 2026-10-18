@@ -1,0 +1,3 @@
+# Target for network-capable verification; Python >=3.12 required by NumPy 2.5.
+# Initial local observations used installed NumPy 2.3.5, explicitly recorded.
+numpy==2.5.4

@@ -1,0 +1,9 @@
+{
+  "repository": "HuggingFaceTB/SmolLM2-135M",
+  "revision": "4e53f736cbb20a9a0f56b4c4bf378d9f306ff915",
+  "license": "Apache-2.0",
+  "files": ["config.json", "model.safetensors"],
+  "expected_weight_sha256": null,
+  "status": "Checkpoint not fetched or executed in the author environment. Immutable revision selected; upstream file digest and local artifact hashes must be recorded by the network-capable verifier.",
+  "scope": "LlamaForCausalLM, tied embeddings, default split-half RoPE, no attention bias; runtime position cap 256"
+}

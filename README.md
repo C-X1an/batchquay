@@ -1,0 +1,87 @@
+# BatchQuay
+### Inspect the math. Bound the state. Explain the result.
+
+An experimental **C++20 CPU transformer runtime** with request-owned paged KV state, bounded token scheduling, and an independent numerical oracle.
+
+[Run locally](#run-locally) · [Architecture](ARCHITECTURE.md) · [Actual demo](docs/demo/report.html) · [Evidence](VERIFICATION_REPORT.md) · [Limits](LIMITATIONS.md)
+
+> **Status: implemented experimental core, not a completed inference product.** Tiny synthetic-model execution and local checks are recorded. Real pretrained-model conformance, a fully provisioned clean environment, independent review, online security scans and remote publication are separate unfinished gates. No production, pretrained-quality or performance-advantage claim is made.
+
+## The engineering question
+Can a small inference engine preserve numerical behavior while it interleaves requests, owns and reuses their cache pages, refuses excess work, and cancels execution without leaking state or committing later output?
+
+| Numerical execution | Explicit ownership | Inspectable failure |
+|:--|:--|:--|
+| Original RMSNorm, RoPE, grouped-query causal attention and SwiGLU decoder. | Page handles bind session, subject, request, generation and allocation epoch. | Typed denial, cancellation, failure reclamation and fresh-session restart. |
+
+The runtime uses FP32 storage/activations and FP64 reductions. The independent Python oracle recomputes complete prefixes with dense NumPy operations. This is neither a wrapper around a hosted model nor a replacement for llama.cpp, vLLM or SGLang.
+
+## Run locally
+Linux, C++20 compiler, CMake, Ninja, Python 3.11+ and Git are required. The fixture and demo need only the Python standard library. NumPy is needed for differential verification; the recommended dependency environment needs Python 3.12+.
+
+```sh
+make bootstrap       # Inspect prerequisites; does not install or alter the host.
+make build
+make demo            # Real child-process execution and an offline HTML report.
+```
+
+The demo prints `.local-runs/demo/report.html`. Open it locally to inspect admission, denial, prefill, cancellation and completion. The included [recorded report](docs/demo/report.html) is a synthetic execution, not a hosted application. GitHub may display HTML as source; the local file is the intended viewing path.
+
+For a network-capable fresh environment:
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+make verify
+```
+
+The top-level recommended versions are pinned, but a resolved dependency hash lock and fresh provisioning have not yet been established. Read the environment in each receipt before interpreting results.
+
+## From token IDs to a bounded result
+
+```mermaid
+flowchart LR
+  C[Trusted local controller] --> P[Bounded command parser]
+  P --> A[Admission and reservation]
+  A --> S[Single actor: prefill / decode rounds]
+  S --> D[Original C++ decoder]
+  D <--> K[Request-owned paged KV arena]
+  S --> E[Token / terminal events]
+  E --> I[Offline HTML inspector]
+  O[Independent dense oracle] -. comparison .-> D
+```
+
+This is **interleaved token scheduling**, not a fused matrix-multiply batching backend. Equal decode grants are not equal wall-clock latency. The process deliberately exposes no network listener and does not authenticate owner labels.
+
+## Verify what is claimed
+
+```sh
+make verify             # Core local checks; not full release approval.
+make conversion-test    # Synthetic safetensors conversion; needs Torch/safetensors.
+make sanitize lint      # Clang sanitizers and static analysis.
+make mutation           # Selected PASS -> FAIL -> PASS negative controls.
+make benchmark          # Retains all tiny-model comparison observations.
+make clean-verify       # Requires committed, clean public source.
+make security-online    # Requires actual installed vulnerability/secret scanners.
+make fetch-model real-model  # Mandatory real-checkpoint gate; network/deps required.
+make release-verify     # Intentionally refuses incomplete release evidence.
+```
+
+[Verification](VERIFICATION_REPORT.md), [criterion mapping](TEST_MATRIX.md), [claims](CLAIMS_EVIDENCE.md) and [release readiness](RELEASE_READINESS.md) distinguish executed checks from blocked or unmeasured work. A receipt binds source and output bytes; it is not independent attestation.
+
+## Deliberate limits
+A trusted process and OS own all data. Page ownership protects the engine's validated access paths; it does not sandbox arbitrary native code, authenticate remote users, stop timing inference or guarantee confidentiality against the host. Models have a 256-position runtime cap, bounded file/dimension checks, and greedy token selection. No training, GPU, distributed service, quantization, shared prefix cache or production availability is claimed.
+
+## Read the source
+
+| Concern | Entry point |
+|:--|:--|
+| Checked weights and numerical execution | `src/model.cpp`, `src/model.hpp` |
+| Arena, ownership, epochs and initialized lengths | `src/cache.cpp`, `src/cache.hpp` |
+| Reservation, rounds and terminal paths | `src/scheduler.cpp`, `src/main.cpp` |
+| Independent reference and deterministic fixtures | `tools/reference.py`, `tools/fixture.py` |
+| Native tests and actual process checks | `tests/native_tests.cpp`, `tests/test_system.py` |
+| API, threat model and operations | [API](API_SPEC.md), [threats](THREAT_MODEL.md), [operations](OPERATIONS.md) |
+
+Original source is [MIT licensed](LICENSE). Model and dependency rights remain separate; see [third-party notices](THIRD_PARTY_NOTICES.md). Contributions should preserve the [locked behavioral contract](ACCEPTANCE_SPEC.md).
