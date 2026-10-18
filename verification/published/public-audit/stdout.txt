@@ -2,4 +2,4 @@ python3 scripts/check_integrity.py
 Acceptance lock fields: ['algorithm', 'files']
 PASS locked acceptance and phase plan
 python3 scripts/audit_public.py
-PASS local path/content export checks for 160 files. Independent full-history scanner remains separate.
+PASS local path/content export checks for 168 files. Independent full-history scanner remains separate.
