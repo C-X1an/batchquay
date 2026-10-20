@@ -83,9 +83,15 @@ def convert(source: Path, output: Path) -> dict:
         with path.open('rb') as stream:
             while block:=stream.read(1<<20): hsh.update(block)
         return hsh.hexdigest()
+    provenance={}
+    receipt=source/'download-receipt.json'
+    if receipt.exists():
+        downloaded=json.loads(receipt.read_text())
+        provenance=dict(repository=downloaded.get('repository'),revision=downloaded.get('revision'))
     info=dict(format='BQW1',bytes=expected,output_sha256=digest.hexdigest(),
         config_sha256=hashlib.sha256(raw).hexdigest(),source_weight_sha256=file_sha(weights),
         source_kind='local operator-selected safetensors; match download receipt for pinned-origin claim',
+        source_provenance=provenance,
         torch_version=torch.__version__)
     output.with_suffix('.conversion.json').write_text(json.dumps(info,indent=2)+'\n')
     return info

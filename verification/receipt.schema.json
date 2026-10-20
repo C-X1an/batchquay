@@ -1,75 +1,60 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "BatchQuay local execution receipt",
+  "title": "BatchQuay local execution receipt v2",
   "type": "object",
+  "additionalProperties": false,
   "required": [
-    "schema_version",
-    "name",
-    "command",
-    "started_utc",
-    "ended_utc",
-    "duration_seconds",
-    "exit_code",
-    "source_sha256",
-    "stdout_sha256",
-    "stderr_sha256",
-    "environment",
-    "scope",
-    "status"
+    "schema_version", "name", "category", "command", "cwd", "started_utc",
+    "ended_utc", "duration_seconds", "exit_code", "timed_out", "status",
+    "evidence_class", "git_commit", "git_tree", "git_dirty", "runtime_versions",
+    "stdout_file", "stderr_file", "source_manifest_file", "release_manifest_file",
+    "source_sha256", "release_sha256", "stdout_sha256", "stderr_sha256",
+    "artifacts", "artifact_errors", "environment", "scope"
   ],
   "properties": {
-    "schema_version": {
-      "const": 1
-    },
-    "name": {
-      "type": "string",
-      "minLength": 1
-    },
-    "command": {
+    "schema_version": {"const": 2},
+    "name": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+    "category": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+    "command": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "cwd": {"const": "public repository root"},
+    "started_utc": {"type": "string", "format": "date-time"},
+    "ended_utc": {"type": "string", "format": "date-time"},
+    "duration_seconds": {"type": "number", "minimum": 0},
+    "exit_code": {"type": "integer"},
+    "timed_out": {"type": "boolean"},
+    "status": {"enum": ["PASS", "FAIL"]},
+    "evidence_class": {"enum": ["integration", "unit_fixture"]},
+    "git_commit": {"type": "string", "pattern": "^([0-9a-f]{40}|[0-9a-f]{64}|UNAVAILABLE)$"},
+    "git_tree": {"type": "string", "pattern": "^([0-9a-f]{40}|[0-9a-f]{64}|UNAVAILABLE)$"},
+    "git_dirty": {"type": ["boolean", "null"]},
+    "runtime_versions": {"type": "object", "additionalProperties": {"type": "string"}},
+    "stdout_file": {"const": "stdout.txt"},
+    "stderr_file": {"const": "stderr.txt"},
+    "source_manifest_file": {"const": "source_manifest.json"},
+    "release_manifest_file": {"const": "release_manifest.json"},
+    "source_sha256": {"$ref": "#/$defs/digest"},
+    "release_sha256": {"$ref": "#/$defs/digest"},
+    "stdout_sha256": {"$ref": "#/$defs/digest"},
+    "stderr_sha256": {"$ref": "#/$defs/digest"},
+    "artifacts": {
       "type": "array",
-      "minItems": 1,
       "items": {
-        "type": "string"
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "path", "bytes", "sha256"],
+        "properties": {
+          "label": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+          "path": {"type": "string", "minLength": 1},
+          "bytes": {"type": "integer", "minimum": 0},
+          "sha256": {"$ref": "#/$defs/digest"}
+        }
       }
     },
-    "started_utc": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "ended_utc": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "duration_seconds": {
-      "type": "number",
-      "minimum": 0
-    },
-    "exit_code": {
-      "type": "integer"
-    },
-    "status": {
-      "enum": [
-        "PASS",
-        "FAIL"
-      ]
-    },
-    "environment": {
-      "type": "object"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "source_sha256": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{64}$"
-    },
-    "stdout_sha256": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{64}$"
-    },
-    "stderr_sha256": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{64}$"
-    }
+    "artifact_errors": {"type": "array", "items": {"type": "string"}},
+    "environment": {"type": "object"},
+    "scope": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
   }
 }

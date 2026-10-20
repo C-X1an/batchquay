@@ -2,8 +2,9 @@
 from __future__ import annotations
 import json
 import os
-import selectors
+import queue
 import subprocess
+import threading
 from pathlib import Path
 
 
@@ -14,9 +15,9 @@ class Client:
         self.proc = subprocess.Popen([binary, 'serve', str(model), str(pages),
             str(page_tokens), str(live), str(chunk)], stdin=subprocess.PIPE,
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=0)
-        self.selector = selectors.DefaultSelector()
-        self.selector.register(self.proc.stdout, selectors.EVENT_READ)
-        self.buffer = b''
+        self.responses: queue.Queue[bytes | None] = queue.Queue(maxsize=64)
+        self.reader = threading.Thread(target=self._read_responses,daemon=True)
+        self.reader.start()
         try:
             greeting = self.read()
             if greeting.get('event') != 'hello' or greeting.get('protocol') != 1:
@@ -26,21 +27,27 @@ class Client:
             self.close()
             raise
 
+    def _read_responses(self) -> None:
+        assert self.proc.stdout is not None
+        while True:
+            line=self.proc.stdout.readline(2**20+1)
+            if not line:
+                self.responses.put(None);return
+            self.responses.put(line)
+
     def read(self, timeout: float = 10.0) -> dict:
-        import time
-        end = time.monotonic() + timeout
-        while b'\n' not in self.buffer:
-            remaining = end-time.monotonic()
-            if remaining <= 0 or not self.selector.select(remaining):
-                raise TimeoutError('native process did not respond')
-            part = os.read(self.proc.stdout.fileno(), 65536)
-            if not part:
-                raise RuntimeError('native process exited before response')
-            self.buffer += part
-            if len(self.buffer) > 2**20:
-                raise RuntimeError('native response exceeded limit')
-        line, self.buffer = self.buffer.split(b'\n', 1)
-        return json.loads(line)
+        try:
+            line=self.responses.get(timeout=timeout)
+        except queue.Empty as exc:
+            raise TimeoutError('native process did not respond') from exc
+        if line is None:
+            raise RuntimeError('native process exited before response')
+        if len(line)>2**20 or not line.endswith(b'\n'):
+            raise RuntimeError('native response exceeded limit')
+        response=json.loads(line)
+        if hasattr(self,'session') and response.get('session')!=self.session:
+            raise RuntimeError('native response has wrong or missing session')
+        return response
 
     def raw(self, line: str) -> dict:
         self.proc.stdin.write((line+'\n').encode('utf-8'))
@@ -64,8 +71,6 @@ class Client:
             for stream in (self.proc.stdin, self.proc.stdout, self.proc.stderr):
                 if stream is not None:
                     stream.close()
-        if getattr(self, 'selector', None) is not None:
-            self.selector.close()
 
     def __enter__(self) -> 'Client':
         return self

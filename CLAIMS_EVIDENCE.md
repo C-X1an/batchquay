@@ -1,20 +1,16 @@
-# Claims and their evidence
+# Claims and evidence scope
 
-|Claim|Status|Evidence|Must not imply|
-|---|---|---|---|
-|Original C++ CPU decoder/cache/scheduler exists and builds|PASS, finite local scope|Source and published/core receipt|Production inference platform|
-|Tiny model agrees with independent numerical expression|PASS|Published/core stdout; 100 sequences, three variants, max abs ~2.93e-7|Pretrained model correctness or text quality|
-|Owner/epoch/reuse and cancellation invariants tested|PASS, configured paths|Native/process tests; published/sanitizers and mutation|Remote authentication, hostile-native-code or OS isolation|
-|33 named checks passed|PASS across recorded core + conversion targets|TEST_MATRIX.md, core and conversion receipts|33 independent security audits; repetitions are not new test designs|
-|Independent expression of numerical oracle|PASS by source structure/local check|tools/reference.py, tests/test_numerics.py|Independent human/agent review|
-|Two selected defects are detected|PASS -> FAIL -> PASS|published/mutation and observations/mutation|A global mutation score or absence of other defects|
-|Real HTML demo/keyboard/mobile check executed|PASS with explicit set_content limitation|docs/demo; published/browser|Hosted app or desktop computer-use permission|
-|Fresh committed source checkout succeeds|PASS, same installed host|published/clean|Fresh dependency install or full AC-016 approval|
-|Paged cache improves performance|NOT CLAIMED|Recorded tiny comparison is slower than contiguous|A favorable headline from cherry-picked results|
-|Pinned real pretrained model works|BLOCKED|Actual failed fetch/pretrained receipts|Random weights establish language generation|
-|Fresh pins, scanner/license inventory, full benchmark|PARTIAL / NOT RUN|Criterion index|Current target pins were the versions used locally|
-|Independent reviewer completed|NOT RUN|No separate reviewer output exists|Self-review is independent|
-|Public GitHub repo and remote CI|NOT DONE|No created URL or hosted run|Workflow YAML means CI passed|
-|Full product complete / production ready|NO|release-verify rejects missing gates|A passing core suite is release approval|
+| Claim | Current evidence and limit |
+|---|---|
+| Original C++20 decoder, owned paged cache and bounded actor | Existing implementation retained and tested; no replacement engine or hosted-model wrapper. |
+| Tiny numerical equivalence | Seeded full-prefix oracle across three cache/execution variants; fixed max/RMS tolerances remain unchanged. Historical receipts identify their source. |
+| Real checkpoint numerical equivalence | Real pinned SmolLM2-135M checkpoint passed locally: 20 sequences, 326 positions, max absolute error 0.0002955963 and mean 0.0000086230; all 311 confident top-1 positions matched. Final source-bound public evidence is being collected. This is not a generated-language quality claim. |
+| Deterministic conversion | Two actual conversions produced the same BQW1 SHA256. Weights are not distributed. |
+| Ownership, cancellation, reclamation and restart | Native and child-process tests exercise these paths. A corrected independently assessed terminal-replay exception documents new-generation reuse and absence of a completed-result ledger. |
+| Performance comparison | Four fixed synthetic workloads, 1/4/8 simultaneous requests, warmups and at least five repetitions; exact output parity, native RSS, logical KV and round-visible token timings. All runs retained; no universal paged-cache advantage or fused batching claimed. |
+| Independent review | Separate initial read-only findings preceded fixes; follow-up reviews found further issues. Final approval remains required. Self-review is not substituted. |
+| Security and licenses | Actual history/export secret scans, detection canary, resolved-package advisory scan and installed notice checks executed. Final complete-candidate audit is rerun after evidence commits. No security certification or arbitrary-native-code isolation claim. |
+| Reproduction and Linux checks | Fresh committed hash-locked reproduction and current supported-Linux sanitizer/analyzer evidence are release gates, not inferred from workflow files. |
+| Full product complete / production ready | Not claimed. The release gate remains closed until current evidence and independent final assessment are complete. |
 
-Public receipts are relative to this tree. Changes to code/contracts require fresh current-source evidence or explicitly historical labels. README/status/evidence documents are intentionally outside the code/contracts hash to avoid recursive self-hashing; Git commit identity covers complete published trees separately.
+The criterion index is the current machine-readable release view. Existing schema-v1 receipts document the earlier source only. Public stream capture replaces known absolute local path prefixes and records original raw-stream hashes; raw bytes remain local. Receipt hashes are local integrity bindings, not signatures or third-party attestation. Source/release manifests bind code, contracts, workflows, licenses and docs; the final publication audit separately covers every evidence file and current referenced history to avoid a self-hash loop.

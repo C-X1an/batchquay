@@ -34,35 +34,42 @@ int main() {
   try {
     test("owner_rejection",[] {
       bq::Arena a(1,4);bq::Owner x{"s","a","r",1},y{"s","b","r",1};auto h=a.allocate(x);
-      rejects("E_OWNER",[&]{(void)a.read(h,y);});rejects("E_OWNER",[&]{(void)a.write(h,y);});
+      std::vector<float> values(4);
+      rejects("E_OWNER",[&]{a.load(h,y,0,values);});
+      rejects("E_OWNER",[&]{a.store(h,y,0,values);});
       rejects("E_OWNER",[&]{a.release(h,y);});require(a.used()==1,"owner rejection mutated arena");
     });
     test("reuse_zero_and_stale",[] {
       bq::Arena a(1,4);bq::Owner x{"s","a","r",1},y{"s","b","r",2};auto old=a.allocate(x);
-      a.write(old,x)[2]=17;a.release(old,x);auto h=a.allocate(y);
-      for(float v:a.read(h,y)) require(v==0,"old bytes visible");
-      rejects("E_STALE",[&]{(void)a.read(old,x);});
+      std::vector<float> written{0,0,17,0},retained(4);
+      a.store(old,x,0,written);a.load(old,x,0,retained);a.release(old,x);auto h=a.allocate(y);
+      std::vector<float> fresh(4);a.load(h,y,0,fresh);
+      for(float v:fresh) require(v==0,"old bytes visible");
+      retained[0]=29;a.load(h,y,0,fresh);
+      for(float v:fresh) require(v==0,"retained copy aliases reassigned page");
+      rejects("E_STALE",[&]{a.load(old,x,0,retained);});
+      rejects("E_STALE",[&]{a.store(old,x,0,written);});
       rejects("E_STALE",[&]{a.release(old,x);});require(a.used()==1,"stale release changed counter");
       a.release(h,y);require(a.used()==0,"release leak");
     });
     test("same_id_new_generation",[] {
       bq::Arena a(1,4);bq::Owner x{"s","a","r",1},y{"s","a","r",2};auto h=a.allocate(x);
-      rejects("E_OWNER",[&]{(void)a.read(h,y);});
+      std::vector<float> out(4);rejects("E_OWNER",[&]{a.load(h,y,0,out);});
     });
     test("arena_bounds",[] {
       rejects("E_LIMIT",[]{bq::Arena a(0,4);});rejects("E_LIMIT",[]{bq::Arena a(4096,1000000);});
       bq::Arena a(1,4);bq::Owner o{"s","a","r",1};auto h=a.allocate(o);
       rejects("E_CAPACITY",[&]{(void)a.allocate(o);});
-      rejects("E_STALE",[&]{(void)a.read({99,1},o);});a.release(h,o);
+      std::vector<float> out(4);rejects("E_STALE",[&]{a.load({99,1},o,0,out);});a.release(h,o);
       rejects("E_STALE",[&]{a.release(h,o);});
     });
     test("uninitialized_cache_rejected",[] {
       auto m=fixture();bq::Arena a(2,bq::page_elements(m.cfg,4));
       bq::PagedCache c(a,{"s","a","r",1},m.cfg,4);
-      rejects("E_STALE",[&]{(void)c.key(0,0);});
+      std::vector<float> out(4);rejects("E_STALE",[&]{c.copy_key(0,0,out);});
       std::vector<float> z(4,1);rejects("E_INTERNAL",[&]{c.put(0,1,z,z);});
-      c.put(0,0,z,z);require(c.key(0,0)[0]==1,"cache write lost");
-      rejects("E_STALE",[&]{(void)c.key(1,0);});
+      c.put(0,0,z,z);c.copy_key(0,0,out);require(out[0]==1,"cache write lost");
+      rejects("E_STALE",[&]{c.copy_key(1,0,out);});
     });
     test("paged_contiguous_match",[] {
       auto m=fixture();bq::ContiguousCache c(m.cfg);bq::Arena a(8,bq::page_elements(m.cfg,4));
@@ -112,12 +119,44 @@ int main() {
       require(grants["a"]==12 && grants["b"]==12,"missing grants");
       require(s.live()==0 && s.reserved()==0 && s.physical()==0,"completion leak");
     });
+    test("arrival_order_not_lexical",[] {
+      auto m=fixture();bq::Scheduler s(m,"s",32,4,16,4);
+      (void)s.submit("z","r",{1},3);(void)s.submit("a","r",{2},3);
+      auto events=s.step();
+      require(events.size()==2 && events[0].owner=="z" && events[1].owner=="a",
+              "scheduler ignored arrival order");
+      (void)s.cancel("z","r",1);
+      events=s.step();
+      require(!events.empty() && events[0].owner=="a","cancelled request remained ready");
+      (void)s.submit("m","r",{3},1);
+      events=s.step();
+      require(events.size()>=2 && events[0].owner=="a" && events[1].owner=="m",
+              "new arrival displaced ready request");
+    });
     test("forward_failure_reclaims",[] {
-      auto m=fixture();m.layers[0].q.assign(64,std::numeric_limits<float>::max());
+      auto m=fixture();m.layers[1].q.assign(64,std::numeric_limits<float>::max());
+      bq::Arena arena(16,bq::page_elements(m.cfg,4));
+      {
+        bq::PagedCache cache(arena,{"s","partial","r",1},m.cfg,4);
+        rejects("E_NUMERIC",[&]{(void)bq::forward(m,cache,1,0);});
+        require(arena.used()>0,"failure happened before any physical allocation");
+      }
+      require(arena.used()==0,"partial forward cache destructor leaked pages");
       bq::Scheduler s(m,"s",16,4,16,4);(void)s.submit("a","r",{1},4);
       const auto events=s.step();require(events.size()==1 && events[0].event=="failed","failure not explicit");
       require(events[0].code=="E_NUMERIC","wrong forward failure");
       require(s.live()==0 && s.reserved()==0 && s.physical()==0,"failure leaked capacity");
+    });
+    test("transient_resource_peaks",[] {
+      auto m=fixture();bq::Scheduler s(m,"s",4,4,2,4);
+      (void)s.submit("a","r",{1,2,3,4},3);(void)s.submit("b","r",{4,3,2,1},1);
+      (void)s.step();(void)s.step();
+      require(s.physical()==2,"expected post-round page count");
+      require(s.peak_physical()==3,"transient allocation peak missed");
+      require(s.peak_cached_tokens()==9,"transient complete-token KV peak missed");
+      require(s.allocated_payload_bytes()>=3*bq::page_elements(m.cfg,4)*sizeof(float),"retained payload capacity missed");
+      while(s.live()) (void)s.step();
+      require(s.physical()==0 && s.reserved()==0 && s.peak_physical()==3,"peak lost during reclamation");
     });
     test("shape_guard",[] {
       auto c=fixture().cfg;c.heads=0;rejects("E_MODEL",[&]{c.validate();});

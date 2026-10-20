@@ -1,0 +1,3 @@
+# Verification binds file bytes across hosts, including native output line endings.
+# Producers write source/metadata as LF; do not rewrite captured bytes on checkout.
+* -text

@@ -1,0 +1,5 @@
+# CPython 3.12 Windows AMD64 / Linux x86_64 wheels from official PyPI metadata.
+# Fresh core reproduction needs NumPy; pretrained verification uses the full reference lock.
+numpy==2.5.4 \
+    --hash=sha256:fbde6962867ee75b48b0ee29b2b9372ec5d617799dbaf38e82dc0596f2f7738a \
+    --hash=sha256:a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a

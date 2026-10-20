@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "policy": "Fixed release-evidence requirements. A receipt may support multiple related criteria only when its command contract and criterion-specific semantic checks both match.",
+  "commands": {
+    "core": {"kind": "make", "target": "verify"},
+    "conversion": {"kind": "make", "target": "conversion-test"},
+    "real-model": {"kind": "make", "target": "real-model"},
+    "browser": {"kind": "python-module", "module": "tools.browser_check"},
+    "clean": {"kind": "make", "target": "clean-verify"},
+    "sanitizers": {"kind": "make", "target": "sanitize"},
+    "public-audit": {"kind": "make", "target": "security"},
+    "security-online": {"kind": "make", "target": "security-online"},
+    "benchmark": {"kind": "make", "target": "benchmark"},
+    "mutation": {"kind": "make", "target": "mutation"},
+    "evidence-integrity": {"kind": "make", "target": "evidence-test"}
+  },
+  "criteria": {
+    "AC-001": {"receipts": [{"category": "core", "markers": ["test_seeded_full_prefix_equivalence", "max_absolute_error"]}], "semantic": "tiny-numerics"},
+    "AC-002": {"receipts": [{"category": "core", "markers": ["test_seeded_full_prefix_equivalence", "\"sequences\": 100", "\"variants\": 3"]}], "semantic": "cache-equivalence"},
+    "AC-003": {"receipts": [{"category": "core", "markers": ["PASS owner_rejection"]}], "semantic": "cache-owner"},
+    "AC-004": {"receipts": [{"category": "core", "markers": ["PASS reuse_zero_and_stale"]}], "semantic": "page-reuse"},
+    "AC-005": {"receipts": [{"category": "core", "markers": ["PASS forward_failure_reclaims", "PASS cancel_terminal"]}], "semantic": "reclaim"},
+    "AC-006": {"receipts": [{"category": "core", "markers": ["PASS chunk_bound", "PASS arrival_order_not_lexical"]}], "semantic": "rounds"},
+    "AC-007": {"receipts": [{"category": "core", "markers": ["PASS cancel_terminal", "test_cancel_and_stale_generation"]}], "semantic": "cancel"},
+    "AC-008": {"receipts": [{"category": "core", "markers": ["PASS decode_grants_fair"]}], "semantic": "fairness"},
+    "AC-009": {"receipts": [{"category": "core", "markers": ["PASS admission_atomic", "test_admission_and_maximum_position_bound"]}], "semantic": "admission"},
+    "AC-010": {"receipts": [{"category": "core", "markers": ["test_malformed_protocol_finite_campaign", "test_extreme_oversize_record_closes_protocol"]}], "semantic": "protocol"},
+    "AC-011": {"receipts": [{"category": "core", "markers": ["PASS shape_guard", "test_loader_rejects_structural_and_nonfinite_damage"]}], "semantic": "model-loader"},
+    "AC-012": {"receipts": [{"category": "real-model", "artifacts": ["pretrained-result"]}], "semantic": "real-model"},
+    "AC-013": {"receipts": [{"category": "real-model", "artifacts": ["pretrained-result"]}], "semantic": "model-convert"},
+    "AC-014": {"receipts": [{"category": "public-audit", "markers": ["PASS local path/content export checks"]}], "semantic": "authority-boundary"},
+    "AC-015": {"receipts": [{"category": "core", "artifacts": ["demo-trace"]}, {"category": "browser", "artifacts": ["browser-result"]}], "semantic": "inspector"},
+    "AC-016": {"receipts": [{"category": "clean", "artifacts": ["clean-result"]}], "semantic": "fresh-reproduction"},
+    "AC-017": {"receipts": [{"category": "sanitizers", "markers": ["100% tests passed", "test_extreme_oversize_record_closes_protocol"]}], "semantic": "sanitizers"},
+    "AC-018": {"receipts": [{"category": "public-audit", "artifacts": ["history-scan"]}, {"category": "security-online", "artifacts": ["gitleaks-report", "advisory-report", "license-inventory"]}], "semantic": "public-audit"},
+    "AC-019": {"receipts": [{"category": "benchmark", "artifacts": ["benchmark-result"]}], "semantic": "benchmark"},
+    "AC-020": {"receipts": [{"category": "core", "markers": ["test_kill_restart_rejects_old_session", "test_response_session_attribution"]}], "semantic": "restart"},
+    "AC-021": {"receipts": [{"category": "core", "markers": ["PASS invalid_ids", "test_response_session_attribution"]}], "semantic": "version"},
+    "AC-022": {"receipts": [{"category": "core", "markers": ["test_interleaving_matches_isolated_execution"]}, {"category": "benchmark", "artifacts": ["benchmark-result"]}], "semantic": "batching"},
+    "AC-023": {"receipts": [{"category": "mutation", "artifacts": ["mutation-result"]}], "semantic": "mutation"},
+    "AC-024": {"receipts": [{"category": "evidence-integrity", "markers": ["test_unrelated_receipt_substitution_is_rejected", "test_record_output_and_artifact_tampering_are_rejected", "test_path_escape_is_rejected"]}], "semantic": "evidence-integrity"}
+  }
+}

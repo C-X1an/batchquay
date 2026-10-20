@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from tools.client import Client
 from tools.fixture import generate
-from scripts.evidence import identity, manifest
+from scripts.evidence import identity, manifest, _write_json
 
 
 def render(trace: list[dict], source: str) -> str:
@@ -65,8 +65,8 @@ def produce(out: Path) -> dict:
     if stats['live'] or stats['reserved'] or stats['physical']:
         raise RuntimeError('demo leaked cache capacity')
     source=identity(manifest())
-    (out/'trace.json').write_text(json.dumps(dict(source_sha256=source,model=model_info,trace=trace),indent=2)+'\n')
-    (out/'report.html').write_text(render(trace,source))
+    _write_json(out/'trace.json',dict(source_sha256=source,model=model_info,trace=trace))
+    (out/'report.html').write_bytes(render(trace,source).encode('utf-8'))
     return dict(report=str(out/'report.html'),source_sha256=source,observed=['admitted','denied','cancelled','finished','reclaimed'])
 
 

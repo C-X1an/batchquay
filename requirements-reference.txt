@@ -4,4 +4,6 @@
 torch==2.13.0
 transformers==5.15.0
 safetensors==0.8.0
-tokenizers==0.23.1
+# Transformers 5.15.0 declares tokenizers>=0.22.0,<=0.23.0; PyPI has no
+# non-prerelease 0.23.0 artifact, so use the newest published compatible final.
+tokenizers==0.22.2

@@ -135,15 +135,15 @@ void ContiguousCache::put(std::size_t layer,std::size_t pos,std::span<const floa
   std::copy(v.begin(),v.end(),data_.begin()+static_cast<std::ptrdiff_t>(vo));
   ++lengths_[layer];
 }
-std::span<const float> ContiguousCache::key(std::size_t layer,std::size_t pos) const {
+void ContiguousCache::copy_key(std::size_t layer,std::size_t pos,std::span<float> out) const {
   const auto o=offset(layer,pos,false);
-  if (pos>=lengths_[layer]) throw Error("E_STALE");
-  return std::span<const float>(data_).subspan(o,cfg_.kv_dim());
+  if (pos>=lengths_[layer] || out.size()!=cfg_.kv_dim()) throw Error("E_STALE");
+  std::copy_n(data_.begin()+static_cast<std::ptrdiff_t>(o),out.size(),out.begin());
 }
-std::span<const float> ContiguousCache::value(std::size_t layer,std::size_t pos) const {
+void ContiguousCache::copy_value(std::size_t layer,std::size_t pos,std::span<float> out) const {
   const auto o=offset(layer,pos,true);
-  if (pos>=lengths_[layer]) throw Error("E_STALE");
-  return std::span<const float>(data_).subspan(o,cfg_.kv_dim());
+  if (pos>=lengths_[layer] || out.size()!=cfg_.kv_dim()) throw Error("E_STALE");
+  std::copy_n(data_.begin()+static_cast<std::ptrdiff_t>(o),out.size(),out.begin());
 }
 std::vector<float> forward(const Model &m, KVCache &cache,std::uint32_t token,std::size_t pos) {
   const auto &c=m.cfg;
@@ -162,23 +162,27 @@ std::vector<float> forward(const Model &m, KVCache &cache,std::uint32_t token,st
     rotate(q,c.heads,hd,pos,c.theta); rotate(k,c.kv_heads,hd,pos,c.theta);
     cache.put(li,pos,k,v);
     std::vector<float> att(c.dim);
+    std::vector<float> cache_row(c.kv_dim());
     for (std::size_t h=0; h<c.heads; ++h) {
       const std::size_t kh=h/group;
       std::vector<double> scores(pos+1);
       for (std::size_t t=0; t<=pos; ++t) {
-        const auto keys=cache.key(li,t);
+        cache.copy_key(li,t,cache_row);
         double sum=0;
-        for (std::size_t j=0; j<hd; ++j) sum+=static_cast<double>(q[h*hd+j])*keys[kh*hd+j];
+        for (std::size_t j=0; j<hd; ++j)
+          sum+=static_cast<double>(q[h*hd+j])*cache_row[kh*hd+j];
         scores[t]=sum/std::sqrt(static_cast<double>(hd));
       }
       const double peak=*std::max_element(scores.begin(),scores.end());
       double denom=0;
       for (double &a:scores) { a=std::exp(a-peak);denom+=a; }
-      for (std::size_t j=0; j<hd; ++j) {
-        double a=0;
-        for (std::size_t t=0;t<=pos;++t) a+=scores[t]*cache.value(li,t)[kh*hd+j]/denom;
-        att[h*hd+j]=static_cast<float>(a);
+      std::vector<double> weighted(hd);
+      for (std::size_t t=0;t<=pos;++t) {
+        cache.copy_value(li,t,cache_row);
+        for (std::size_t j=0;j<hd;++j)
+          weighted[j]+=scores[t]*cache_row[kh*hd+j]/denom;
       }
+      for (std::size_t j=0;j<hd;++j) att[h*hd+j]=static_cast<float>(weighted[j]);
     }
     add(x,matvec(l.o,att,c.dim));
     nx=rms(x,l.norm2,c.epsilon);

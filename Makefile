@@ -17,6 +17,8 @@ fetch-test:
 	$(PYTHON) -m unittest discover -s tests -p test_fetch.py -v
 evidence-test:
 	$(PYTHON) -m unittest discover -s tests -p test_evidence.py -v
+benchmark-test: build
+	BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m unittest discover -s tests -p test_benchmark.py -v
 conversion-test: build
 	BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m unittest discover -s tests -p test_conversion.py -v
 demo: build
@@ -36,7 +38,7 @@ security:
 	$(PYTHON) scripts/audit_public.py
 security-online:
 	$(PYTHON) scripts/security_online.py
-verify: fmt test differential integration evidence-test fetch-test typecheck security demo
+verify: fmt test differential integration evidence-test benchmark-test fetch-test typecheck security demo
 	@echo 'Core local verification passed. This is NOT full-product release approval.'
 sanitize:
 	$(CMAKE) -S . -B build-sanitize -G Ninja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug -DBQ_SANITIZE=ON
@@ -44,12 +46,14 @@ sanitize:
 	ctest --test-dir build-sanitize --output-on-failure
 	BQ_BINARY=build-sanitize/batchquay $(PYTHON) -m unittest discover -s tests -p test_system.py -v
 mutation: build
-	$(PYTHON) scripts/negative_controls.py
+	BQ_BUILD=$(BUILD) BQ_BINARY=$(BUILD)/batchquay $(PYTHON) scripts/negative_controls.py
 clean-verify:
-	$(PYTHON) scripts/clean_verify.py
+	$(PYTHON) -m scripts.clean_verify
 fetch-model:
 	$(PYTHON) -m tools.fetch_model
 real-model: build
 	$(PYTHON) -m tools.real_model
 release-verify:
 	$(PYTHON) -m scripts.release_verify
+publication-verify:
+	$(PYTHON) -m scripts.publication_verify

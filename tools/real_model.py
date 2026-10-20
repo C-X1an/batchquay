@@ -8,6 +8,7 @@ import random
 import subprocess
 import uuid
 from pathlib import Path
+from scripts.evidence import _write_json
 
 
 def verify(source: Path, native: Path, output: Path) -> dict:
@@ -51,12 +52,13 @@ def verify(source: Path, native: Path, output: Path) -> dict:
                  confident_top1_matches=matches,confident_positions=int(confident.sum()))
         rows.append(row)
         # Persist every attempted case, including a failing case.
-        (output/'pretrained-progress.json').write_text(json.dumps(rows,indent=2)+'\n')
+        _write_json(output/'pretrained-progress.json',rows)
         if row['max_abs']>0.01 or row['mean_abs']>0.001 or not matches:
             raise ValueError(f'locked pretrained tolerance failed at case {case}')
-    result=dict(status='PASS',revision=manifest['revision'],conversion=one,rows=rows,
+    result=dict(status='PASS',revision=manifest['revision'],conversion=one,conversions=[one,two],
+                conversion_hashes=[one['output_sha256'],two['output_sha256']],rows=rows,
                 torch=torch.__version__,transformers=transformers.__version__)
-    (output/'pretrained.json').write_text(json.dumps(result,indent=2)+'\n')
+    _write_json(output/'pretrained.json',result)
     return result
 
 

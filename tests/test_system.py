@@ -55,6 +55,17 @@ class SystemTests(unittest.TestCase):
             self.assertEqual(c.command('CANCEL','a','r',g)['code'],'E_STALE')
             self.assertEqual(c.command('STATUS')['live'],1)
 
+    def test_response_session_attribution(self) -> None:
+        with Client(self.model) as c:
+            accepted=c.submit('z','r',[1],2)
+            self.assertEqual(accepted['session'],c.session)
+            round_event=c.command('STEP')
+            self.assertEqual(round_event['session'],c.session)
+            self.assertTrue(round_event['events'])
+            self.assertTrue(all(event['session']==c.session for event in round_event['events']))
+            self.assertEqual(c.command('STATUS')['session'],c.session)
+            self.assertEqual(c.command('CANCEL','z','r',accepted['generation'])['session'],c.session)
+
     def test_admission_and_maximum_position_bound(self) -> None:
         with Client(self.model,pages=16,page_tokens=16) as c:
             self.assertEqual(c.submit('a','r',[1]*128,128)['event'],'accepted')
@@ -92,6 +103,16 @@ class SystemTests(unittest.TestCase):
             self.assertNotEqual(old,d.session)
             self.assertEqual(d.raw('STEP '+old)['code'],'E_SESSION')
             self.assertEqual(d.command('STATUS')['live'],0)
+
+    def test_extreme_oversize_record_closes_protocol(self) -> None:
+        command=[BIN,'serve',str(self.model),'64','4','16','4']
+        result=subprocess.run(command,input=('X'*20000+'\n').encode(),capture_output=True,timeout=5)
+        self.assertEqual(result.returncode,2)
+        rows=[json.loads(line) for line in result.stdout.splitlines()]
+        self.assertEqual([row['event'] for row in rows],['hello','error'])
+        self.assertEqual(rows[0]['session'],rows[1]['session'])
+        self.assertEqual(rows[1]['code'],'E_LIMIT')
+        self.assertEqual(result.stderr.strip(),b'E_LIMIT')
 
     def test_loader_rejects_structural_and_nonfinite_damage(self) -> None:
         raw=self.model.read_bytes()

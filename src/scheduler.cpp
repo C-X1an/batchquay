@@ -35,35 +35,47 @@ std::uint64_t Scheduler::submit(const std::string &owner,const std::string &id,
   r.owner=handle; r.prompt=std::move(tokens);r.limit=limit;r.reservation=reserve;
   r.cache=std::make_unique<PagedCache>(arena_,handle,model_.cfg,page_tokens_);
   requests_.emplace(key,std::move(r));
+  ready_.push_back(key);
   // Publish reservation/generation only after all fallible admission allocations.
   reserved_+=reserve; ++next_;
   return next_;
 }
-void Scheduler::erase(std::map<Key,Request>::iterator it) {
+void Scheduler::erase(std::map<Key,Request>::iterator it,bool remove_ready) {
   if (it->second.reservation>reserved_) throw Error("E_INTERNAL");
+  const auto key=it->first;
   reserved_-=it->second.reservation;
+  if(it->second.cached_tokens>cached_tokens_) throw Error("E_INTERNAL");
+  cached_tokens_-=it->second.cached_tokens;
   requests_.erase(it); // cache RAII returns owned pages exactly once
+  if (remove_ready)
+    std::erase(ready_,key);
 }
 Event Scheduler::cancel(const std::string &owner,const std::string &id,std::uint64_t generation) {
   const auto it=requests_.find({owner,id});
   if (it==requests_.end()) throw Error("E_NOT_FOUND");
   if (it->second.owner.generation!=generation) throw Error("E_STALE");
   Event event{"cancelled",owner,id,"",generation,0,0};
-  erase(it);
+  erase(it,true);
   return event;
 }
 std::vector<Event> Scheduler::step() {
   std::vector<Event> events;
   // Bounded response storage is allocated before any state transition.
   events.reserve(requests_.size()*2);
-  for (auto it=requests_.begin();it!=requests_.end();) {
-    auto current=it++;
+  const auto round_size=ready_.size();
+  for (std::size_t grant=0;grant<round_size;++grant) {
+    const auto key=ready_.front();ready_.pop_front();
+    auto current=requests_.find(key);
+    if (current==requests_.end()) throw Error("E_INTERNAL");
     auto &r=current->second;
+    bool keep=true;
     try {
       if (r.cursor<r.prompt.size()) {
         const auto stop=std::min(r.prompt.size(),r.cursor+chunk_);
         while (r.cursor<stop) {
           r.logits=forward(model_,*r.cache,r.prompt[r.cursor],r.cursor);
+          ++r.cached_tokens;++cached_tokens_;
+          peak_cached_tokens_=std::max(peak_cached_tokens_,cached_tokens_);
           ++r.cursor;
         }
         events.push_back({"prefill",r.owner.subject,r.owner.request,"",r.owner.generation,0,r.cursor});
@@ -71,19 +83,23 @@ std::vector<Event> Scheduler::step() {
         const auto token=greedy(r.logits);
         // Perform next-state numeric work before committing an output token.
         // Final token needs no next-state forward pass.
-        if (r.generated+1<r.limit)
+        if (r.generated+1<r.limit) {
           r.logits=forward(model_,*r.cache,token,r.prompt.size()+r.generated);
+          ++r.cached_tokens;++cached_tokens_;
+          peak_cached_tokens_=std::max(peak_cached_tokens_,cached_tokens_);
+        }
         ++r.generated;
         events.push_back({"token",r.owner.subject,r.owner.request,"",r.owner.generation,token,r.generated});
         if (r.generated==r.limit) {
           events.push_back({"finished",r.owner.subject,r.owner.request,"",r.owner.generation,0,r.generated});
-          erase(current);
+          erase(current,false);keep=false;
         }
       }
     } catch (const Error &e) {
       events.push_back({"failed",r.owner.subject,r.owner.request,e.what(),r.owner.generation,0,r.generated});
-      erase(current);
+      erase(current,false);keep=false;
     }
+    if (keep) ready_.push_back(key);
   }
   return events;
 }

@@ -33,10 +33,10 @@ public:
   virtual ~KVCache() = default;
   virtual void put(std::size_t layer, std::size_t pos, std::span<const float> k,
                    std::span<const float> v) = 0;
-  [[nodiscard]] virtual std::span<const float> key(std::size_t layer,
-                                                  std::size_t pos) const = 0;
-  [[nodiscard]] virtual std::span<const float> value(std::size_t layer,
-                                                    std::size_t pos) const = 0;
+  virtual void copy_key(std::size_t layer, std::size_t pos,
+                        std::span<float> out) const = 0;
+  virtual void copy_value(std::size_t layer, std::size_t pos,
+                          std::span<float> out) const = 0;
 };
 class ContiguousCache final : public KVCache {
   Config cfg_;
@@ -48,10 +48,10 @@ public:
   explicit ContiguousCache(Config cfg);
   void put(std::size_t layer, std::size_t pos, std::span<const float> k,
            std::span<const float> v) override;
-  [[nodiscard]] std::span<const float> key(std::size_t layer,
-                                          std::size_t pos) const override;
-  [[nodiscard]] std::span<const float> value(std::size_t layer,
-                                            std::size_t pos) const override;
+  void copy_key(std::size_t layer, std::size_t pos,
+                std::span<float> out) const override;
+  void copy_value(std::size_t layer, std::size_t pos,
+                  std::span<float> out) const override;
 };
 [[nodiscard]] std::vector<float> forward(const Model &model, KVCache &cache,
                                          std::uint32_t token, std::size_t pos);

@@ -1,0 +1,13 @@
+title = "BatchQuay default rules with one verified public-document checksum"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+[[rules.allowlists]]
+description = "Exact locked API_SPEC.md SHA256 in public evidence manifests; independently checked against historical Git blobs. Different values must still be detected."
+condition = "AND"
+regexTarget = "line"
+paths = ['''(^|/)verification/published/[^/]+/(source|release)_manifest\.json$''']
+regexes = ['''^\s*"API_SPEC\.md": "a9df7b7b9f8abb10c7f65cc5ee0831b3f194b04dbd14d83988c86d82d29429fb",?\s*$''']

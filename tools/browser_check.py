@@ -28,7 +28,7 @@ def main() -> None:
             page.close()
         browser.close()
     report=dict(status='PASS',mode='Owned HTML loaded through set_content; filesystem navigation is restricted in author browser. DOM/layout/keyboard tested, not an externally hosted URL.',views=rows)
-    (args.directory/'browser-review.json').write_text(json.dumps(report,indent=2)+'\n')
+    (args.directory/'browser-review.json').write_bytes((json.dumps(report,indent=2)+'\n').encode('utf-8'))
     print(json.dumps(report,indent=2))
 
 

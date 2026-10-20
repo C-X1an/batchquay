@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BatchQuay release criterion index v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "source_sha256", "release_sha256", "git_commit", "git_tree",
+    "criteria", "independent_review", "overall", "as_of", "remote_publication"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "source_sha256": {"$ref": "#/$defs/digest"},
+    "release_sha256": {"$ref": "#/$defs/digest"},
+    "git_commit": {"$ref": "#/$defs/git_oid"},
+    "git_tree": {"$ref": "#/$defs/git_oid"},
+    "criteria": {
+      "type": "object",
+      "minProperties": 24,
+      "maxProperties": 24,
+      "patternProperties": {
+        "^AC-[0-9]{3}$": {"$ref": "#/$defs/criterion"}
+      },
+      "additionalProperties": false
+    },
+    "independent_review": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["artifact", "sha256"],
+      "properties": {
+        "artifact": {"type": "string", "pattern": "^verification/published/.+\\.json$"},
+        "sha256": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "overall": {"enum": ["NOT_RELEASE_READY", "RELEASE_READY"]},
+    "as_of": {"type": "string", "format": "date"},
+    "remote_publication": {"enum": ["NOT_DONE", "VERIFIED"]}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "git_oid": {"type": "string", "pattern": "^([0-9a-f]{40}|[0-9a-f]{64})$"},
+    "criterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "requirement", "label", "receipts", "scope"],
+      "properties": {
+        "status": {"enum": ["PASS", "FAIL", "BLOCKED", "NOT_RUN"]},
+        "requirement": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1},
+        "receipts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^verification/published/[^/]+$"}
+        },
+        "scope": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -13,7 +13,7 @@ from tools.fixture import generate
 from scripts.evidence import identity, manifest
 
 
-def run(out: Path, repetitions: int = 5) -> dict:
+def run_smoke(out: Path, repetitions: int = 5) -> dict:
     if repetitions<5:
         raise ValueError('at least five repetitions are required')
     out.mkdir(parents=True,exist_ok=True)
@@ -51,7 +51,12 @@ def run(out: Path, repetitions: int = 5) -> dict:
     return info
 
 
+from tools.benchmark_measurements import run
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=Path('.local-runs/benchmark'))
-    p.add_argument('--repetitions',type=int,default=5);a=p.parse_args()
-    print(json.dumps(run(a.output,a.repetitions),indent=2))
+    p.add_argument('--repetitions',type=int,default=5)
+    p.add_argument('--model',type=Path);a=p.parse_args()
+    result=run(a.output,a.repetitions,a.model)
+    print(json.dumps({key:result[key] for key in ('status','source_sha256','repetitions','summary')},indent=2))

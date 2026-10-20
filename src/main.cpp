@@ -24,14 +24,15 @@ std::vector<std::string> words(const std::string &s) {
   }
   return result;
 }
-// 1=record, 0=EOF, -1=oversize (fully drained without a growing buffer).
+// 1=record, 0=EOF, -1=oversize drained, -2=fatal discard-budget exhaustion.
 int bounded_line(std::istream &in,std::string &s) {
-  s.clear();bool large=false;char c{};bool any=false;
+  s.clear();bool large=false;char c{};bool any=false;std::size_t discarded=0;
   while (in.get(c)) {
     any=true;if(c=='\n') return large ? -1 : 1;
-    if (s.size()<8192) s+=c;else large=true;
+    if (s.size()<8192) s+=c;
+    else {large=true;if(++discarded>8192) return -2;}
   }
-  return any ? (large ? -1 : 1) : 0;
+  return any ? (large ? (discarded>8192 ? -2 : -1) : 1) : 0;
 }
 std::string session_id() {
   std::random_device rd;std::ostringstream out;
@@ -39,9 +40,10 @@ std::string session_id() {
   for(int i=0;i<4;++i) out<<std::setw(8)<<static_cast<std::uint32_t>(rd());
   return out.str();
 }
-void event_json(const bq::Event &e) {
+void event_json(const bq::Event &e,const std::string &session) {
   // All strings originate from closed enums or validated ASCII IDs.
-  std::cout<<"{\"event\":\""<<e.event<<"\",\"owner\":\""<<e.owner
+  std::cout<<"{\"event\":\""<<e.event<<"\",\"session\":\""<<session
+           <<"\",\"owner\":\""<<e.owner
            <<"\",\"id\":\""<<e.id<<"\",\"generation\":"<<e.generation;
   if (e.event=="token") std::cout<<",\"token\":"<<e.token;
   if (!e.code.empty()) std::cout<<",\"code\":\""<<e.code<<"\"";
@@ -62,6 +64,11 @@ void serve(const bq::Model &m,int argc,char **argv) {
   std::string line;
   for (;;) {
     const int state=bounded_line(std::cin,line);if(state==0) break;
+    if(state==-2) {
+      std::cout<<"{\"event\":\"error\",\"session\":\""<<session
+               <<"\",\"code\":\"E_LIMIT\"}\n"<<std::flush;
+      throw Error("E_LIMIT");
+    }
     try {
       if (state<0) throw Error("E_LIMIT");
       const auto w=words(line);
@@ -83,23 +90,27 @@ void serve(const bq::Model &m,int argc,char **argv) {
           tokens.push_back(static_cast<std::uint32_t>(n));
         }
         const auto g=scheduler.submit(w[2],w[3],std::move(tokens),output);
-        std::cout<<"{\"event\":\"accepted\",\"owner\":\""<<w[2]<<"\",\"id\":\""<<w[3]
+        std::cout<<"{\"event\":\"accepted\",\"session\":\""<<session
+                 <<"\",\"owner\":\""<<w[2]<<"\",\"id\":\""<<w[3]
                  <<"\",\"generation\":"<<g<<"}\n";
       } else if(w[0]=="CANCEL") {
         if(w.size()!=5 || !bq::valid_id(w[2]) || !bq::valid_id(w[3])) throw Error("E_FORMAT");
-        event_json(scheduler.cancel(w[2],w[3],number(w[4])));std::cout<<'\n';
+        event_json(scheduler.cancel(w[2],w[3],number(w[4])),session);std::cout<<'\n';
       } else if(w[0]=="STEP") {
         if(w.size()!=2) throw Error("E_FORMAT");
-        const auto events=scheduler.step();std::cout<<"{\"event\":\"round\",\"events\":[";
-        bool first=true;for(const auto &e:events) {if(!first) std::cout<<',';event_json(e);first=false;}
+        const auto events=scheduler.step();std::cout<<"{\"event\":\"round\",\"session\":\""
+          <<session<<"\",\"events\":[";
+        bool first=true;for(const auto &e:events) {if(!first) std::cout<<',';event_json(e,session);first=false;}
         std::cout<<"]}\n";
       } else if(w[0]=="STATUS") {
         if(w.size()!=2) throw Error("E_FORMAT");
-        std::cout<<"{\"event\":\"status\",\"live\":"<<scheduler.live()<<",\"reserved\":"
+        std::cout<<"{\"event\":\"status\",\"session\":\""<<session
+                 <<"\",\"live\":"<<scheduler.live()<<",\"reserved\":"
                  <<scheduler.reserved()<<",\"physical\":"<<scheduler.physical()
                  <<",\"capacity\":"<<scheduler.capacity()<<"}\n";
       } else throw Error("E_FORMAT");
-    } catch(const Error &e) {std::cout<<"{\"event\":\"error\",\"code\":\""<<e.what()<<"\"}\n";}
+    } catch(const Error &e) {std::cout<<"{\"event\":\"error\",\"session\":\""<<session
+                                    <<"\",\"code\":\""<<e.what()<<"\"}\n";}
     std::cout<<std::flush;
     if(!std::cout) throw Error("E_INTERNAL");
   }

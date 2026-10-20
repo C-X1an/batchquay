@@ -5,7 +5,7 @@ An experimental **C++20 CPU transformer runtime** with request-owned paged KV st
 
 [Run locally](#run-locally) · [Architecture](ARCHITECTURE.md) · [Actual demo](docs/demo/report.html) · [Evidence](VERIFICATION_REPORT.md) · [Limits](LIMITATIONS.md)
 
-> **Status: implemented experimental core, not a completed inference product.** Tiny synthetic-model execution and local checks are recorded. Real pretrained-model conformance, a fully provisioned clean environment, independent review, online security scans and remote publication are separate unfinished gates. No production, pretrained-quality or performance-advantage claim is made.
+> **Status: experimental implementation; final release verification is in progress.** Real SmolLM2-135M numerical conformance has passed locally on the pinned checkpoint, and separate read-only reviews have produced findings and fixes. Current-source public receipts, fresh committed reproduction, supported-Linux gates and final independent approval remain required. No production, text-quality or performance-advantage claim is made.
 
 ## The engineering question
 Can a small inference engine preserve numerical behavior while it interleaves requests, owns and reuses their cache pages, refuses excess work, and cancels execution without leaking state or committing later output?
@@ -17,7 +17,7 @@ Can a small inference engine preserve numerical behavior while it interleaves re
 The runtime uses FP32 storage/activations and FP64 reductions. The independent Python oracle recomputes complete prefixes with dense NumPy operations. This is neither a wrapper around a hosted model nor a replacement for llama.cpp, vLLM or SGLang.
 
 ## Run locally
-Linux, C++20 compiler, CMake, Ninja, Python 3.11+ and Git are required. The fixture and demo need only the Python standard library. NumPy is needed for differential verification; the recommended dependency environment needs Python 3.12+.
+Linux or Windows with GCC, CMake, Ninja, Python 3.12 and Git are supported verification hosts. The fixture and demo use the Python standard library. NumPy is needed for differential verification; Clang sanitizer campaigns require Linux.
 
 ```sh
 make bootstrap       # Inspect prerequisites; does not install or alter the host.
@@ -32,11 +32,11 @@ For a network-capable fresh environment:
 ```sh
 python3 -m venv .venv
 . .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install --require-hashes --only-binary=:all: -r requirements-core.lock
 make verify
 ```
 
-The top-level recommended versions are pinned, but a resolved dependency hash lock and fresh provisioning have not yet been established. Read the environment in each receipt before interpreting results.
+The core lock covers CPython 3.12 Linux x86_64 and Windows AMD64 wheels. `requirements-reference-windows-cp312.lock` records all 35 resolved Windows CPU reference dependencies. Install that lock into a separate environment for real-model verification. The reference pins include Tokenizers 0.22.2, a published wheel compatible with Transformers 5.15.0. Fresh reproduction is a separate measured gate; read each receipt's environment and source identity.
 
 ## From token IDs to a bounded result
 
@@ -61,17 +61,18 @@ make verify             # Core local checks; not full release approval.
 make conversion-test    # Synthetic safetensors conversion; needs Torch/safetensors.
 make sanitize lint      # Clang sanitizers and static analysis.
 make mutation           # Selected PASS -> FAIL -> PASS negative controls.
-make benchmark          # Retains all tiny-model comparison observations.
-make clean-verify       # Requires committed, clean public source.
+make benchmark          # Four paired workloads, warmup and >=5 repetitions; native RSS and round-visible token timing.
+make clean-verify       # Fresh committed clone plus fresh hash-locked dependency environment.
 make security-online    # Requires actual installed vulnerability/secret scanners.
 make fetch-model real-model  # Mandatory real-checkpoint gate; network/deps required.
 make release-verify     # Intentionally refuses incomplete release evidence.
+make publication-verify # Scan complete current export and all referenced history; needs gitleaks.
 ```
 
 [Verification](VERIFICATION_REPORT.md), [criterion mapping](TEST_MATRIX.md), [claims](CLAIMS_EVIDENCE.md) and [release readiness](RELEASE_READINESS.md) distinguish executed checks from blocked or unmeasured work. A receipt binds source and output bytes; it is not independent attestation.
 
 ## Deliberate limits
-A trusted process and OS own all data. Page ownership protects the engine's validated access paths; it does not sandbox arbitrary native code, authenticate remote users, stop timing inference or guarantee confidentiality against the host. Models have a 256-position runtime cap, bounded file/dimension checks, and greedy token selection. No training, GPU, distributed service, quantization, shared prefix cache or production availability is claimed.
+A trusted process and OS own all data. Page ownership protects the engine's validated access paths; it does not sandbox arbitrary native code, authenticate remote users, stop timing inference or guarantee confidentiality against the host. Models have a 256-position runtime cap, bounded file/dimension checks, and greedy token selection. Request-ID reuse follows the independently assessed [terminal-replay exception](TEST_SPEC_EXCEPTION_TERMINAL_REPLAY.md): retries can create a new generation; there is no completed-result ledger. No training, GPU, distributed service, quantization, shared prefix cache or production availability is claimed.
 
 ## Read the source
 

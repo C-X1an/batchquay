@@ -1,9 +1,9 @@
 # Release readiness: NOT READY
 
-**Full product gate: FAIL.** This is an implemented and locally tested experimental core, not a finished pretrained-serving product.
+The current implementation is being verified against all 24 locked criteria. Historical receipts remain available, and schema-v1 receipts are explicitly historical. The current release index requires fresh schema-v2 receipts, semantic artifacts, independent final approval and an audit of the complete publication candidate.
 
-Local criterion tally: 19 PASS, 2 FAIL (AC-016, AC-019), 3 BLOCKED (AC-012, AC-013, AC-018). Independent verifier: NOT RUN. This tally is not a percent-completion estimate, security score or release permission.
+Development evidence obtained on 20 October includes real SmolLM2-135M conformance (20 sequences, 326 positions, 16,023,552 logits), deterministic repeated conversion, separate initial and follow-up read-only reviews, corrected mixed-workload measurements, full-history/export scans and 35-package advisory/notice checks. These observations do not substitute for final committed-source reproduction and supported-Linux checks.
 
-To finish: run the pinned real checkpoint and deterministic conversion gates; provision and reproduce a fresh hash-locked dependency environment; complete full-history/advisory/license audits; expand reference-host mixed-workload/resource measurements; obtain independent initial read-only findings and fix/retest; then inspect the final full public tree/history and actual remote CI.
+The terminal-replay exception received independent acceptance of its corrected documented semantics. Other review findings have implementation fixes and regression checks; final independent assessment remains required. No current remote CI pass, release tag, service deployment or full-product completion is claimed.
 
-`make release-verify` checks machine receipts and must remain nonzero until these requirements are genuinely met. No published release tag, public repository URL, hosted status badge, customer usage or production capacity has been invented.
+`make release-verify` must remain nonzero until every criterion, final review and current complete export/history audit is valid. `make verify` is the core gate only.

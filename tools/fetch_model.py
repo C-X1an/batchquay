@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 
-def fetch(destination: Path) -> dict:
-    manifest=json.loads((ROOT/'models/manifest.json').read_text())
+def fetch(destination: Path, profile: dict | None = None) -> dict:
+    manifest=profile if profile is not None else json.loads((ROOT/'models/manifest.json').read_text())
     destination.mkdir(parents=True,exist_ok=True)
     result=dict(repository=manifest['repository'],revision=manifest['revision'],files={},
                 expected_weight_sha256=manifest['expected_weight_sha256'])
@@ -33,6 +33,11 @@ def fetch(destination: Path) -> dict:
                 while block:=source.read(1<<20): digest.update(block)
             if digest.hexdigest()!=recorded['sha256'] or target.stat().st_size!=recorded['bytes']:
                 raise ValueError(f'{name}: existing artifact changed')
+            if name=='model.safetensors' and manifest['expected_weight_sha256'] is not None:
+                if digest.hexdigest()!=manifest['expected_weight_sha256']:
+                    raise ValueError('checkpoint digest mismatch')
+                if target.stat().st_size!=manifest['expected_weight_bytes']:
+                    raise ValueError('checkpoint length mismatch')
             continue
         temporary=target.with_suffix(target.suffix+'.partial')
         try:
@@ -46,6 +51,8 @@ def fetch(destination: Path) -> dict:
             if name=='model.safetensors' and manifest['expected_weight_sha256'] is not None:
                 if digest.hexdigest()!=manifest['expected_weight_sha256']:
                     raise ValueError('checkpoint digest mismatch')
+                if total!=manifest['expected_weight_bytes']:
+                    raise ValueError('checkpoint length mismatch')
             result['files'][name]=dict(sha256=digest.hexdigest(),bytes=total,url=url)
             os.replace(temporary,target)
             # Persist completed files so a later network failure is restartable.

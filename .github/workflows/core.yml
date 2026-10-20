@@ -17,17 +17,36 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Install build and numerical-test prerequisites
         run: |
           sudo apt-get update
           sudo apt-get install -y g++ clang cmake ninja-build python3-venv
           python3 -m venv .venv
-          .venv/bin/python -m pip install -r requirements.txt
+          .venv/bin/python -m pip install --require-hashes --only-binary=:all: -r requirements-core.lock
       - name: Core, sanitizer, static analysis and selected negative controls
         run: |
           export PATH="$PWD/.venv/bin:$PATH"
-          make verify sanitize lint mutation
-      - name: Same-host clean checkout
+          python -m scripts.evidence run --timeout 1200 --artifact demo-trace=.local-runs/demo/trace.json core -- make verify
+          python -m scripts.evidence run --timeout 1200 sanitizers -- make sanitize
+          python -m scripts.evidence run --timeout 1200 static -- make lint
+          python -m scripts.evidence run --timeout 1200 --artifact mutation-result=.local-runs/mutation/result.json mutation -- make mutation
+          python -m scripts.evidence run --timeout 1200 evidence-integrity -- make evidence-test
+      - name: Fresh committed checkout and hash-locked dependency environment
         run: |
           export PATH="$PWD/.venv/bin:$PATH"
-          make clean-verify
+          python -m scripts.evidence run --timeout 1200 --artifact clean-result=.local-runs/clean/result.json clean -- make clean-verify
+      - name: Retain actual results, including failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: core-evidence-${{ github.sha }}
+          include-hidden-files: true
+          path: |
+            .local-runs/evidence/
+            .local-runs/demo/
+            .local-runs/mutation/
+            .local-runs/clean/
+            !**/raw.stdout.txt
+            !**/raw.stderr.txt
+            !**/*.bqw

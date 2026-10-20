@@ -3,7 +3,8 @@
   "revision": "4e53f736cbb20a9a0f56b4c4bf378d9f306ff915",
   "license": "Apache-2.0",
   "files": ["config.json", "model.safetensors"],
-  "expected_weight_sha256": null,
-  "status": "Checkpoint not fetched or executed in the author environment. Immutable revision selected; upstream file digest and local artifact hashes must be recorded by the network-capable verifier.",
+  "expected_weight_sha256": "80521b40281d6ce74e35c9282c22539e75aa0ac8578892b2a59955ef78d55da1",
+  "expected_weight_bytes": 269060552,
+  "status": "Immutable revision and LFS object digest independently resolved from the Hugging Face metadata API; local execution evidence remains a separate gate.",
   "scope": "LlamaForCausalLM, tied embeddings, default split-half RoPE, no attention bias; runtime position cap 256"
 }
