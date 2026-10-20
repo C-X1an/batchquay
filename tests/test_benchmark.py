@@ -49,15 +49,25 @@ class BenchmarkTests(unittest.TestCase):
         root=Path(__file__).resolve().parents[1]
         directory=root/'.local-runs'/('unit-benchmark-evidence-'+uuid.uuid4().hex)
         directory.mkdir(parents=True);self.addCleanup(shutil.rmtree,directory)
-        original=benchmark_measurements.WORKLOADS
-        try:
-            # Bounded actual child-process fixture for validator regression;
-            # these small cases are never used for reported performance results.
-            benchmark_measurements.WORKLOADS=(('unit-single',[1],[2]),('unit-pair',[4,1],[3,2]))
-            baseline=benchmark_measurements.run(directory,5)
-        finally:
-            benchmark_measurements.WORKLOADS=original
+        # All six fixed release workloads, with a smaller actual generated model
+        # for bounded regression cost. This is never a reported performance run.
+        model=directory/'validator-fixture.bqw';generate(model)
+        baseline=benchmark_measurements.run(directory,5,model_path=model)
         validate(baseline,directory,root,baseline['source_sha256'])
+        changed=copy.deepcopy(baseline)
+        retained={'short-single','mixed-two'}
+        for field in ('workloads','rows','warmup_rows','summary'):
+            changed[field]=[row for row in changed[field] if row.get('id',row.get('workload')) in retained]
+        self.assertEqual(len(changed['rows']),30)
+        with self.assertRaisesRegex(ValueError,'complete fixed release workload coverage'):
+            validate(changed,directory,root,baseline['source_sha256'])
+        changed=copy.deepcopy(baseline)
+        changed['workloads'][0]['output_lengths']=[7];changed['workloads'][0]['output_tokens']=7
+        with self.assertRaisesRegex(ValueError,'fixed release workload definition'):
+            validate(changed,directory,root,baseline['source_sha256'])
+        changed=copy.deepcopy(baseline);changed['workloads'][0]['prompts'][0][0]^=1
+        with self.assertRaisesRegex(ValueError,'fixed release prompt sequence'):
+            validate(changed,directory,root,baseline['source_sha256'])
         for field,value,diagnostic in (('output_parity',False,'parity'),('ttft_ms',999,'timing')):
             changed=copy.deepcopy(baseline);changed['rows'][0][field]=value
             with self.assertRaisesRegex(ValueError,diagnostic):

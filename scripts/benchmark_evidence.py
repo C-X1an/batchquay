@@ -7,6 +7,17 @@ import statistics
 from pathlib import Path
 from scripts import evidence
 
+# Release coverage is specified independently of the artifact and producer's
+# mutable Python globals. A self-consistent subset is still incomplete evidence.
+RELEASE_WORKLOADS={
+    'short-single':((4,),(8,)),
+    'long-single':((96,),(24,)),
+    'mixed-four':((8,24,64,96),(16,8,24,4)),
+    'mixed-eight':((4,12,32,96,4,12,32,96),(4,12,8,24,24,8,12,4)),
+    'mixed-two':((16,128),(32,16)),
+    'mixed-sixteen':((4,16,64,128)*4,(16,32,16,32)*4),
+}
+
 
 def number(value, positive: bool = False) -> bool:
     return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value) and (value>0 if positive else value>=0)
@@ -48,6 +59,16 @@ def validate(value: dict, directory: Path, root: Path, source: str) -> None:
         if row.get('prompt_tokens')!=max(lengths) or row.get('output_tokens')!=max(outputs):
             raise ValueError('aggregate workload dimensions differ')
         workloads[row['id']]=row
+    if set(workloads)!=set(RELEASE_WORKLOADS):
+        raise ValueError('complete fixed release workload coverage required')
+    for name,(lengths,outputs) in RELEASE_WORKLOADS.items():
+        row=workloads[name]
+        if tuple(row['prompt_lengths'])!=lengths or tuple(row['output_lengths'])!=outputs:
+            raise ValueError('fixed release workload definition differs')
+        expected_prompts=[[(position*7+index*19+3)%config['vocab'] for position in range(length)]
+                          for index,length in enumerate(lengths)]
+        if row['prompts']!=expected_prompts or row.get('arrival')!='all at native time zero':
+            raise ValueError('fixed release prompt sequence/arrival differs')
     if max(row['concurrency'] for row in workloads.values())<2:
         raise ValueError('concurrent workload missing')
     variants=('serial-recompute','contiguous','paged')

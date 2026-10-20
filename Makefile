@@ -8,7 +8,7 @@ build:
 	$(CMAKE) -S . -B $(BUILD) -G Ninja -DCMAKE_BUILD_TYPE=Release
 	$(CMAKE) --build $(BUILD) -j 2
 test: build
-	ctest --test-dir $(BUILD) --output-on-failure
+	ctest --test-dir $(BUILD) --verbose --output-on-failure
 differential: build
 	BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m unittest discover -s tests -p test_numerics.py -v
 integration: build
@@ -43,7 +43,7 @@ verify: fmt test differential integration evidence-test benchmark-test fetch-tes
 sanitize:
 	$(CMAKE) -S . -B build-sanitize -G Ninja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug -DBQ_SANITIZE=ON
 	$(CMAKE) --build build-sanitize -j 2
-	ctest --test-dir build-sanitize --output-on-failure
+	ctest --test-dir build-sanitize --verbose --output-on-failure
 	BQ_BINARY=build-sanitize/batchquay $(PYTHON) -m unittest discover -s tests -p test_system.py -v
 mutation: build
 	BQ_BUILD=$(BUILD) BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m scripts.negative_controls
