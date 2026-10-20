@@ -15,7 +15,7 @@ integration: build
 	BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m unittest discover -s tests -p test_system.py -v
 fetch-test:
 	$(PYTHON) -m unittest discover -s tests -p test_fetch.py -v
-evidence-test:
+evidence-test: build
 	$(PYTHON) -m unittest discover -s tests -p test_evidence.py -v
 benchmark-test: build
 	BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m unittest discover -s tests -p test_benchmark.py -v
@@ -46,7 +46,7 @@ sanitize:
 	ctest --test-dir build-sanitize --output-on-failure
 	BQ_BINARY=build-sanitize/batchquay $(PYTHON) -m unittest discover -s tests -p test_system.py -v
 mutation: build
-	BQ_BUILD=$(BUILD) BQ_BINARY=$(BUILD)/batchquay $(PYTHON) scripts/negative_controls.py
+	BQ_BUILD=$(BUILD) BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m scripts.negative_controls
 clean-verify:
 	$(PYTHON) -m scripts.clean_verify
 fetch-model:

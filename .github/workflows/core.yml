@@ -47,6 +47,4 @@ jobs:
             .local-runs/demo/
             .local-runs/mutation/
             .local-runs/clean/
-            !**/raw.stdout.txt
-            !**/raw.stderr.txt
             !**/*.bqw

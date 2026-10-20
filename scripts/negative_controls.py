@@ -10,12 +10,15 @@ import time
 import uuid
 import hashlib
 from pathlib import Path
+if __package__ in (None,''):
+    sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from scripts.execution import environment as execution_environment
 root=Path(__file__).resolve().parents[1]
 
 
 def execute(command: list[str], cwd: Path, out: Path, env: dict | None = None) -> int:
     started=time.perf_counter()
-    result=subprocess.run(command,cwd=cwd,capture_output=True,timeout=600,env=env)
+    result=subprocess.run(command,cwd=cwd,capture_output=True,timeout=600,env=execution_environment(env))
     out.parent.mkdir(parents=True,exist_ok=True)
     out.with_suffix('.stdout.txt').write_bytes(result.stdout)
     out.with_suffix('.stderr.txt').write_bytes(result.stderr)

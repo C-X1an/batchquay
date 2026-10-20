@@ -17,6 +17,10 @@ import time
 import uuid
 from pathlib import Path
 from typing import Iterable
+if __package__ in (None,''):
+    import sys
+    sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from scripts.execution import bound_command, environment as execution_environment
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIRS = ("src", "tests", "tools", "scripts")
@@ -161,7 +165,7 @@ def command_info(command: list[str]) -> str:
     try:
         result = subprocess.run(
             command, cwd=ROOT, capture_output=True, text=True, timeout=5,
-            encoding="utf-8", errors="replace",
+            encoding="utf-8", errors="replace", env=execution_environment(),
         )
         return result.stdout.strip() if result.returncode == 0 else "UNAVAILABLE"
     except (OSError, subprocess.TimeoutExpired):
@@ -183,6 +187,50 @@ def _artifact_rows(artifacts: dict[str, Path] | None) -> tuple[list[dict], list[
         except (OSError, ValueError) as exc:
             errors.append(f"{label}: {exc}")
     return rows, errors
+
+
+def _artifact_files(label: str, source: Path) -> Iterable[tuple[str, Path, str]]:
+    """Enumerate only the declared report and its referenced owned companions."""
+    yield label, source, source.name
+    if label == 'demo-trace':
+        yield 'demo-report', source.parent/'report.html', 'report.html'
+    elif label == 'browser-result':
+        for view in ('desktop','mobile'):
+            yield 'browser-'+view, source.parent/(view+'.png'), view+'.png'
+    elif label == 'benchmark-result':
+        value=json.loads(source.read_bytes())
+        for index, row in enumerate(value['warmup_rows']+value['rows']):
+            for stream,suffix in (('stdout','.stdout.json'),('stderr','.stderr.txt'),('command','.command.json')):
+                name=row[f'raw_{stream}_file']
+                relative=_safe_relative(name)
+                if len(relative.parts)!=1 or not name.endswith(suffix):
+                    raise ValueError('unsafe native benchmark companion filename')
+                child=_inside(ROOT,source.parent/relative)
+                if sha(child.read_bytes())!=row[f'{stream}_sha256']:
+                    raise ValueError('native benchmark companion changed')
+                yield f'benchmark-{stream}-{index:03}', child, name
+
+
+def _freeze_artifacts(out: Path, requested: dict[str, Path] | None) -> tuple[list[dict], list[str]]:
+    captured={};errors=[]
+    for label,path in (requested or {}).items():
+        if not label.replace('-','').replace('_','').isalnum():raise ValueError('invalid artifact label')
+        try:
+            source=_inside(ROOT,path if path.is_absolute() else ROOT/path)
+            for child_label,child,name in _artifact_files(label,source):
+                child=_inside(ROOT,child)
+                if child.suffix.lower() not in {'.json','.txt','.html','.png','.jpg','.jpeg'}:
+                    raise ValueError('unsupported semantic artifact type')
+                if child.stat().st_size>64*1024*1024:raise ValueError('semantic artifact exceeds capture bound')
+                destination=out/'artifacts'/label/name
+                destination.parent.mkdir(parents=True,exist_ok=True)
+                destination.write_bytes(child.read_bytes())
+                if child_label in captured:raise ValueError('duplicate captured artifact label')
+                captured[child_label]=destination
+        except (OSError,ValueError,KeyError,TypeError) as exc:
+            errors.append(public_stream(f'{label}: {exc}'.encode()).decode('utf-8',errors='replace'))
+    rows,row_errors=_artifact_rows(captured)
+    return rows,errors+row_errors
 
 
 def _write_json(path: Path, value: object) -> None:
@@ -232,6 +280,7 @@ def run(
         raise ValueError("invalid evidence request")
     if evidence_class not in {"integration", "unit_fixture"}:
         raise ValueError("unsupported evidence class")
+    command = bound_command(command)
     out = ROOT / ".local-runs" / "evidence" / f"{name}-{uuid.uuid4().hex[:12]}"
     out.mkdir(parents=True, exist_ok=False)
     sources = manifest()
@@ -249,9 +298,7 @@ def run(
     clock = time.perf_counter_ns()
     timed_out = False
     try:
-        child_env = dict(os.environ, OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1")
-        for variable in ('MAKEFLAGS', 'GNUMAKEFLAGS', 'MAKEFILES'):
-            child_env.pop(variable, None)
+        child_env = execution_environment()
         result = subprocess.run(
             command, cwd=ROOT, capture_output=True, timeout=timeout,
             env=child_env,
@@ -263,15 +310,15 @@ def run(
     except OSError as exc:
         code, stdout, stderr = 127, b"", str(exc).encode()
     elapsed = (time.perf_counter_ns() - clock) / 1e9
-    # Raw streams never leave the ignored local evidence directory. Public
-    # streams and their hashes explicitly describe the path-only transform.
+    # Git publication omits raw local streams. CI may archive its nonpersonal
+    # originals separately. Transformed stream hashes disclose the path/LF policy.
     (out / "raw.stdout.txt").write_bytes(stdout)
     (out / "raw.stderr.txt").write_bytes(stderr)
     raw_stdout_sha256, raw_stderr_sha256 = sha(stdout), sha(stderr)
     stdout, stderr = public_stream(stdout), public_stream(stderr)
     (out / "stdout.txt").write_bytes(stdout)
     (out / "stderr.txt").write_bytes(stderr)
-    artifact_rows, artifact_errors = _artifact_rows(artifacts)
+    artifact_rows, artifact_errors = _freeze_artifacts(out, artifacts)
     info = {
         "schema_version": 2,
         "name": name,
@@ -304,7 +351,7 @@ def run(
             "python": platform.python_version(),
             "python_executable": Path(sys_executable()).name,
             "machine": platform.machine(),
-            "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; raw streams retained locally, not published",
+            "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles",
             "raw_stdout_sha256": raw_stdout_sha256,
             "raw_stderr_sha256": raw_stderr_sha256,
         },
@@ -449,12 +496,13 @@ def _verify_v1(receipt: Path, info: dict, current: bool, release_scope: bool) ->
     return info
 
 
-def verify(path: Path, current: bool = True, release_scope: bool = False) -> dict:
+def verify(path: Path, current: bool = True, release_scope: bool = False, raw: bool | None = None) -> dict:
     candidate = path if path.is_absolute() else ROOT / path
     receipt = _directory_inside(ROOT, candidate)
     record_path = _inside(receipt, receipt / "record.json")
     raw_info = _load_object(record_path, "record")
     if raw_info.get("schema_version") == 1:
+        if raw: raise ValueError('historical v1 receipt has no raw-stream binding')
         return _verify_v1(receipt, raw_info, current, release_scope)
     info = _validate_record(raw_info)
     bundle = _load_object(_inside(receipt, receipt / "bundle_manifest.json"), "bundle manifest")
@@ -488,6 +536,17 @@ def verify(path: Path, current: bool = True, release_scope: bool = False) -> dic
         payload = _inside(receipt, receipt / f"{stream}.txt").read_bytes()
         if sha(payload) != info[f"{stream}_sha256"]:
             raise ValueError(f"{stream} payload changed")
+    require_raw = raw is True or (raw is None and receipt.is_relative_to((ROOT/'.local-runs').resolve())
+        and 'raw_stdout_sha256' in info['environment'])
+    if require_raw:
+        for stream in ('stdout','stderr'):
+            digest=info['environment'].get(f'raw_{stream}_sha256')
+            try:
+                payload=_inside(receipt,receipt/f'raw.{stream}.txt').read_bytes()
+            except (OSError,ValueError) as exc:
+                raise ValueError(f'required raw {stream} stream missing') from exc
+            if not _is_hex64(digest) or sha(payload)!=digest:
+                raise ValueError(f'raw {stream} stream changed')
     labels: set[str] = set()
     for row in info["artifacts"]:
         if not isinstance(row, dict) or set(row) != {"label", "path", "bytes", "sha256"}:
@@ -536,7 +595,7 @@ def publish(path: Path, name: str | None = None) -> Path:
     """
     import copy
     info = verify(path, current=True, release_scope=True)
-    if info['evidence_class'] != 'integration' or info['status'] != 'PASS':
+    if info['evidence_class'] != 'integration' or info['status'] != 'PASS' or info['artifact_errors']:
         raise ValueError('only successful integration receipts can enter the release envelope')
     original = path if path.is_absolute() else ROOT/path
     name = name or original.name
@@ -567,7 +626,7 @@ def publish(path: Path, name: str | None = None) -> Path:
         labels.add(label)
     for row in info['artifacts']:
         source = _inside(ROOT, ROOT/_safe_relative(row['path']))
-        retain(row['label'], source, row['label']+source.suffix)
+        retain(row['label'], source, source.name)
         if row['label'] == 'benchmark-result':
             value = json.loads(source.read_bytes())
             for index, measurement in enumerate(value['warmup_rows']+value['rows']):
@@ -604,6 +663,7 @@ def main() -> None:
     verifier.add_argument("path", type=Path)
     verifier.add_argument("--historical", action="store_true")
     verifier.add_argument("--release-scope", action="store_true")
+    verifier.add_argument('--require-raw',action='store_true')
     publisher = sub.add_parser('publish')
     publisher.add_argument('path',type=Path)
     publisher.add_argument('--name')
@@ -617,7 +677,7 @@ def main() -> None:
     if args.operation == 'publish':
         print(publish(args.path,args.name).relative_to(ROOT).as_posix())
         return
-    print(json.dumps(verify(args.path, not args.historical, args.release_scope), indent=2))
+    print(json.dumps(verify(args.path, not args.historical, args.release_scope, True if args.require_raw else None), indent=2))
 
 
 if __name__ == "__main__":

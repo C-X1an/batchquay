@@ -10,6 +10,7 @@ import time
 import uuid
 import venv
 from scripts.evidence import identity, manifest, release_manifest, _write_json
+from scripts.execution import environment as execution_environment
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 
@@ -40,7 +41,7 @@ def main() -> None:
     # venv is a new directory, with no system site packages or author environment.
     venv.EnvBuilder(with_pip=True,system_site_packages=False).create(environment)
     python=environment/('Scripts/python.exe' if os.name=='nt' else 'bin/python')
-    env=dict(os.environ)
+    env=execution_environment()
     for name in ('PYTHONPATH','PYTHONHOME','VIRTUAL_ENV'):
         env.pop(name,None)
     env['PATH']=str(python.parent)+os.pathsep+env['PATH']
@@ -51,7 +52,7 @@ def main() -> None:
     execute('dependency-install',[str(python),'-m','pip','install','--require-hashes','--only-binary=:all:',
             '--index-url','https://pypi.org/simple','--report',str(out/'install-report.json'),'-r',str(lock)],checkout,env)
     execute('dependency-check',[str(python),'-m','pip','check'],checkout,env)
-    make=['make',f'PYTHON={python.as_posix()}']
+    make=['make','CMAKE=cmake','BUILD=build',f'PYTHON={python.as_posix()}']
     execute('build',make+['build'],checkout,env)
     execute('tests',make+['verify'],checkout,env)
     execute('demo',make+['demo'],checkout,env)

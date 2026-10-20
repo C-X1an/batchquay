@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Callable
 
 from scripts import evidence
+from scripts.execution import MAKE_PROGRAMS, PYTHON_PROGRAMS, RECIPE_VARIABLES, valid_assignment
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUS = Path("verification/criterion_status.json")
@@ -100,7 +101,7 @@ def _make_command(command: list[str], target: str) -> bool:
     if not command:
         return False
     executable = Path(command[0]).name.lower()
-    if executable not in {"make", "make.exe", "gmake", "gmake.exe", "mingw32-make.exe"}:
+    if executable not in MAKE_PROGRAMS:
         return False
     if len(command) < 2 or command[-1] != target:
         return False
@@ -113,22 +114,16 @@ def _make_command(command: list[str], target: str) -> bool:
         if name in seen:
             return False
         seen.add(name)
-        if name == 'BUILD':
-            if not re.fullmatch(r'[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*', value):
-                return False
-        elif name == 'PYTHON':
-            if value not in {'python', 'python3', 'python.exe', 'python3.exe', 'python3.12', 'python3.12.exe'}:
-                return False
-        else:
+        if not valid_assignment(name,value):
             return False
-    return True
+    return seen == RECIPE_VARIABLES
 
 
 def _module_command(command: list[str], module: str) -> bool:
     if not command:
         return False
     executable = Path(command[0]).name.lower()
-    if executable not in {'python','python3','python.exe','python3.exe','python3.12','python3.12.exe'}:
+    if executable not in PYTHON_PROGRAMS:
         return False
     if len(command) < 3 or command[1:3] != ['-m', module]:
         return False

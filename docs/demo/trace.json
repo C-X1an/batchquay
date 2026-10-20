@@ -16,7 +16,7 @@
     "seed": 1729,
     "sha256": "43bad1cfb9503daba382829e1ca983c7c819c5d2546a09b1b992ed261a790d9f"
   },
-  "source_sha256": "b9d84482135fecb92fb1864a6e2aad158a8464be7f74bb5442cd07353ad640c6",
+  "source_sha256": "70e190f5ac9ba23a093403771087d9742b97038ee8dd0a4b88d881e42e6a72c5",
   "trace": [
     {
       "label": "Admit alpha",
@@ -25,7 +25,7 @@
         "generation": 1,
         "id": "a",
         "owner": "alpha",
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -35,7 +35,7 @@
         "generation": 2,
         "id": "b",
         "owner": "beta",
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -43,7 +43,7 @@
       "response": {
         "code": "E_CAPACITY",
         "event": "error",
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -57,7 +57,7 @@
             "id": "a",
             "index": 2,
             "owner": "alpha",
-            "session": "e8a1d0a935a0791bb4454932c1d49442"
+            "session": "efba29c542469097f0a66fc8bfc7a058"
           },
           {
             "event": "prefill",
@@ -65,10 +65,10 @@
             "id": "b",
             "index": 3,
             "owner": "beta",
-            "session": "e8a1d0a935a0791bb4454932c1d49442"
+            "session": "efba29c542469097f0a66fc8bfc7a058"
           }
         ],
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -79,7 +79,7 @@
         "id": "b",
         "index": 0,
         "owner": "beta",
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -93,11 +93,11 @@
             "id": "a",
             "index": 1,
             "owner": "alpha",
-            "session": "e8a1d0a935a0791bb4454932c1d49442",
+            "session": "efba29c542469097f0a66fc8bfc7a058",
             "token": 2
           }
         ],
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -111,11 +111,11 @@
             "id": "a",
             "index": 2,
             "owner": "alpha",
-            "session": "e8a1d0a935a0791bb4454932c1d49442",
+            "session": "efba29c542469097f0a66fc8bfc7a058",
             "token": 2
           }
         ],
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -129,7 +129,7 @@
             "id": "a",
             "index": 3,
             "owner": "alpha",
-            "session": "e8a1d0a935a0791bb4454932c1d49442",
+            "session": "efba29c542469097f0a66fc8bfc7a058",
             "token": 36
           },
           {
@@ -138,10 +138,10 @@
             "id": "a",
             "index": 3,
             "owner": "alpha",
-            "session": "e8a1d0a935a0791bb4454932c1d49442"
+            "session": "efba29c542469097f0a66fc8bfc7a058"
           }
         ],
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     },
     {
@@ -152,7 +152,7 @@
         "live": 0,
         "physical": 0,
         "reserved": 0,
-        "session": "e8a1d0a935a0791bb4454932c1d49442"
+        "session": "efba29c542469097f0a66fc8bfc7a058"
       }
     }
   ]

@@ -1,10 +1,10 @@
 # Verification status — 2026-10-20
 
-Final committed-source release evidence is being collected. Real pinned-checkpoint conformance and repeated conversion have passed locally. Separate read-only reviews preceded integration fixes and later challenged evidence validation and benchmark accounting; their findings and follow-up remain part of the release work. The earlier missing-dependency/DNS/scanner failures are retained, not relabelled as success.
+Read the current criterion index for committed-source release eligibility. The dated observations below describe historical development checkpoints. Real pinned-checkpoint conformance and repeated conversion have passed locally. Separate read-only reviews preceded integration fixes and later challenged evidence validation and benchmark accounting; their findings and follow-up remain part of the release work. The earlier missing-dependency/DNS/scanner failures are retained, not relabelled as success.
 
 The current benchmark measures four paired synthetic workloads with warmups, five repetitions, exact greedy-output parity, native high-water RSS and KV payload counters captured before reclamation. Native resource regression reproduces the three-page transient previously hidden by round-end sampling. Release regression tests reject an actually executed replacement make recipe, altered artifacts, false parity, inconsistent timing, missing warmups and duplicated repetitions.
 
-Current release status: **NOT READY** until fresh committed reproduction, supported-Linux gates, current public receipts, complete-candidate audit and final independent review all pass. The material below is preserved historical author evidence for its stated source; its counts, blocked status and same-host reproduction are not current-source approval.
+Full-release eligibility requires fresh committed reproduction, supported-Linux gates, current public receipts, complete-candidate audit and final independent review. The current index records their actual status. The material below is preserved historical author evidence for its stated source; its counts, blocked status and same-host reproduction are not current-source approval.
 
 ---
 

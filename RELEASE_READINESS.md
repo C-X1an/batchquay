@@ -1,9 +1,9 @@
-# Release readiness: NOT READY
+# Release readiness
 
-The current implementation is being verified against all 24 locked criteria. Historical receipts remain available, and schema-v1 receipts are explicitly historical. The current release index requires fresh schema-v2 receipts, semantic artifacts, independent final approval and an audit of the complete publication candidate.
+The authoritative current state is [verification/criterion_status.json](verification/criterion_status.json). Its overall field and hashed independent assessment determine readiness; this document defines the gate and does not independently assert READY or NOT READY.
 
-Development evidence obtained on 20 October includes real SmolLM2-135M conformance (20 sequences, 326 positions, 16,023,552 logits), deterministic repeated conversion, separate initial and follow-up read-only reviews, corrected mixed-workload measurements, full-history/export scans and 35-package advisory/notice checks. These observations do not substitute for final committed-source reproduction and supported-Linux checks.
+All 24 locked criteria require current-source integration receipts, exact command/tool bindings, retained semantic artifacts, a fresh hash-locked reproduction, supported-Linux sanitizer evidence and independent final approval. Static-analyzer evidence and actual remote CI are retained separately in the evidence index. Historical receipts remain available with their original source scope.
 
-The terminal-replay exception received independent acceptance of its corrected documented semantics. Other review findings have implementation fixes and regression checks; final independent assessment remains required. No current remote CI pass, release tag, service deployment or full-product completion is claimed.
+The terminal-replay exception requires a hashed independent acceptance of its exact bytes. An accepted exception does not approve unrelated release work. `make verify` is the core gate only. `make release-verify` checks criterion evidence and the final independent report, then freshly audits every current export file and all referenced history through the publication commit. Its last audit stays outside Git to avoid a self-hash loop.
 
-`make release-verify` must remain nonzero until every criterion, final review and current complete export/history audit is valid. `make verify` is the core gate only.
+Public stream capture discloses local-path/LF transformations and preserves original hashes. Raw originals are checked for locally retained receipts; published Git bundles intentionally omit private local originals. Semantic outputs and companion files are snapshotted so later producer runs cannot alter earlier receipts. Public CI archives retain their nonpersonal originals.

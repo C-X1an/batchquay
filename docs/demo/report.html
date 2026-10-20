@@ -27,27 +27,27 @@ footer{margin-top:36px;color:var(--muted);font-size:.9rem}.skip{position:absolut
 <p class="notice"><strong>Synthetic-model demonstration.</strong> This report is generated from the real C++ executable using deterministic random weights. It does not establish pretrained-model conformance, useful generated language, production readiness or security certification.</p>
 <h2 id="trace" tabindex="-1">An execution you can inspect</h2><table><thead><tr><th scope="col">#</th><th scope="col">Operation</th><th scope="col">Observed response</th></tr></thead><tbody><tr><th scope="row">01</th><td>Admit alpha</td><td><pre>{
   &quot;event&quot;: &quot;accepted&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;owner&quot;: &quot;alpha&quot;,
   &quot;id&quot;: &quot;a&quot;,
   &quot;generation&quot;: 1
 }</pre></td></tr><tr><th scope="row">02</th><td>Admit beta</td><td><pre>{
   &quot;event&quot;: &quot;accepted&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;owner&quot;: &quot;beta&quot;,
   &quot;id&quot;: &quot;b&quot;,
   &quot;generation&quot;: 2
 }</pre></td></tr><tr><th scope="row">03</th><td>Deny over-capacity work</td><td><pre>{
   &quot;event&quot;: &quot;error&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;code&quot;: &quot;E_CAPACITY&quot;
 }</pre></td></tr><tr><th scope="row">04</th><td>Prefill one bounded round</td><td><pre>{
   &quot;event&quot;: &quot;round&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;events&quot;: [
     {
       &quot;event&quot;: &quot;prefill&quot;,
-      &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+      &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
       &quot;owner&quot;: &quot;alpha&quot;,
       &quot;id&quot;: &quot;a&quot;,
       &quot;generation&quot;: 1,
@@ -55,7 +55,7 @@ footer{margin-top:36px;color:var(--muted);font-size:.9rem}.skip{position:absolut
     },
     {
       &quot;event&quot;: &quot;prefill&quot;,
-      &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+      &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
       &quot;owner&quot;: &quot;beta&quot;,
       &quot;id&quot;: &quot;b&quot;,
       &quot;generation&quot;: 2,
@@ -64,18 +64,18 @@ footer{margin-top:36px;color:var(--muted);font-size:.9rem}.skip{position:absolut
   ]
 }</pre></td></tr><tr><th scope="row">05</th><td>Cancel beta</td><td><pre>{
   &quot;event&quot;: &quot;cancelled&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;owner&quot;: &quot;beta&quot;,
   &quot;id&quot;: &quot;b&quot;,
   &quot;generation&quot;: 2,
   &quot;index&quot;: 0
 }</pre></td></tr><tr><th scope="row">06</th><td>Decode round 1</td><td><pre>{
   &quot;event&quot;: &quot;round&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;events&quot;: [
     {
       &quot;event&quot;: &quot;token&quot;,
-      &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+      &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
       &quot;owner&quot;: &quot;alpha&quot;,
       &quot;id&quot;: &quot;a&quot;,
       &quot;generation&quot;: 1,
@@ -85,11 +85,11 @@ footer{margin-top:36px;color:var(--muted);font-size:.9rem}.skip{position:absolut
   ]
 }</pre></td></tr><tr><th scope="row">07</th><td>Decode round 2</td><td><pre>{
   &quot;event&quot;: &quot;round&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;events&quot;: [
     {
       &quot;event&quot;: &quot;token&quot;,
-      &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+      &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
       &quot;owner&quot;: &quot;alpha&quot;,
       &quot;id&quot;: &quot;a&quot;,
       &quot;generation&quot;: 1,
@@ -99,11 +99,11 @@ footer{margin-top:36px;color:var(--muted);font-size:.9rem}.skip{position:absolut
   ]
 }</pre></td></tr><tr><th scope="row">08</th><td>Decode round 3</td><td><pre>{
   &quot;event&quot;: &quot;round&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;events&quot;: [
     {
       &quot;event&quot;: &quot;token&quot;,
-      &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+      &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
       &quot;owner&quot;: &quot;alpha&quot;,
       &quot;id&quot;: &quot;a&quot;,
       &quot;generation&quot;: 1,
@@ -112,7 +112,7 @@ footer{margin-top:36px;color:var(--muted);font-size:.9rem}.skip{position:absolut
     },
     {
       &quot;event&quot;: &quot;finished&quot;,
-      &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+      &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
       &quot;owner&quot;: &quot;alpha&quot;,
       &quot;id&quot;: &quot;a&quot;,
       &quot;generation&quot;: 1,
@@ -121,10 +121,10 @@ footer{margin-top:36px;color:var(--muted);font-size:.9rem}.skip{position:absolut
   ]
 }</pre></td></tr><tr><th scope="row">09</th><td>All terminal resources reclaimed</td><td><pre>{
   &quot;event&quot;: &quot;status&quot;,
-  &quot;session&quot;: &quot;e8a1d0a935a0791bb4454932c1d49442&quot;,
+  &quot;session&quot;: &quot;efba29c542469097f0a66fc8bfc7a058&quot;,
   &quot;live&quot;: 0,
   &quot;reserved&quot;: 0,
   &quot;physical&quot;: 0,
   &quot;capacity&quot;: 4
 }</pre></td></tr></tbody></table><footer>
-<p>Source identity: <code>b9d84482135fecb92fb1864a6e2aad158a8464be7f74bb5442cd07353ad640c6</code></p><p>No JavaScript, external assets, model API, network listener or fabricated application screenshot. Owner labels are trusted-controller inputs, not authentication.</p></footer></main></body></html>
+<p>Source identity: <code>70e190f5ac9ba23a093403771087d9742b97038ee8dd0a4b88d881e42e6a72c5</code></p><p>No JavaScript, external assets, model API, network listener or fabricated application screenshot. Owner labels are trusted-controller inputs, not authentication.</p></footer></main></body></html>

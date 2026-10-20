@@ -5,7 +5,7 @@ An experimental **C++20 CPU transformer runtime** with request-owned paged KV st
 
 [Run locally](#run-locally) · [Architecture](ARCHITECTURE.md) · [Actual demo](docs/demo/report.html) · [Evidence](VERIFICATION_REPORT.md) · [Limits](LIMITATIONS.md)
 
-> **Status: experimental implementation; final release verification is in progress.** Real SmolLM2-135M numerical conformance has passed locally on the pinned checkpoint, and separate read-only reviews have produced findings and fixes. Current-source public receipts, fresh committed reproduction, supported-Linux gates and final independent approval remain required. No production, text-quality or performance-advantage claim is made.
+> **Experimental implementation.** Check the [current criterion index](verification/criterion_status.json) and run `make release-verify` for full-release eligibility. A passing core suite alone is not approval. Real pinned-checkpoint numerical conformance, separate review, clean reproduction and complete publication auditing are mandatory. No production, generated-language quality or universal performance advantage is claimed.
 
 ## The engineering question
 Can a small inference engine preserve numerical behavior while it interleaves requests, owns and reuses their cache pages, refuses excess work, and cancels execution without leaking state or committing later output?
@@ -61,7 +61,7 @@ make verify             # Core local checks; not full release approval.
 make conversion-test    # Synthetic safetensors conversion; needs Torch/safetensors.
 make sanitize lint      # Clang sanitizers and static analysis.
 make mutation           # Selected PASS -> FAIL -> PASS negative controls.
-make benchmark          # Four paired workloads, warmup and >=5 repetitions; native RSS and round-visible token timing.
+make benchmark          # Six paired workloads, 1/2/4/8/16 requests, >=5 repetitions; native RSS and round-visible timing.
 make clean-verify       # Fresh committed clone plus fresh hash-locked dependency environment.
 make security-online    # Requires actual installed vulnerability/secret scanners.
 make fetch-model real-model  # Mandatory real-checkpoint gate; network/deps required.

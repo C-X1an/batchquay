@@ -1,32 +1,32 @@
 # Test and acceptance matrix
 
-Every locked criterion is required. Current release receipt collection is pending; historical schema-v1 evidence remains available under verification/published and must be verified with --historical.
+The [criterion index](verification/criterion_status.json) contains current status and source-bound receipt paths. This table records fixed requirements, not a second mutable readiness tally. Historical schema-v1 receipts are checked with --historical.
 
-| Criterion | Locked requirement / label | Current release state |
+| Criterion | Locked requirement / label | Required receipt categories |
 |---|---|---|
-| AC-001 | FR-001 / tiny-numerics | Pending final source-bound evidence |
-| AC-002 | FR-002 / cache-equivalence | Pending final source-bound evidence |
-| AC-003 | FR-003 / cache-owner | Pending final source-bound evidence |
-| AC-004 | SEC-003 / page-reuse | Pending final source-bound evidence |
-| AC-005 | REL-001 / reclaim | Pending final source-bound evidence |
-| AC-006 | FR-004 / rounds | Pending final source-bound evidence |
-| AC-007 | FR-005 / cancel | Pending final source-bound evidence |
-| AC-008 | PERF-003 / fairness | Pending final source-bound evidence |
-| AC-009 | PERF-002 / admission | Pending final source-bound evidence |
-| AC-010 | FR-006 / protocol | Pending final source-bound evidence |
-| AC-011 | SEC-002 / model-loader | Pending final source-bound evidence |
-| AC-012 | FR-007 / real-model | Pending final source-bound evidence |
-| AC-013 | FR-007 / model-convert | Pending final source-bound evidence |
-| AC-014 | SEC-001 / authority | Pending final source-bound evidence |
-| AC-015 | FR-008 / inspector | Pending final source-bound evidence |
-| AC-016 | NFR-001 / clean | Pending final source-bound evidence |
-| AC-017 | NFR-003 / sanitizers | Pending final source-bound evidence |
-| AC-018 | SEC-004 / public-audit | Pending final source-bound evidence |
-| AC-019 | PERF-001 / benchmark | Pending final source-bound evidence |
-| AC-020 | REL-002 / restart | Pending final source-bound evidence |
-| AC-021 | NFR-002 / version | Pending final source-bound evidence |
-| AC-022 | FR-009 / batching | Pending final source-bound evidence |
-| AC-023 | FR-001 / mutation | Pending final source-bound evidence |
-| AC-024 | NFR-001 / evidence-integrity | Pending final source-bound evidence |
+| AC-001 | FR-001 / tiny-numerics | core |
+| AC-002 | FR-002 / cache-equivalence | core |
+| AC-003 | FR-003 / cache-owner | core |
+| AC-004 | SEC-003 / page-reuse | core |
+| AC-005 | REL-001 / reclaim | core |
+| AC-006 | FR-004 / rounds | core |
+| AC-007 | FR-005 / cancel | core |
+| AC-008 | PERF-003 / fairness | core |
+| AC-009 | PERF-002 / admission | core |
+| AC-010 | FR-006 / protocol | core |
+| AC-011 | SEC-002 / model-loader | core |
+| AC-012 | FR-007 / real-model | real-model |
+| AC-013 | FR-007 / model-convert | real-model |
+| AC-014 | SEC-001 / authority | public-audit |
+| AC-015 | FR-008 / inspector | core, browser |
+| AC-016 | NFR-001 / clean | clean |
+| AC-017 | NFR-003 / sanitizers | sanitizers |
+| AC-018 | SEC-004 / public-audit | public-audit, security-online |
+| AC-019 | PERF-001 / benchmark | benchmark |
+| AC-020 | REL-002 / restart | core |
+| AC-021 | NFR-002 / version | core |
+| AC-022 | FR-009 / batching | core, benchmark |
+| AC-023 | FR-001 / mutation | mutation |
+| AC-024 | NFR-001 / evidence-integrity | evidence-integrity |
 
-The suites currently contain 17 native tests and Python methods for numerical properties, protocol/lifecycle, evidence corruption, benchmark accounting, downloader behavior and synthetic conversion. Repetitions, seeded sequences and child invocations are not additional independent test designs. Downloader unit tests use mocked network responses; real checkpoint fetching/conformance is a separate mandatory integration gate.
+Native and Python methods cover numerical properties, protocol/lifecycle, ownership/reclamation, evidence corruption, benchmark accounting, downloader behavior and synthetic conversion. Seeded sequences, repetitions and child invocations are not additional independent test designs. Mocked downloader unit responses do not establish real checkpoint fetching or pretrained conformance. The real checkpoint gate is mandatory.
