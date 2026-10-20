@@ -52,7 +52,7 @@ clean-verify:
 fetch-model:
 	$(PYTHON) -m tools.fetch_model
 real-model: build
-	$(PYTHON) -m tools.real_model
+	BQ_BINARY=$(BUILD)/batchquay $(PYTHON) -m tools.real_model
 release-verify:
 	$(PYTHON) -m scripts.release_verify
 publication-verify:

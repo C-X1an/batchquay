@@ -87,7 +87,8 @@ def run(out: Path, repetitions: int = 5, model_path: Path | None = None) -> dict
             shift = max(repetition, 0) % len(VARIANTS)
             order = VARIANTS[shift:]+VARIANTS[:shift]
             for order_index, variant in enumerate(order):
-                command = [os.path.relpath(driver, Path.cwd()), variant, os.path.relpath(model, Path.cwd())]
+                command = [os.path.relpath(driver, Path.cwd()).replace(os.sep,'/'), variant,
+                           os.path.relpath(model, Path.cwd()).replace(os.sep,'/')]
                 started = time.perf_counter_ns()
                 completed = subprocess.run(command, input=payload.encode(), capture_output=True, timeout=900)
                 process_wall_ms = (time.perf_counter_ns()-started)/1e6

@@ -385,7 +385,8 @@ def _no_findings(value) -> bool:
         return False
     dependencies = value.get("dependencies")
     if isinstance(dependencies, list):
-        return all(not item.get("vulns", item.get("vulnerabilities", [])) for item in dependencies if isinstance(item, dict))
+        dependencies = dependencies + value.get('browser_dependencies', [])
+        return all(isinstance(item, dict) and not item.get("vulns", item.get("vulnerabilities", [])) and not item.get('skip_reason') for item in dependencies)
     return True
 
 

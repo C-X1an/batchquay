@@ -4,14 +4,18 @@ import hashlib
 import importlib.metadata as metadata
 import json
 import sys
+import argparse
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
-def collect() -> dict:
-    policy=json.loads((ROOT/'verification/dependency_license_policy.json').read_text(encoding='utf-8'))
-    lock=ROOT/'requirements-reference-windows-cp312.lock'
+def collect(policy_name: str = 'verification/dependency_license_policy.json',
+            lock_name: str = 'requirements-reference-windows-cp312.lock') -> dict:
+    policy_path=(ROOT/policy_name).resolve();lock=(ROOT/lock_name).resolve()
+    if not policy_path.is_relative_to(ROOT) or not lock.is_relative_to(ROOT):
+        raise RuntimeError('license policy/lock must be public repository files')
+    policy=json.loads(policy_path.read_text(encoding='utf-8'))
     if hashlib.sha256(lock.read_bytes()).hexdigest()!=policy['lock_sha256']:
         raise RuntimeError('license policy does not match resolved dependency lock')
     prefix=Path(sys.prefix).resolve()
@@ -45,6 +49,9 @@ def collect() -> dict:
 
 
 if __name__=='__main__':
-    result=collect()
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--policy',default='verification/dependency_license_policy.json')
+    parser.add_argument('--lock',default='requirements-reference-windows-cp312.lock')
+    args=parser.parse_args();result=collect(args.policy,args.lock)
     print(json.dumps(result,indent=2))
     raise SystemExit(0 if result['status']=='PASS' else 1)

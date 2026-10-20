@@ -66,4 +66,6 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--source',type=Path,default=Path('.local-runs/model-source'))
     p.add_argument('--binary',type=Path,default=Path(os.environ.get('BQ_BINARY','build/batchquay')))
     p.add_argument('--output',type=Path,default=Path('.local-runs/real-model'))
-    a=p.parse_args();print(json.dumps(verify(a.source,a.binary,a.output/uuid.uuid4().hex[:12]),indent=2))
+    a=p.parse_args();result=verify(a.source,a.binary,a.output/uuid.uuid4().hex[:12])
+    _write_json(a.output/'latest-pretrained.json',result)
+    print(json.dumps(result,indent=2))

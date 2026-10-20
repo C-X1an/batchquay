@@ -16,6 +16,7 @@ def main() -> None:
     gitleaks=shutil.which('gitleaks')
     audit_python=os.environ.get('BQ_PIP_AUDIT_PYTHON',sys.executable)
     reference_python=os.environ.get('BQ_REFERENCE_PYTHON',sys.executable)
+    browser_python=os.environ.get('BQ_BROWSER_PYTHON',sys.executable)
     if not gitleaks: raise SystemExit('gitleaks unavailable; no scan claimed')
     out=root/'.local-runs/security-online';out.mkdir(parents=True,exist_ok=True)
     env=dict(os.environ)
@@ -70,8 +71,22 @@ def main() -> None:
         notices=run('licenses',[reference_python,'-m','scripts.license_inventory'])
         license_inventory=json.loads(notices.stdout)
         if license_inventory['status']!='PASS': raise RuntimeError('unresolved license inventory')
+        run('browser-advisories',[audit_python,'-m','pip_audit','--strict','--no-deps','--disable-pip',
+            '--require-hashes','-r',str(root/'requirements-browser.lock'),'--progress-spinner','off',
+            '-f','json','-o',str(out/'browser-advisory-raw.json')])
+        browser_advisory=json.loads((out/'browser-advisory-raw.json').read_text(encoding='utf-8'))
+        if len(browser_advisory['dependencies'])!=4 or any(row.get('vulns') or row.get('skip_reason') for row in browser_advisory['dependencies']):
+            raise RuntimeError('browser advisory coverage/findings require resolution')
+        browser_notices=run('browser-licenses',[browser_python,'-m','scripts.license_inventory',
+            '--policy','verification/browser_license_policy.json','--lock','requirements-browser.lock'])
+        browser_inventory=json.loads(browser_notices.stdout)
+        if browser_inventory['status']!='PASS': raise RuntimeError('unresolved browser license inventory')
+        advisory['browser_dependencies']=browser_advisory['dependencies']
+        (out/'advisory-report.json').write_bytes((json.dumps(advisory,indent=2)+'\n').encode('utf-8'))
+        license_inventory['packages'].extend(browser_inventory['packages'])
+        license_inventory['browser_lock_sha256']=browser_inventory['lock_sha256']
         (out/'license-inventory.json').write_bytes((json.dumps(license_inventory,indent=2)+'\n').encode('utf-8'))
-        print('PASS actual full-history/export scans, detection control, 35-package advisory and license checks')
+        print('PASS actual full-history/export scans, detection control, 35 reference and 4 browser distribution advisory/notice checks (one shared package)')
     finally:
         if owned.parent!=base or not owned.name.startswith('bqs-'): raise RuntimeError('unsafe cleanup target')
         shutil.rmtree(owned)

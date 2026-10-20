@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIRS = ("src", "tests", "tools", "scripts")
 SOURCE_FILES = (
     "CMakeLists.txt", "Makefile", "requirements.txt", "requirements-reference.txt", "requirements-core.lock",
-    "requirements-reference-windows-cp312.lock", "API_SPEC.md", "ACCEPTANCE_SPEC.md",
+    "requirements-reference-windows-cp312.lock", "requirements-browser.lock", "API_SPEC.md", "ACCEPTANCE_SPEC.md",
     "PRD.md", "ARCHITECTURE.md", "THREAT_MODEL.md", "SECURITY.md",
     "TEST_SPEC_EXCEPTION_TERMINAL_REPLAY.md", "verification/acceptance.json",
     "verification/acceptance.lock.json", "verification/phase_plan.json",
@@ -528,6 +528,69 @@ def _parse_artifacts(values: list[str]) -> dict[str, Path]:
     return result
 
 
+def publish(path: Path, name: str | None = None) -> Path:
+    """Relocate a verified execution bundle without changing execution facts.
+
+    The original record hash is disclosed. Raw local streams, weights, build
+    products and arbitrary sibling files are never copied to the public tree.
+    """
+    import copy
+    info = verify(path, current=True, release_scope=True)
+    if info['evidence_class'] != 'integration' or info['status'] != 'PASS':
+        raise ValueError('only successful integration receipts can enter the release envelope')
+    original = path if path.is_absolute() else ROOT/path
+    name = name or original.name
+    if not name.replace('-', '').replace('_', '').isalnum():
+        raise ValueError('invalid publication directory name')
+    out = ROOT/'verification/published'/name
+    if out.exists():
+        raise ValueError('publication target already exists; historical evidence is never overwritten')
+    out.mkdir(parents=True)
+    published = copy.deepcopy(info)
+    published['environment']['published_from_record_sha256'] = sha((original/'record.json').read_bytes())
+    published['environment']['publication_transform'] = 'artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded'
+    artifacts = []
+    labels = set()
+    def retain(label: str, source: Path, filename: str) -> None:
+        if label in labels:
+            return
+        if Path(filename).name != filename or source.suffix.lower() not in {'.json','.txt','.html','.png','.jpg','.jpeg'}:
+            raise ValueError('unsupported public artifact')
+        source = _inside(ROOT, source)
+        data = source.read_bytes()
+        destination = out/'artifacts'/filename
+        destination.parent.mkdir(exist_ok=True)
+        if destination.exists() and destination.read_bytes() != data:
+            raise ValueError('artifact filename collision')
+        destination.write_bytes(data)
+        artifacts.append(dict(label=label,path=destination.relative_to(ROOT).as_posix(),bytes=len(data),sha256=sha(data)))
+        labels.add(label)
+    for row in info['artifacts']:
+        source = _inside(ROOT, ROOT/_safe_relative(row['path']))
+        retain(row['label'], source, row['label']+source.suffix)
+        if row['label'] == 'benchmark-result':
+            value = json.loads(source.read_bytes())
+            for index, measurement in enumerate(value['warmup_rows']+value['rows']):
+                for stream in ('stdout','stderr','command'):
+                    filename = measurement[f'raw_{stream}_file']
+                    child = _inside(ROOT, source.parent/_safe_relative(filename))
+                    if sha(child.read_bytes()) != measurement[f'{stream}_sha256']:
+                        raise ValueError('native benchmark artifact changed before publication')
+                    retain(f'benchmark-{stream}-{index:03}', child, filename)
+        elif row['label'] == 'browser-result':
+            for view in ('desktop','mobile'):
+                retain('browser-'+view, source.parent/(view+'.png'),view+'.png')
+        elif row['label'] == 'demo-trace':
+            retain('demo-report',source.parent/'report.html','report.html')
+    published['artifacts'] = artifacts
+    for filename in ('stdout.txt','stderr.txt','source_manifest.json','release_manifest.json'):
+        (out/filename).write_bytes(_inside(original,original/filename).read_bytes())
+    _write_json(out/'record.json',published)
+    _bundle(out,artifacts)
+    verify(out,current=True,release_scope=True)
+    return out
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="operation", required=True)
@@ -541,6 +604,9 @@ def main() -> None:
     verifier.add_argument("path", type=Path)
     verifier.add_argument("--historical", action="store_true")
     verifier.add_argument("--release-scope", action="store_true")
+    publisher = sub.add_parser('publish')
+    publisher.add_argument('path',type=Path)
+    publisher.add_argument('--name')
     args = parser.parse_args()
     if args.operation == "run":
         command = args.command[1:] if args.command[:1] == ["--"] else args.command
@@ -548,6 +614,9 @@ def main() -> None:
         info = verify(path)
         print(json.dumps({"path": str(path.relative_to(ROOT)), **info}, indent=2))
         raise SystemExit(info["exit_code"])
+    if args.operation == 'publish':
+        print(publish(args.path,args.name).relative_to(ROOT).as_posix())
+        return
     print(json.dumps(verify(args.path, not args.historical, args.release_scope), indent=2))
 
 

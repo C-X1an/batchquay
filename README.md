@@ -86,3 +86,5 @@ A trusted process and OS own all data. Page ownership protects the engine's vali
 | API, threat model and operations | [API](API_SPEC.md), [threats](THREAT_MODEL.md), [operations](OPERATIONS.md) |
 
 Original source is [MIT licensed](LICENSE). Model and dependency rights remain separate; see [third-party notices](THIRD_PARTY_NOTICES.md). Contributions should preserve the [locked behavioral contract](ACCEPTANCE_SPEC.md).
+
+Browser report checks use a separate environment installed with `python -m pip install --require-hashes --only-binary=:all: -r requirements-browser.lock`, then `python -m tools.browser_check --executable <installed-chrome-path>`. `make security-online` accepts `BQ_REFERENCE_PYTHON`, `BQ_BROWSER_PYTHON` and `BQ_PIP_AUDIT_PYTHON` for the three isolated environments.

@@ -32,6 +32,11 @@ class EvidenceTests(unittest.TestCase):
         with (path/'stdout.txt').open('ab') as out: out.write(b'tampered')
         with self.assertRaisesRegex(ValueError,'changed'): verify(path)
 
+    def test_unit_fixture_cannot_be_published_as_integration(self) -> None:
+        path=self.receipt('unit-publication-control')
+        with self.assertRaisesRegex(ValueError,'successful integration'):
+            evidence.publish(path)
+
     def test_public_stream_retains_raw_and_discloses_path_transform(self) -> None:
         path=run('unit-path-redaction',[sys.executable,'-c','import os; print(os.getcwd()); print("diagnostic-preserved")'],
                  evidence_class='unit_fixture')

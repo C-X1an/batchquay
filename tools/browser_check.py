@@ -12,7 +12,7 @@ def main() -> None:
     content=(args.directory/'report.html').read_text()
     rows=[]
     with sync_playwright() as engine:
-        browser=engine.chromium.launch(executable_path=args.executable,headless=True)
+        browser=engine.chromium.launch(executable_path=args.executable,headless=True,chromium_sandbox=True)
         for name,width in [('desktop',1440),('mobile',390)]:
             page=browser.new_page(viewport={'width':width,'height':900})
             page.set_content(content,wait_until='load')
@@ -27,7 +27,7 @@ def main() -> None:
             rows.append(dict(view=name,width=width,horizontal_overflow=overflow,first_focus=focused))
             page.close()
         browser.close()
-    report=dict(status='PASS',mode='Owned HTML loaded through set_content; filesystem navigation is restricted in author browser. DOM/layout/keyboard tested, not an externally hosted URL.',views=rows)
+    report=dict(status='PASS',mode='Actual sandbox-enabled headless browser; owned HTML loaded through set_content. DOM/layout/keyboard and screenshots tested; file-URL and externally hosted navigation not tested.',views=rows)
     (args.directory/'browser-review.json').write_bytes((json.dumps(report,indent=2)+'\n').encode('utf-8'))
     print(json.dumps(report,indent=2))
 
