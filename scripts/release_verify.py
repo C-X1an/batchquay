@@ -312,6 +312,10 @@ def _validate_trace(views: list[ReceiptView], source_sha256: str) -> None:
     browser = _artifact_json(_view_for_label(views, "browser-result"), "browser-result")
     if not isinstance(browser, dict) or browser.get("status") != "PASS" or "keyboard" not in str(browser.get("mode", "")).lower():
         raise ValueError("real browser keyboard result missing")
+    report_path = core.artifacts.get('demo-report')
+    if (report_path is None or browser.get('source_sha256') != source_sha256
+        or browser.get('html_sha256') != _sha(report_path.read_bytes())):
+        raise ValueError('browser did not inspect this exact current-source report')
     view_rows = browser.get("views")
     if not isinstance(view_rows, list):
         raise ValueError("browser view results missing")

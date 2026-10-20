@@ -1,6 +1,7 @@
 # Actual local demonstration
-Run `make demo` and open `.local-runs/demo/report.html`. The recorded `report.html` and screenshots in this directory are from the real native child process with deterministic tiny synthetic weights.
 
-30 seconds: locate accepted request, capacity denial, cancelled request and final zero resource counters. Two minutes: follow prefill and decode rounds; notice that cancellation stops future output. Five minutes: rerun an isolated request and an interleaved request, compare outputs, inspect page ownership tests and a selected negative control. No model API is involved.
+Run `make demo` and open `.local-runs/demo/report.html`. The report, raw trace and screenshots here were regenerated from the actual native child process with deterministic synthetic weights. They are a recorded example, not useful generated language or a live inference service.
 
-Optional browser check: `python3 -m tools.browser_check`. The author environment restricts filesystem navigation; its browser QA loads the generated HTML via `set_content`, records this limitation, checks keyboard entry and mobile/desktop overflow, and captures the actual rendered output. It is not a hosted navigation or full accessibility certification.
+Follow admission, capacity denial, cancellation, decode rounds and the final zero resource counters. The source identity is embedded in the trace and rendered footer. Cancellation stops later output for that request generation.
+
+The recorded browser check used sandbox-enabled Chrome on Windows, loading the owned HTML via `set_content`; desktop/mobile layout, keyboard entry, exact source identity and screenshots passed. It did not test a hosted URL or certify full accessibility. The separate interactive browser inspection used a temporary loopback static-file server. Browser-test dependencies are isolated and hash-locked in requirements-browser.lock.
