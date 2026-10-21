@@ -3,7 +3,7 @@ test_seeded_full_prefix_equivalence (test_numerics.NumericalTests.test_seeded_fu
 100 sequences, 3 model shapes/seeds, 3 native execution variants. ... ok
 
 ----------------------------------------------------------------------
-Ran 2 tests in 3.868s
+Ran 2 tests in 4.327s
 
 OK
 test_admission_and_maximum_position_bound (test_system.SystemTests.test_admission_and_maximum_position_bound) ... ok
@@ -17,7 +17,7 @@ test_malformed_protocol_finite_campaign (test_system.SystemTests.test_malformed_
 test_response_session_attribution (test_system.SystemTests.test_response_session_attribution) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 0.665s
+Ran 9 tests in 1.147s
 
 OK
 test_changed_output_is_rejected (test_evidence.EvidenceTests.test_changed_output_is_rejected) ... ok
@@ -36,7 +36,7 @@ test_unit_fixture_cannot_be_published_as_integration (test_evidence.EvidenceTest
 test_unrelated_receipt_substitution_is_rejected (test_evidence.EvidenceTests.test_unrelated_receipt_substitution_is_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 15.882s
+Ran 14 tests in 30.620s
 
 OK
 test_claimed_parity_without_native_outputs_is_rejected (test_benchmark.BenchmarkTests.test_claimed_parity_without_native_outputs_is_rejected) ... ok
@@ -44,13 +44,13 @@ test_native_evidence_then_parity_timing_and_stream_corruption (test_benchmark.Be
 test_transient_peak_precedes_terminal_reclamation (test_benchmark.BenchmarkTests.test_transient_peak_precedes_terminal_reclamation) ... ok
 
 ----------------------------------------------------------------------
-Ran 3 tests in 30.048s
+Ran 3 tests in 28.307s
 
 OK
 test_changed_completed_artifact_is_rejected (test_fetch.FetchTests.test_changed_completed_artifact_is_rejected) ... ok
 test_resume_preserves_verified_files_after_network_failure (test_fetch.FetchTests.test_resume_preserves_verified_files_after_network_failure) ... ok
 
 ----------------------------------------------------------------------
-Ran 2 tests in 0.095s
+Ran 2 tests in 0.089s
 
 OK

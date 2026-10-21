@@ -1,6 +1,6 @@
 {
   "command": [
-    "<project-temp>\\bqc-9bf485d8c5\\venv\\Scripts\\python.exe",
+    "<project-temp>\\bqc-f8a191f639\\venv\\Scripts\\python.exe",
     "-m",
     "pip",
     "install",
@@ -11,12 +11,12 @@
     "--report",
     "<public-repo>\\.local-runs\\clean\\install-report.json",
     "-r",
-    "<project-temp>\\bqc-9bf485d8c5\\source\\requirements-reference-windows-cp312.lock"
+    "<project-temp>\\bqc-f8a191f639\\source\\requirements-reference-windows-cp312.lock"
   ],
-  "duration_seconds": 297.6542418000754,
+  "duration_seconds": 395.96724559995346,
   "exit_code": 0,
   "name": "dependency-install",
   "stderr_sha256": "ade59f9fc0f032c1139c2a224ae1810004b36072bdf7a0ac5a3414b8952838a4",
-  "stdout_sha256": "9c416f64df4ff71eec8628bd7aaddd17b359cfa33617174ab6b6dd56461c3bbe",
+  "stdout_sha256": "a2ec881dc7eb8b1c4d3158450c6b5d91937d44f8c1a257c8a2512d8dace612dd",
   "stem": "dependency-install"
 }

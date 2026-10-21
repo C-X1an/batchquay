@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "git_commit": "05007149398de6a0b1c5c65ce255f3082d532800",
+  "full_history": true,
+  "findings": [],
+  "canary_detected": true,
+  "configuration_sha256": "5614790f2ec2eec0ec7b3d7b4ac802b2d128d6829825dff01f4191a9ce2072db",
+  "scope": "All referenced Git history and current public export; initial checksum findings retained separately."
+}

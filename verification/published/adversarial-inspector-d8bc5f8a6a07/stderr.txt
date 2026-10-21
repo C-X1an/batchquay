@@ -1,0 +1,8 @@
+127.0.0.1 - - [21/Oct/2026 17:42:20] "GET /report.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2026 17:42:21] "GET /trace.json HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2026 17:42:21] code 404, message File not found
+127.0.0.1 - - [21/Oct/2026 17:42:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Oct/2026 17:42:21] "GET /report.html HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2026 17:42:21] "GET /trace.json HTTP/1.1" 200 -
+127.0.0.1 - - [21/Oct/2026 17:42:21] code 404, message File not found
+127.0.0.1 - - [21/Oct/2026 17:42:21] "GET /favicon.ico HTTP/1.1" 404 -

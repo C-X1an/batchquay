@@ -1,0 +1,13 @@
+{
+  "files": {
+    "artifact:advisory-report:verification/published/security-online-35c6c00ba691/artifacts/advisory-report.json": "082e0d425b56b9ecab590de6d04e46acce82d9f7a32e8b18b4c0535fa3d14099",
+    "artifact:gitleaks-report:verification/published/security-online-35c6c00ba691/artifacts/gitleaks-report.json": "4d644889e1bf95b5c4e40a448a1a03fac15df26c4053fda5cd0ab5c318e65ee8",
+    "artifact:license-inventory:verification/published/security-online-35c6c00ba691/artifacts/license-inventory.json": "82315de24ca84ec2159e838bdf226abf57c6413d6b40fc6e66c1742ac9854aa2",
+    "record.json": "b5a3441eb00fb4d230e3da2a714b87649803ed2a742a9a635a7055a0ec726fb7",
+    "release_manifest.json": "daf4be32250227717622c5ec16bd8c70faa565a9ac5871d42f5ad55aab90caf1",
+    "source_manifest.json": "29573cdb0b932ca3782f9dd13f8226a387b81eb25b4e5f2e8d8b2d8a4a95e511",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "b40345363ab2de18220fc06601c44f30facf380ccd7fa8603fc9796ada5e98ec"
+  },
+  "schema_version": 1
+}

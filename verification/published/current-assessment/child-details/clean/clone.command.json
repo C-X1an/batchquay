@@ -6,12 +6,12 @@
     "clone",
     "--no-hardlinks",
     "<public-repo>",
-    "<project-temp>\\bqc-9bf485d8c5\\source"
+    "<project-temp>\\bqc-f8a191f639\\source"
   ],
-  "duration_seconds": 0.9373561999527737,
+  "duration_seconds": 1.0718384999781847,
   "exit_code": 0,
   "name": "clone",
-  "stderr_sha256": "d742848a41330dddea203d28f0ba48787f02ddfe79b19a7f108fbe7586d74324",
+  "stderr_sha256": "68ff0d4e88bc6ff9325b14f2b85ff6de10d6e7144020e325cf1753d765f41040",
   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stem": "clone"
 }

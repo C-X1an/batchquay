@@ -1,0 +1,58 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 11230,
+      "label": "pretrained-result",
+      "path": "verification/published/real-model-f16f18de8a00/artifacts/latest-pretrained.json",
+      "sha256": "7696e5954552cf69639ba08da09b5bc3f34e2401bf9d5f77bc772517dc5f9c78"
+    }
+  ],
+  "category": "real-model",
+  "command": [
+    "make",
+    "CMAKE=cmake",
+    "BUILD=build-host-a716",
+    "PYTHON=python.exe",
+    "real-model"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 86.6523896,
+  "ended_utc": "2026-10-21T09:48:51.120051+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "d8cd72178b0a3285deee76965eaf756206921364ba40586ce6ffc7b2959579a1",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "f1be57b60901925ffaaa7042e0ae56ad6ba13657abb42e89dfc1df42ab507497",
+    "raw_stdout_sha256": "b45671c0c891960236445c6c2175aaeff9f5a75fe7b1980dcfe135313da74a56",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "05007149398de6a0b1c5c65ce255f3082d532800",
+  "git_dirty": false,
+  "git_tree": "02589e074f0fe4134320c9e18d9189a5ee135310",
+  "name": "real-model",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "032f7f8d69b38497a77baa07a347a81733d94ab93faf927df9eeedda4bbcac73",
+  "runtime_versions": {
+    "c++": "c++ (GCC) 16.2.0",
+    "clang++": "UNAVAILABLE",
+    "cmake": "cmake version 4.4.4",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "7c1606370a8c3309dd38d2ac0dcf845e82fe4eb48a46916dbf31fb241cedf1fd",
+  "started_utc": "2026-10-21T09:47:24.396238+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "d44f15732339a33ba9612111adaac420689883505bb4bab8545b6804e7cabfa6",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "2b67cceb52bdbc66474fde0d3fcd51fe583702f1ebb9c8bb92494c21052a8b07",
+  "timed_out": false
+}

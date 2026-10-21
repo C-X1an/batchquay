@@ -1,0 +1,16 @@
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: <public-repo>/build
+cmake --build build -j 2
+ninja: no work to do.
+python scripts/analyze.py
+cache.cpp 0
+
+main.cpp 0
+
+model.cpp 0
+
+scheduler.cpp 0
+
+PASS Clang static analyzer for src/*.cpp; not a proof of correctness

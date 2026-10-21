@@ -5,17 +5,17 @@ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 -- Check for working CXX compiler: <project-workspace>/.local-tools/w64devkit-2.10.1/w64devkit/bin/c++.exe - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (4.3s)
--- Generating done (0.0s)
--- Build files have been written to: <project-temp>/bqc-9bf485d8c5/source/build
+-- Configuring done (3.7s)
+-- Generating done (0.1s)
+-- Build files have been written to: <project-temp>/bqc-f8a191f639/source/build
 cmake --build build -j 2
 [1/10] Building CXX object CMakeFiles/bq.dir/src/cache.cpp.obj
 [2/10] Building CXX object CMakeFiles/bq.dir/src/model.cpp.obj
 [3/10] Building CXX object CMakeFiles/bq.dir/src/scheduler.cpp.obj
-[4/10] Building CXX object CMakeFiles/batchquay.dir/src/main.cpp.obj
-[5/10] Linking CXX static library libbq.a
+[4/10] Linking CXX static library libbq.a
+[5/10] Building CXX object CMakeFiles/batchquay.dir/src/main.cpp.obj
 [6/10] Building CXX object CMakeFiles/native_tests.dir/tests/native_tests.cpp.obj
-[7/10] Linking CXX executable batchquay.exe
-[8/10] Linking CXX executable native_tests.exe
-[9/10] Building CXX object CMakeFiles/bq_benchmark.dir/tools/benchmark_driver.cpp.obj
+[7/10] Building CXX object CMakeFiles/bq_benchmark.dir/tools/benchmark_driver.cpp.obj
+[8/10] Linking CXX executable batchquay.exe
+[9/10] Linking CXX executable native_tests.exe
 [10/10] Linking CXX executable bq_benchmark.exe

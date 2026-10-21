@@ -1,0 +1,11 @@
+{
+  "files": {
+    "artifact:pretrained-result:verification/published/real-model-f16f18de8a00/artifacts/latest-pretrained.json": "7696e5954552cf69639ba08da09b5bc3f34e2401bf9d5f77bc772517dc5f9c78",
+    "record.json": "3cd65aa5e6dd39ac3381a16bcfdd10f4c6971b5097b56e363dcf6a762f4b80cb",
+    "release_manifest.json": "daf4be32250227717622c5ec16bd8c70faa565a9ac5871d42f5ad55aab90caf1",
+    "source_manifest.json": "29573cdb0b932ca3782f9dd13f8226a387b81eb25b4e5f2e8d8b2d8a4a95e511",
+    "stderr.txt": "d44f15732339a33ba9612111adaac420689883505bb4bab8545b6804e7cabfa6",
+    "stdout.txt": "2b67cceb52bdbc66474fde0d3fcd51fe583702f1ebb9c8bb92494c21052a8b07"
+  },
+  "schema_version": 1
+}

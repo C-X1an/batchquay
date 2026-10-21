@@ -1,1 +1,1 @@
-HEAD is now at ecc74c9 Pin patched Certifi and retain advisory remediation evidence
+HEAD is now at 0500714 Correct operating prerequisites and current status navigation

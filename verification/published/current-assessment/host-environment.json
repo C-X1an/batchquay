@@ -8,7 +8,7 @@
   "native_compile_flags": [
     "-O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow"
   ],
-  "observed_utc": "2026-10-21T08:21:08.3946959Z",
+  "observed_utc": "2026-10-21T09:54:57.5117590Z",
   "os": {
     "BuildNumber": "26200",
     "Caption": "Microsoft Windows 11 Pro",
@@ -17,5 +17,5 @@
   },
   "physical_memory_bytes": 34048978944,
   "scope": "Host observed after these retained runs. Shared desktop, no affinity/frequency/background-load isolation. No host name, serial number, account or device identifiers recorded.",
-  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b"
+  "source_sha256": "7c1606370a8c3309dd38d2ac0dcf845e82fe4eb48a46916dbf31fb241cedf1fd"
 }

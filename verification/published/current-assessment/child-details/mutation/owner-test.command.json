@@ -1,8 +1,8 @@
 {
   "command": [
-    "<project-temp>\\bqm-0d532656dd\\source\\build\\native_tests.exe"
+    "<project-temp>\\bqm-bf411799ab\\source\\build\\native_tests.exe"
   ],
-  "duration_seconds": 0.5943665999220684,
+  "duration_seconds": 0.6215462000109255,
   "exit_code": 1,
   "stderr_sha256": "9ccef06960e7c4bbccbaf9f13b82e07925649defc762392e344f36fb1a343ba0",
   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

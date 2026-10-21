@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "review_type": "independent-final",
+  "execution_mode": "separate-read-only-session",
+  "reviewer": "Independent read-only automated verifier",
+  "source_sha256": "7c1606370a8c3309dd38d2ac0dcf845e82fe4eb48a46916dbf31fb241cedf1fd",
+  "release_sha256": "032f7f8d69b38497a77baa07a347a81733d94ab93faf927df9eeedda4bbcac73",
+  "git_commit": "05007149398de6a0b1c5c65ce255f3082d532800",
+  "git_tree": "02589e074f0fe4134320c9e18d9189a5ee135310",
+  "disposition": "APPROVED",
+  "completed_utc": "2026-10-21T10:07:13.276810Z",
+  "scope": [
+    "source",
+    "acceptance",
+    "evidence",
+    "release-scope"
+  ],
+  "assessment": "Approved within the reviewed experimental-release scope. All 24 criteria are supported by current original execution evidence and fixed contracts. Before reusing prior technical conclusions, per-file Git-blob comparisons proved all 39 tracked src/tests/tools/scripts files unchanged from both the prior assessed baseline and a14. Only the Architecture header changes the source manifest. Exact bindings, 17 current bundles, 346 artifact bindings, nested child details, conversion/numerical results, complete six-workload benchmark coverage and successful retained Linux CI validate. The five documentation/landing findings are closed. No unresolved material finding was demonstrated. The criterion index correctly remains NOT_RELEASE_READY with review unset pending binding of this original report and subsequent release operations; this assessment does not attest their future execution.",
+  "exception": {
+    "path": "TEST_SPEC_EXCEPTION_TERMINAL_REPLAY.md",
+    "sha256": "75272c4d73af9475850ac480949ca14b49d3028d9e32bfd2e4a1a26af3686048",
+    "disposition": "ACCEPTED",
+    "rationale": "Exact bytes match the previously assessed exception. It explicitly overrides already-terminal cancellation replay, the completed-result ledger promise and the TH-015 ledger control. Terminal cancellation returns E_NOT_FOUND; cancellation after ID reuse with an old generation returns E_STALE. Lost-response SUBMIT retries can create new work; controllers must attribute output using session, owner, request ID and generation. Unchanged implementation/tests and current evidence preserve AC-005/007/020/021. Exactly-once delivery is not established."
+  },
+  "findings": [
+    {
+      "id": "PRIOR-RELEASE-BINDING",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "Exact current identities, sealed execution bundles and all 24 fixed command/semantic contracts validate. The final report must still be hash-bound before release verification.",
+      "evidence": [
+        "scripts/release_verify.py",
+        "scripts/evidence.py",
+        "verification/criterion_evidence_map.json",
+        "verification/criterion_status.json"
+      ]
+    },
+    {
+      "id": "PRIOR-ESCAPING-CACHE-VIEWS",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Implementation and tests match the prior assessment byte for byte; fresh native owner, reuse and stale-handle checks passed.",
+      "evidence": [
+        "src/cache.hpp",
+        "src/cache.cpp",
+        "tests/native_tests.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-PARTIAL-FORWARD-RECLAMATION",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Unchanged failure-reclamation regression passed again; current core evidence supports physical-page and reservation recovery.",
+      "evidence": [
+        "src/scheduler.cpp",
+        "tests/native_tests.cpp",
+        "verification/published/core-3bc1b6603c7a"
+      ]
+    },
+    {
+      "id": "PRIOR-SCHEDULER-ORDER",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Unchanged arrival-order implementation and fresh native arrival/fairness checks support the prior closure.",
+      "evidence": [
+        "src/scheduler.cpp",
+        "tests/native_tests.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-TERMINAL-REPLAY",
+      "priority": "MEDIUM",
+      "status": "ACCEPTED",
+      "summary": "Exact exception bytes are accepted with the documented terminal-cancellation overrides, retry duplication and output-attribution limitations.",
+      "evidence": [
+        "TEST_SPEC_EXCEPTION_TERMINAL_REPLAY.md",
+        "src/scheduler.cpp",
+        "src/main.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-SESSION-ATTRIBUTION",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "Identical implementation/tests and current process evidence support session/generation attribution and restart rejection.",
+      "evidence": [
+        "src/main.cpp",
+        "tests/test_system.py",
+        "verification/published/core-3bc1b6603c7a"
+      ]
+    },
+    {
+      "id": "PRIOR-OVERSIZE-DRAIN",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "Bounded-parser implementation/tests are unchanged; current host and instrumented Linux parser evidence validate the prior closure.",
+      "evidence": [
+        "src/main.cpp",
+        "tests/test_system.py",
+        "verification/published/sanitizers-a2a8c605fc92"
+      ]
+    },
+    {
+      "id": "PRIOR-REPLACEMENT-VERIFICATION",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "Execution controls are unchanged. Fresh RAM probes rejected dry-run, alternate-recipe, eval and replacement-interpreter command forms.",
+      "evidence": [
+        "scripts/execution.py",
+        "scripts/release_verify.py",
+        "tests/test_evidence.py"
+      ]
+    },
+    {
+      "id": "PRIOR-PUBLICATION-SCOPE",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "Current baseline history/security/license evidence validates. Fresh path/content and privacy-pattern checks covered 1,591 candidate files. The unchanged final gate requires a fresh complete-export/history audit after review binding; that subsequent audit is not attested here.",
+      "evidence": [
+        "scripts/publication_verify.py",
+        "scripts/audit_public.py",
+        "RELEASE_READINESS.md",
+        "verification/published/public-audit-ab835eb45a7b",
+        "verification/published/security-online-35c6c00ba691"
+      ]
+    },
+    {
+      "id": "PRIOR-BENCHMARK-CONSISTENCY",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "All retained native outputs, timing summaries, resource observations and exact parity validate. Fresh RAM probes rejected false parity, altered TTFT, omitted warmup and duplicated measurement.",
+      "evidence": [
+        "scripts/benchmark_evidence.py",
+        "verification/published/benchmark-82e21898e333"
+      ]
+    },
+    {
+      "id": "PRIOR-TRANSIENT-RESOURCE-PEAKS",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "High-water accounting is unchanged; the fresh native transient-resource regression passed and current benchmark companions validate.",
+      "evidence": [
+        "src/cache.cpp",
+        "src/scheduler.cpp",
+        "tools/benchmark_driver.cpp",
+        "tests/native_tests.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-ORIGINAL-STREAM-VERIFICATION",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "All 17 retained originals pass required raw-stream verification. Every public record binds its original record hash; public streams and all 346 artifact bindings match their originals.",
+      "evidence": [
+        "scripts/evidence.py",
+        "verification/evidence_index.json"
+      ]
+    },
+    {
+      "id": "PRIOR-INSPECTOR-RELOCATION",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "Current report/trace bindings, sandboxed desktop/mobile checks and hostile-display HTTP/keyboard/raw-link evidence validate. Temporary loopback servers are static test servers.",
+      "evidence": [
+        "scripts/evidence.py",
+        "verification/published/browser-2fc2ae524eff",
+        "verification/published/adversarial-inspector-d8bc5f8a6a07",
+        "docs/demo/browser-review.json"
+      ]
+    },
+    {
+      "id": "PRIOR-WORKLOAD-SUBSET",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "All six fixed workloads validate with 90 measurements, 18 warmups and 324 native companions. RAM probes rejected missing workload coverage and changed budgets, prompts or arrival semantics.",
+      "evidence": [
+        "scripts/benchmark_evidence.py",
+        "tools/benchmark_measurements.py",
+        "verification/published/benchmark-82e21898e333"
+      ]
+    },
+    {
+      "id": "PRIOR-ARTIFACT-OVERWRITE",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Snapshot controls are unchanged and current original/public artifact bytes agree. RAM corruption of public output, semantic artifacts and original raw streams was rejected.",
+      "evidence": [
+        "scripts/evidence.py",
+        "tests/test_evidence.py",
+        "verification/evidence_index.json"
+      ]
+    },
+    {
+      "id": "FINAL-CURRENT-BENCHMARK-DOCUMENTATION",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "Current descriptions agree with six synthetic workloads and 1/2/4/8/16 concurrent requests. No pretrained-speed or fused-execution claim is established.",
+      "evidence": [
+        "CLAIMS_EVIDENCE.md",
+        "VERIFICATION_REPORT.md",
+        "verification/published/current-assessment/REPORT.md"
+      ]
+    },
+    {
+      "id": "FOLLOWUP-CERTIFI-REMEDIATION",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "Certifi 2026.10.19 wheel bytes match retained publisher metadata and the installed version. Its exact 989-byte MPL notice is unchanged. The reference lock, 190 installed notice hashes and one separate upstream notice validate. The original 2026.10.18 advisory failure remains a failure; current advisory evidence covers 35 reference distributions without reported vulnerabilities.",
+      "evidence": [
+        "requirements-reference-windows-cp312.lock",
+        "verification/dependency_license_policy.json",
+        "verification/published/certifi-remediation/remediation.json",
+        "verification/published/certifi-remediation/advisory-before.json",
+        "verification/published/certifi-remediation/advisory-after.json",
+        "verification/published/security-online-35c6c00ba691"
+      ]
+    },
+    {
+      "id": "FOLLOWUP-CURRENT-ENVELOPE",
+      "priority": "INFO",
+      "status": "CLOSED",
+      "summary": "All 51 published child-detail files match their recorded hashes and disclosed original transformations; 17 host child command objects and 17 CI child commands validate. Six imported CI original stream sets match the digest-verified 102-file archive. Pure release verification reports only pending readiness and missing hashed final review.",
+      "evidence": [
+        "verification/evidence_index.json",
+        "verification/published/current-assessment/child-details.json",
+        "verification/published/current-assessment/ci-observation.json",
+        "verification/criterion_status.json"
+      ]
+    },
+    {
+      "id": "DOCS-CLEAN",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "The unsupported make clean instruction was removed from OPERATIONS.md; no fictitious target was added.",
+      "evidence": [
+        "OPERATIONS.md",
+        "Makefile"
+      ]
+    },
+    {
+      "id": "DOCS-PAGES",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Pages is explicitly optional and undeployed. The documentation does not establish a Pages site, cloud VM or inference HTTP deployment.",
+      "evidence": [
+        "OPERATIONS.md",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DOCS-PREREQUISITES",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "OPERATIONS.md requires GNU Make and Ninja; root README includes both. The retained typecheck description is supported by its build dependency.",
+      "evidence": [
+        "OPERATIONS.md",
+        "README.md",
+        "Makefile"
+      ]
+    },
+    {
+      "id": "DOCS-STATUS",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "The Architecture header links the existing criterion index. Only this header changes the source manifest; target architecture, behavior and locked definitions are unchanged.",
+      "evidence": [
+        "ARCHITECTURE.md",
+        "verification/criterion_status.json",
+        "verification/acceptance.lock.json",
+        "verification/phase_plan.sha256"
+      ]
+    },
+    {
+      "id": "LANDING-README",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "The stale .github/README.md is absent and the truthful CI guide has the distinct name .github/CI_SCOPE.md, resolving the source-level landing precedence defect. Final API default-README selection, complete remote tree equality and selected byte verification remain subsequent publication checks.",
+      "evidence": [
+        "README.md",
+        ".github/CI_SCOPE.md"
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-001",
+      "status": "PASS",
+      "rationale": "Current tiny-oracle results satisfy max absolute 3e-5 and RMS 3e-6 limits: observed 2.9268134893456477e-7 and 4.329997188388933e-8."
+    },
+    {
+      "id": "AC-002",
+      "status": "PASS",
+      "rationale": "Current evidence validates every-position cached/recomputed comparisons for 100 seeded sequences, three variants and 176,934 logits."
+    },
+    {
+      "id": "AC-003",
+      "status": "PASS",
+      "rationale": "Current ownership contract validates; fresh native owner-rejection checks passed against unchanged implementation."
+    },
+    {
+      "id": "AC-004",
+      "status": "PASS",
+      "rationale": "Fresh native zeroing, reuse, retained-copy and stale-handle checks passed; current evidence validates."
+    },
+    {
+      "id": "AC-005",
+      "status": "PASS",
+      "rationale": "Current cancellation/forward-failure evidence and fresh native reclamation checks support exact capacity recovery."
+    },
+    {
+      "id": "AC-006",
+      "status": "PASS",
+      "rationale": "Current chunk-bound and arrival-order contracts validate; fresh native checks passed with unchanged scheduling."
+    },
+    {
+      "id": "AC-007",
+      "status": "PASS",
+      "rationale": "Current cancellation evidence and fresh native terminal-cancellation checks pass under the accepted exact terminal-replay exception."
+    },
+    {
+      "id": "AC-008",
+      "status": "PASS",
+      "rationale": "Current completed-round fairness evidence validates; fresh native decode-grant fairness check passed."
+    },
+    {
+      "id": "AC-009",
+      "status": "PASS",
+      "rationale": "Current atomic-admission and position-bound evidence validates; fresh native capacity rejection check passed."
+    },
+    {
+      "id": "AC-010",
+      "status": "PASS",
+      "rationale": "Current finite malformed/oversize parser evidence validates; implementation/tests match the prior independent assessment."
+    },
+    {
+      "id": "AC-011",
+      "status": "PASS",
+      "rationale": "Current structural/nonfinite loader rejection evidence and Linux sanitizer originals validate; loader/tests are unchanged."
+    },
+    {
+      "id": "AC-012",
+      "status": "PASS",
+      "rationale": "Pinned pretrained conformance validates 20 fixed sequences, 326 positions and 16,023,552 logits: max error 0.0002955962646495891, weighted mean 0.000008623001204748004 and 311/311 confident top-1 matches."
+    },
+    {
+      "id": "AC-013",
+      "status": "PASS",
+      "rationale": "Pinned source weights/config and both retained 538,060,076-byte conversions were rehashed; both outputs equal d2420bf6c20490b91db1ecff3ffeabbf949f0a24fd428a27e3bff593cb14490e."
+    },
+    {
+      "id": "AC-014",
+      "status": "PASS",
+      "rationale": "Trusted local-controller scope is explicit; owner fields are not authentication and no remote inference adapter is implemented."
+    },
+    {
+      "id": "AC-015",
+      "status": "PASS",
+      "rationale": "Current native synthetic trace and exact-report desktop/mobile browser evidence validate, with retained GUI/keyboard/raw-link observations and hostile-display checks."
+    },
+    {
+      "id": "AC-016",
+      "status": "PASS",
+      "rationale": "Current originals validate fresh committed host/Linux checkouts, hash-locked dependency environments and successful install/build/tests/demo steps on existing toolchains."
+    },
+    {
+      "id": "AC-017",
+      "status": "PASS",
+      "rationale": "Digest-verified successful Linux CI originals establish actual Clang ASan/UBSan native, parser and lifecycle execution without retained sanitizer findings."
+    },
+    {
+      "id": "AC-018",
+      "status": "PASS",
+      "rationale": "Current source-bound history/secret/advisory/license evidence validates; fresh candidate path/privacy checks passed. The final complete-export/history audit remains mandatory after report binding."
+    },
+    {
+      "id": "AC-019",
+      "status": "PASS",
+      "rationale": "Six fixed synthetic workloads retain five repetitions per variant, 90 measurements, 18 warmups and 324 validated native companions with recomputed summaries and exact output parity."
+    },
+    {
+      "id": "AC-020",
+      "status": "PASS",
+      "rationale": "Current kill/restart and old-session rejection evidence validates against unchanged implementation/tests."
+    },
+    {
+      "id": "AC-021",
+      "status": "PASS",
+      "rationale": "Current incompatible-version, invalid-record and response-attribution contracts validate; fresh native invalid-ID checks passed."
+    },
+    {
+      "id": "AC-022",
+      "status": "PASS",
+      "rationale": "Current same-output comparisons and interleaving evidence support sequential token scheduling; no fused batching or pretrained performance claim is made."
+    },
+    {
+      "id": "AC-023",
+      "status": "PASS",
+      "rationale": "Two selected semantic mutations retain baseline PASS, expected FAIL and restored PASS; host and CI child commands/streams validate. No global mutation score is claimed."
+    },
+    {
+      "id": "AC-024",
+      "status": "PASS",
+      "rationale": "Current integrity regressions validate; fresh RAM corruption probes rejected altered public output, semantic artifacts and original raw streams."
+    }
+  ],
+  "actual_checks": [
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Inline Git/blob/manifest validation matched all four exact bindings, proved 39 implementation/test/tool/script files unchanged, checked the prior original report digest and exact exception bytes, and validated acceptance locks and locked phase consistency."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Inline validators checked 17 current public bundles and retained originals, required raw streams, original/public record and output bindings, all 346 artifact bindings, all 24 command/semantic contracts and successful retained CI metadata/archive originals."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Inline nested-detail validation matched 51 published files, 17 host command objects and their 34 original streams using the recorded producer path transformations; all 17 original CI child commands and stream hashes also validated."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Inline semantic/RAM checks recomputed pretrained and six-workload benchmark results; 15 negative probes rejected parity/timing/coverage/input/command substitutions and output/artifact/raw-stream corruption."
+    },
+    {
+      "command": "./build-host-a716/native_tests.exe",
+      "exit_code": 0,
+      "observation": "Existing native executable passed all 17 named cases; no build or fixture-writing suite was run."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Inline read-only checks rehashed pinned source/config, both converted files and benchmark binary; verified certifi publisher metadata/wheel/installed version, exact MPL notice, reference lock, 190 installed notice hashes and one upstream notice."
+    },
+    {
+      "command": "python -B scripts/audit_public.py",
+      "exit_code": 0,
+      "observation": "Current candidate path/content audit passed for 1,591 files. Separate inline privacy-pattern inspection found no matches and no changes outside the excluded evidence envelope."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Pure verify_release() returned exactly two expected pending conditions: overall status is not RELEASE_READY; hashed independent-review artifact is required. No other release-validation error was returned. The full release gate was not executed."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Final proposed JSON was validated in RAM against the supplied report schema, input binding strings, Git/manifests, exactly 24 unique criterion IDs/statuses and accepted exception bytes."
+    }
+  ],
+  "unexecuted": [
+    "Hash-bind this original report and commit only excluded evidence changes.",
+    "Execute actual make release-verify on the final evidence commit, including a fresh complete-current-export/history/secret/license audit.",
+    "Push the designated public repository and verify the newest actual CI run for that publication commit.",
+    "Perform final API default README.md selection, complete remote tree equality, selected byte hashes and public navigation checks.",
+    "Perform the final completion audit."
+  ],
+  "limitations": [
+    "Automated experimental-release assessment; not human certification or production readiness.",
+    "Hashes provide local integrity bindings, not external attestation. This session performed no writes, builds, installs, collectors or fixture-writing suites.",
+    "Browser/GUI conclusions use inspected retained actual evidence; interactive browser actions were not repeated in this session.",
+    "The inspector is an offline actual synthetic execution. No Pages site, cloud VM or inference HTTP deployment is established; loopback servers were temporary static test servers.",
+    "Numerical conformance does not establish generated-language quality or pretrained performance. No GPU/fused batching, HTTP authentication, production traffic or availability claim is approved.",
+    "Fresh dependency environments used existing hosts/toolchains, not clean machine images. Benchmarks used a shared CPU host without affinity/frequency isolation.",
+    "Historical environment/network/parser failures, interrupted assessments, the rejected binding typo, original certifi advisory and source-race rejection remain historical failures. The intentionally interrupted earlier collection retains its model FAIL and unsealed benchmark and supplies no current release proof. Historical release-gate success is not current approval."
+  ]
+}
