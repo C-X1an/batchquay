@@ -16,7 +16,7 @@
     "seed": 1729,
     "sha256": "43bad1cfb9503daba382829e1ca983c7c819c5d2546a09b1b992ed261a790d9f"
   },
-  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "source_sha256": "7c1606370a8c3309dd38d2ac0dcf845e82fe4eb48a46916dbf31fb241cedf1fd",
   "trace": [
     {
       "label": "Admit alpha",
@@ -25,7 +25,7 @@
         "generation": 1,
         "id": "a",
         "owner": "alpha",
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -35,7 +35,7 @@
         "generation": 2,
         "id": "b",
         "owner": "beta",
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -43,7 +43,7 @@
       "response": {
         "code": "E_CAPACITY",
         "event": "error",
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -57,7 +57,7 @@
             "id": "a",
             "index": 2,
             "owner": "alpha",
-            "session": "110b8b79657d378d4239e0c28ee93d7c"
+            "session": "320ed5db0ea6dfa686ab3198597d8832"
           },
           {
             "event": "prefill",
@@ -65,10 +65,10 @@
             "id": "b",
             "index": 3,
             "owner": "beta",
-            "session": "110b8b79657d378d4239e0c28ee93d7c"
+            "session": "320ed5db0ea6dfa686ab3198597d8832"
           }
         ],
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -79,7 +79,7 @@
         "id": "b",
         "index": 0,
         "owner": "beta",
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -93,11 +93,11 @@
             "id": "a",
             "index": 1,
             "owner": "alpha",
-            "session": "110b8b79657d378d4239e0c28ee93d7c",
+            "session": "320ed5db0ea6dfa686ab3198597d8832",
             "token": 2
           }
         ],
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -111,11 +111,11 @@
             "id": "a",
             "index": 2,
             "owner": "alpha",
-            "session": "110b8b79657d378d4239e0c28ee93d7c",
+            "session": "320ed5db0ea6dfa686ab3198597d8832",
             "token": 2
           }
         ],
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -129,7 +129,7 @@
             "id": "a",
             "index": 3,
             "owner": "alpha",
-            "session": "110b8b79657d378d4239e0c28ee93d7c",
+            "session": "320ed5db0ea6dfa686ab3198597d8832",
             "token": 36
           },
           {
@@ -138,10 +138,10 @@
             "id": "a",
             "index": 3,
             "owner": "alpha",
-            "session": "110b8b79657d378d4239e0c28ee93d7c"
+            "session": "320ed5db0ea6dfa686ab3198597d8832"
           }
         ],
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     },
     {
@@ -152,7 +152,7 @@
         "live": 0,
         "physical": 0,
         "reserved": 0,
-        "session": "110b8b79657d378d4239e0c28ee93d7c"
+        "session": "320ed5db0ea6dfa686ab3198597d8832"
       }
     }
   ]

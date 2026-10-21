@@ -17,7 +17,7 @@ Can a small inference engine preserve numerical behavior while it interleaves re
 The runtime uses FP32 storage/activations and FP64 reductions. The independent Python oracle recomputes complete prefixes with dense NumPy operations. This is neither a wrapper around a hosted model nor a replacement for llama.cpp, vLLM or SGLang.
 
 ## Run locally
-Linux or Windows with GCC, CMake, Ninja, Python 3.12 and Git are supported verification hosts. The fixture and demo use the Python standard library. NumPy is needed for differential verification; Clang sanitizer campaigns require Linux.
+Linux or Windows with GCC, GNU Make, CMake, Ninja, Python 3.12 and Git are supported verification hosts. The fixture and demo use the Python standard library. NumPy is needed for differential verification; Clang sanitizer campaigns require Linux.
 
 ```sh
 make bootstrap       # Inspect prerequisites; does not install or alter the host.

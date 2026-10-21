@@ -1,6 +1,6 @@
 # Architecture
 
-This document specifies the complete target; IMPLEMENTATION_STATUS.md distinguishes implemented kernel from pending runtime work. An implementation diagram is not evidence of completion.
+This document specifies the complete target; current implementation and verification status is recorded in [verification/criterion_status.json](verification/criterion_status.json). An implementation diagram is not evidence of completion.
 
 ## Context and component ownership
 ```mermaid
