@@ -1,0 +1,180 @@
+{
+  "benchmark": {
+    "environment": {
+      "affinity_cores": null,
+      "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+      "logical_cpus": 20,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.14",
+      "threads": 1
+    },
+    "rows": 90,
+    "summary": [
+      {
+        "elapsed_maximum_ms": 14.144,
+        "elapsed_median_ms": 13.517,
+        "elapsed_minimum_ms": 13.118,
+        "peak_rss_maximum_bytes": 5128192,
+        "variant": "serial-recompute",
+        "workload": "short-single"
+      },
+      {
+        "elapsed_maximum_ms": 2.356,
+        "elapsed_median_ms": 2.236,
+        "elapsed_minimum_ms": 2.074,
+        "peak_rss_maximum_bytes": 5124096,
+        "variant": "contiguous",
+        "workload": "short-single"
+      },
+      {
+        "elapsed_maximum_ms": 2.848,
+        "elapsed_median_ms": 2.245,
+        "elapsed_minimum_ms": 2.101,
+        "peak_rss_maximum_bytes": 5001216,
+        "variant": "paged",
+        "workload": "short-single"
+      },
+      {
+        "elapsed_maximum_ms": 4682.1,
+        "elapsed_median_ms": 1573.332,
+        "elapsed_minimum_ms": 1218.317,
+        "peak_rss_maximum_bytes": 5259264,
+        "variant": "serial-recompute",
+        "workload": "long-single"
+      },
+      {
+        "elapsed_maximum_ms": 35.204,
+        "elapsed_median_ms": 27.546,
+        "elapsed_minimum_ms": 20.116,
+        "peak_rss_maximum_bytes": 5169152,
+        "variant": "contiguous",
+        "workload": "long-single"
+      },
+      {
+        "elapsed_maximum_ms": 32.479,
+        "elapsed_median_ms": 30.653,
+        "elapsed_minimum_ms": 23.052,
+        "peak_rss_maximum_bytes": 5099520,
+        "variant": "paged",
+        "workload": "long-single"
+      },
+      {
+        "elapsed_maximum_ms": 1789.011,
+        "elapsed_median_ms": 1769.789,
+        "elapsed_minimum_ms": 1640.563,
+        "peak_rss_maximum_bytes": 5255168,
+        "variant": "serial-recompute",
+        "workload": "mixed-four"
+      },
+      {
+        "elapsed_maximum_ms": 50.996,
+        "elapsed_median_ms": 48.603,
+        "elapsed_minimum_ms": 46.923,
+        "peak_rss_maximum_bytes": 5931008,
+        "variant": "contiguous",
+        "workload": "mixed-four"
+      },
+      {
+        "elapsed_maximum_ms": 53.397,
+        "elapsed_median_ms": 52.111,
+        "elapsed_minimum_ms": 50.481,
+        "peak_rss_maximum_bytes": 5255168,
+        "variant": "paged",
+        "workload": "mixed-four"
+      },
+      {
+        "elapsed_maximum_ms": 2784.735,
+        "elapsed_median_ms": 2651.863,
+        "elapsed_minimum_ms": 2248.717,
+        "peak_rss_maximum_bytes": 5328896,
+        "variant": "serial-recompute",
+        "workload": "mixed-eight"
+      },
+      {
+        "elapsed_maximum_ms": 78.612,
+        "elapsed_median_ms": 77.751,
+        "elapsed_minimum_ms": 75.821,
+        "peak_rss_maximum_bytes": 6979584,
+        "variant": "contiguous",
+        "workload": "mixed-eight"
+      },
+      {
+        "elapsed_maximum_ms": 84.276,
+        "elapsed_median_ms": 77.844,
+        "elapsed_minimum_ms": 73.823,
+        "peak_rss_maximum_bytes": 5304320,
+        "variant": "paged",
+        "workload": "mixed-eight"
+      },
+      {
+        "elapsed_maximum_ms": 2325.839,
+        "elapsed_median_ms": 2143.319,
+        "elapsed_minimum_ms": 1882.964,
+        "peak_rss_maximum_bytes": 5337088,
+        "variant": "serial-recompute",
+        "workload": "mixed-two"
+      },
+      {
+        "elapsed_maximum_ms": 42.061,
+        "elapsed_median_ms": 40.746,
+        "elapsed_minimum_ms": 28.4,
+        "peak_rss_maximum_bytes": 5427200,
+        "variant": "contiguous",
+        "workload": "mixed-two"
+      },
+      {
+        "elapsed_maximum_ms": 47.118,
+        "elapsed_median_ms": 46.6,
+        "elapsed_minimum_ms": 34.049,
+        "peak_rss_maximum_bytes": 5320704,
+        "variant": "paged",
+        "workload": "mixed-two"
+      },
+      {
+        "elapsed_maximum_ms": 13702.512,
+        "elapsed_median_ms": 12359.253,
+        "elapsed_minimum_ms": 11577.872,
+        "peak_rss_maximum_bytes": 5599232,
+        "variant": "serial-recompute",
+        "workload": "mixed-sixteen"
+      },
+      {
+        "elapsed_maximum_ms": 243.292,
+        "elapsed_median_ms": 216.828,
+        "elapsed_minimum_ms": 188.714,
+        "peak_rss_maximum_bytes": 9150464,
+        "variant": "contiguous",
+        "workload": "mixed-sixteen"
+      },
+      {
+        "elapsed_maximum_ms": 278.973,
+        "elapsed_median_ms": 226.785,
+        "elapsed_minimum_ms": 205.092,
+        "peak_rss_maximum_bytes": 6176768,
+        "variant": "paged",
+        "workload": "mixed-sixteen"
+      }
+    ],
+    "warmups": 18
+  },
+  "pretrained": {
+    "all_confident_top1_match": true,
+    "confident_positions": 311,
+    "conversion_hashes": [
+      "d2420bf6c20490b91db1ecff3ffeabbf949f0a24fd428a27e3bff593cb14490e",
+      "d2420bf6c20490b91db1ecff3ffeabbf949f0a24fd428a27e3bff593cb14490e"
+    ],
+    "max_absolute_error": 0.0002955962646495891,
+    "positions": 326,
+    "sequences": 20,
+    "weighted_mean_absolute_error": 8.623001204748004e-06
+  },
+  "tiny": {
+    "logit_values": 176934,
+    "max_absolute_error": 2.9268134893456477e-07,
+    "oracle": "independent full-prefix float64 over FP32 weights",
+    "rms_error": 4.329997188388933e-08,
+    "sequences": 100,
+    "variants": 3
+  }
+}

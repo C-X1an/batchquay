@@ -1,0 +1,15 @@
+{
+  "command": [
+    "make",
+    "CMAKE=cmake",
+    "BUILD=build",
+    "PYTHON=<project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe",
+    "demo"
+  ],
+  "duration_seconds": 0.7182612000033259,
+  "exit_code": 0,
+  "name": "demo",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "4d12df5fe069faad4d33dbde5b7c58fa83dfc313f7c3225292723466e7ee6631",
+  "stem": "demo"
+}

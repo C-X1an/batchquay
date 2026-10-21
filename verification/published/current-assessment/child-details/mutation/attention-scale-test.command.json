@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<python-environment>\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_numerics.py",
+    "-v"
+  ],
+  "duration_seconds": 0.5476902000373229,
+  "exit_code": 1,
+  "stderr_sha256": "4cd5d31ff84e95c240098069569a09e02f48ef82a4ea08044cb5bb78937b8ec2",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stem": "attention-scale-test"
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "cmake",
+    "-S",
+    ".",
+    "-B",
+    "build",
+    "-G",
+    "Ninja",
+    "-DCMAKE_BUILD_TYPE=Release"
+  ],
+  "duration_seconds": 1.9769212000537664,
+  "exit_code": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "45f5b33162e42e0d2f62deaedc96afa3f59c316971b72dd037ab59a08da64d34",
+  "stem": "attention-scale-build-0"
+}

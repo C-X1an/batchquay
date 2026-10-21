@@ -1,0 +1,58 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 361,
+      "label": "history-scan",
+      "path": "verification/published/public-audit-56e2bf56ee9d/artifacts/history-scan.json",
+      "sha256": "34a464fae777872b8f4c28fa911f91082d224ee73c766b53f4e49df5681a1a60"
+    }
+  ],
+  "category": "public-audit",
+  "command": [
+    "make",
+    "CMAKE=cmake",
+    "BUILD=build-host-a716",
+    "PYTHON=python.exe",
+    "security"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 0.5018098,
+  "ended_utc": "2026-10-20T18:06:12.776794+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "c4a71b9c913fec9514f66bdd3e05e8aa03764d0389d60c89f08c9ffeb25a6524",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_stdout_sha256": "f299d022ae3d5760c0e233061f81f70d2f009aa00c4e83813d6fbfe2c6ed3377",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
+  "git_dirty": false,
+  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "name": "public-audit",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "runtime_versions": {
+    "c++": "c++ (GCC) 16.2.0",
+    "clang++": "UNAVAILABLE",
+    "cmake": "cmake version 4.4.4",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "started_utc": "2026-10-20T18:06:12.262544+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "b129b6525b32539375b8b3892142d7b84c6e2c7abace9f30bc2e672f1aa499a9",
+  "timed_out": false
+}

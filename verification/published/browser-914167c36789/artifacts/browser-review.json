@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "html_sha256": "6f4976d375d9e13b04a16e92575f1a0865502fd39260d7608ad5aadbb7a0ab20",
+  "mode": "Actual sandbox-enabled headless browser; owned HTML loaded through set_content. DOM/layout/keyboard and screenshots tested; file-URL and externally hosted navigation not tested.",
+  "views": [
+    {
+      "view": "desktop",
+      "width": 1440,
+      "horizontal_overflow": false,
+      "first_focus": "#trace"
+    },
+    {
+      "view": "mobile",
+      "width": 390,
+      "horizontal_overflow": false,
+      "first_focus": "#trace"
+    }
+  ]
+}

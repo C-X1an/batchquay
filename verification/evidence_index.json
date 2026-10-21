@@ -1,474 +1,387 @@
 {
-  "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-  "records": {
-    "core": {
-      "path": "verification/published/core",
-      "schema_version": 1,
-      "name": "core",
-      "command": [
-        "make",
-        "verify"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:19:49.817224+00:00",
-      "ended_utc": "2026-10-18T19:20:01.426951+00:00",
-      "duration_seconds": 11.609451157,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
-      "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
+  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
+  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "measurements": "verification/published/current-assessment/measurements.json",
+  "receipts": [
+    {
       "category": "core",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "5e35f1bd90a4423cb6fbac3050fc0b7d078888ef843028d1e95e798123f7648c",
-      "stderr_sha256": "75dbc2bd140022a3be6093b96f1a77b9324c459dbf98e6f4a418330d8ea817bb",
+      "duration_seconds": 35.4400628,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "6fed4647d6f2c8f1f3d0dab1cefd8bf8fd94bd36481f6407494ef4a85760e235",
+        "raw_stdout_sha256": "adcf42ad38143f3f769aa60126ff439bfc53c03e879790d8556346154d5e7d7d",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "conversion": {
-      "path": "verification/published/conversion",
-      "schema_version": 1,
-      "name": "conversion",
-      "command": [
-        "make",
-        "conversion-test"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:20:01.477724+00:00",
-      "ended_utc": "2026-10-18T19:20:04.185220+00:00",
-      "duration_seconds": 2.707164533,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
+      "origin": "host",
+      "receipt": "verification/published/core-2b46d041e3d4",
+      "record_sha256": "7901d4963b558324615d189b4d01f6bd546fcb64acb24a8f43b3736f925cf04a",
       "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
+    },
+    {
       "category": "conversion",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "5d58b730663f7a17fdb8bb30cd1720547167edac8c9f3da687c59e69c0752e3e",
-      "stderr_sha256": "c230447e3c9796fa72f6b70bd7592826e2fb5f29340c4548c3f04fe65bd646f3",
+      "duration_seconds": 2.5579214,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "214a9eb64d0259947de8ca9c5ee8a8797e2c3c2e65280e5ab2b6c5af4b47d3ba",
+        "raw_stdout_sha256": "397e7acaafe717feefc972c51f2711a7c1b9b563cc11e1727fe711dea3276356",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "sanitizers": {
-      "path": "verification/published/sanitizers",
-      "schema_version": 1,
-      "name": "sanitizers",
-      "command": [
-        "make",
-        "sanitize"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:20:04.284777+00:00",
-      "ended_utc": "2026-10-18T19:20:06.595170+00:00",
-      "duration_seconds": 2.309740284,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
+      "origin": "host",
+      "receipt": "verification/published/conversion-49added133ff",
+      "record_sha256": "0a6a75375d060a268417fec0d4fd3f28d3840748ab408dc19d1dc2913e44c928",
       "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "sanitizers",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "b79c1fc781a6477747dc7d8238701af8adae14fe111be8cbb1c4e599554da136",
-      "stderr_sha256": "b273411e8c599591249000848c92684699fa14a827a00cf2be25c4074a29eec6",
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
+    },
+    {
+      "category": "evidence-integrity",
+      "duration_seconds": 6.7341791,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "03db565f203a06a2d1bfef0297b66b95e2f9bc354e2cbd3026ceb16d3fe22a3a",
+        "raw_stdout_sha256": "c123a05848bc6496e5283715a9ebd9b6afe6c769aa07a13f58735e5366a29cd8",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "static": {
-      "path": "verification/published/static",
-      "schema_version": 1,
-      "name": "static",
-      "command": [
-        "make",
-        "lint"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:20:36.517958+00:00",
-      "ended_utc": "2026-10-18T19:21:01.489091+00:00",
-      "duration_seconds": 24.970659018,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
+      "origin": "host",
+      "receipt": "verification/published/evidence-integrity-b46a7107f7ba",
+      "record_sha256": "49610ec86429dc02b340d47f63fdd50ac460b3ac7ffeb8b2e2a08d07250f72fc",
       "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "static",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "86fc963a91efd3216b5a7ccedafa0ad11cc6239cda1271eedcbbb4f57b872f81",
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
-      },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
     },
-    "benchmark": {
-      "path": "verification/published/benchmark",
-      "schema_version": 1,
-      "name": "benchmark",
-      "command": [
-        "make",
-        "benchmark"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:21:17.470846+00:00",
-      "ended_utc": "2026-10-18T19:21:18.644049+00:00",
-      "duration_seconds": 1.172915623,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
-      "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "benchmark",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "2e5374cfd03462266d603e4c478f8a77967cd2b7261e32708e83cf268b30f3e9",
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
-      },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "browser": {
-      "path": "verification/published/browser",
-      "schema_version": 1,
-      "name": "browser",
-      "command": [
-        "python3",
-        "-m",
-        "tools.browser_check"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:21:18.693415+00:00",
-      "ended_utc": "2026-10-18T19:21:22.497691+00:00",
-      "duration_seconds": 3.803937572,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
-      "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
+    {
       "category": "browser",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "12eace30b41f7b8bbd3debb926d271889db509013f2902a0d2305c198fc4151a",
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_seconds": 1.5244681,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "bd33e8543d17d0a3aa9edafa49649457bc093c260000494b02f5723e7b7839d7",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "mutation": {
-      "path": "verification/published/mutation",
-      "schema_version": 1,
-      "name": "mutation",
-      "command": [
-        "make",
-        "mutation"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:21:22.551314+00:00",
-      "ended_utc": "2026-10-18T19:21:43.808846+00:00",
-      "duration_seconds": 21.256475071,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
+      "origin": "host",
+      "receipt": "verification/published/browser-914167c36789",
+      "record_sha256": "37d6c7b2a8051a5af79d59d7f0dfcca195ce2f4f681adfe5e73cfd7ac25e6725",
       "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "mutation",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "8e167d1dc3bd417975689f1001d3e555467725f14f8b9b8e75002d5cc6ce0b29",
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
-      },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
     },
-    "clean": {
-      "path": "verification/published/clean",
-      "schema_version": 1,
-      "name": "clean",
-      "command": [
-        "make",
-        "clean-verify"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:22:18.471729+00:00",
-      "ended_utc": "2026-10-18T19:22:39.590573+00:00",
-      "duration_seconds": 21.118542846,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
-      "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
+    {
       "category": "clean",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "ba288fb02dd7ffa5dff2579ee00300a95f63a8bd6cf669690ff4f769770b277a",
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_seconds": 369.2335697,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "3646f5d2f6ed23aa20a94474a4e9aff80cdb878b8777d6c2d9261558564cd8e7",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "model-fetch": {
-      "path": "verification/published/model-fetch",
-      "schema_version": 1,
-      "name": "model-fetch",
-      "command": [
-        "make",
-        "fetch-model"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:24:46.550153+00:00",
-      "ended_utc": "2026-10-18T19:24:47.674571+00:00",
-      "duration_seconds": 1.124149015,
-      "exit_code": 2,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
+      "origin": "host",
+      "receipt": "verification/published/clean-27cc8e85ad46",
+      "record_sha256": "9d2f821e87bc591cf8fd7e51347a6111a786eacfd19f1dda93fa543c45794005",
       "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "model-fetch",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "FAIL",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "c00d70042f4f0d12bb4a1e85d4dbd413dfbbe8eeaa2ea66edb14d7d251d64d14",
-      "stderr_sha256": "1179e67d05c849e7c2f7ef4b7afd81bbc6f8f7d32c9c47796844fa4b18cc4874",
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
+    },
+    {
+      "category": "security-online",
+      "duration_seconds": 5.9807369,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "00ce3b81d9455298e7e4cd69af3b2ce3d303a23a60d260c0127927c3dbadf5d0",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "pretrained": {
-      "path": "verification/published/pretrained",
-      "schema_version": 1,
-      "name": "pretrained",
-      "command": [
-        "make",
-        "real-model"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:24:47.722546+00:00",
-      "ended_utc": "2026-10-18T19:24:50.369548+00:00",
-      "duration_seconds": 2.646682482,
-      "exit_code": 2,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
+      "origin": "host",
+      "receipt": "verification/published/security-online-ac699ced8a95",
+      "record_sha256": "ee035dcc58ce32f7e2f25cc91cac20141f355592886738d7c2536341fa1f277d",
       "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "pretrained",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "FAIL",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "7c0c097c31185bf2ab9cff4e6b686d47b0d822a9830f2b7d7c413c125e7c6055",
-      "stderr_sha256": "ae3db327f059d58ebdb1bbfc4c1fb56806c0272d5a7e0c60a0dcd565de39e228",
-      "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
-      },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
     },
-    "online-security": {
-      "path": "verification/published/online-security",
-      "schema_version": 1,
-      "name": "online-security",
-      "command": [
-        "make",
-        "security-online"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:24:50.411820+00:00",
-      "ended_utc": "2026-10-18T19:24:51.313548+00:00",
-      "duration_seconds": 0.901417447,
-      "exit_code": 2,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": false,
-      "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "online-security",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "FAIL",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "693f5114f9a635c5e89126528cd653217c56dc19dd3b1c01ccd68ce0b26ba13e",
-      "stderr_sha256": "e151038a6317636020aa581262151c82e53451afbd752ee8f1c817e21355c872",
-      "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
-      },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "public-audit": {
-      "path": "verification/published/public-audit",
-      "schema_version": 1,
-      "name": "public-audit",
-      "command": [
-        "make",
-        "security"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:32:30.459570+00:00",
-      "ended_utc": "2026-10-18T19:32:32.717043+00:00",
-      "duration_seconds": 2.257124542,
-      "exit_code": 0,
-      "timed_out": false,
-      "git_commit": "b8f53f6769ee7a3791dc707f71909335222f2ac8",
-      "git_dirty": false,
-      "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
+    {
       "category": "public-audit",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "PASS",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "df4d8642ec90dbc3b5debbff92ecd0b950e013d1afaabb183b582dddf6c44bdc",
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_seconds": 0.5018098,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "f299d022ae3d5760c0e233061f81f70d2f009aa00c4e83813d6fbfe2c6ed3377",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
-    },
-    "release-gate": {
-      "path": "verification/published/release-gate",
-      "schema_version": 1,
-      "name": "release-gate",
-      "command": [
-        "make",
-        "release-verify"
-      ],
-      "cwd": "public repository root",
-      "started_utc": "2026-10-18T19:30:42.283006+00:00",
-      "ended_utc": "2026-10-18T19:30:43.150118+00:00",
-      "duration_seconds": 0.866775151,
-      "exit_code": 2,
-      "timed_out": false,
-      "git_commit": "9c773daeabf4be83e14992ce365e9bd4022a9fda",
-      "git_dirty": true,
+      "origin": "host",
+      "receipt": "verification/published/public-audit-56e2bf56ee9d",
+      "record_sha256": "98caab341583a7a5b901608c86005d67d16a64183a82921bcb17cd698f15a03a",
       "runtime_versions": {
-        "c++": "c++ (Debian 14.2.0-19) 14.2.0",
-        "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
-        "cmake": "cmake version 3.31.6",
-        "git": "git version 2.47.3"
-      },
-      "category": "release-gate",
-      "stdout_file": "stdout.txt",
-      "stderr_file": "stderr.txt",
-      "status": "FAIL",
-      "source_sha256": "8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b",
-      "stdout_sha256": "9a79a738c7caa3d12ce473d47f3c0e6ad61b9fb02cc9e3dcd810ad83af66f680",
-      "stderr_sha256": "867364dccc1162ed8b1fbd94bb1158755bddd3708d9ccf24cc9189a99c769d84",
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
+    },
+    {
+      "category": "real-model",
+      "duration_seconds": 58.9955441,
       "environment": {
-        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
-        "python": "3.13.5",
-        "machine": "x86_64"
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "704503e89bdf8579e35c6985f978a5f2ab51a6d91bcb62fc169c18fd704623bc",
+        "raw_stdout_sha256": "b45671c0c891960236445c6c2175aaeff9f5a75fe7b1980dcfe135313da74a56",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
-      "scope": "local execution; no independent-agent or hosted-CI attestation"
+      "origin": "host",
+      "receipt": "verification/published/real-model-5c92111762da",
+      "record_sha256": "a6346cf498a25ad2f4e864c1c1b2c6f14637a3c5a4e56e373b2712750ce38373",
+      "runtime_versions": {
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
+    },
+    {
+      "category": "benchmark",
+      "duration_seconds": 134.9442614,
+      "environment": {
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "bc5a1f99626b7c0f816ed6bb5e37946224f4f8bacdda8d020e4df6db4864be8d",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "host",
+      "receipt": "verification/published/benchmark-052a7d17d95f",
+      "record_sha256": "ff50116d5775f487283685bc0f608d36d151a6d79fbe170b7146764460cc784a",
+      "runtime_versions": {
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
+    },
+    {
+      "category": "mutation",
+      "duration_seconds": 23.6986396,
+      "environment": {
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "5eb4869fd8cdc5b52d023044b20dbc041f3833e263b6775782b710c59d03e52c",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "host",
+      "receipt": "verification/published/mutation-e8e69ac532f4",
+      "record_sha256": "fd7b68d0572e2b293f0bc821bc62db06064153e81426cae8bb380b40d3928a3c",
+      "runtime_versions": {
+        "c++": "c++ (GCC) 16.2.0",
+        "clang++": "UNAVAILABLE",
+        "cmake": "cmake version 4.4.4",
+        "git": "git version 2.52.0.windows.1"
+      }
+    },
+    {
+      "category": "clean",
+      "duration_seconds": 21.846712312,
+      "environment": {
+        "machine": "x86_64",
+        "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.12.3",
+        "python_executable": "python",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "f8e91a5d8edf8cc0ea7f4f4979fc37fedd56e8c26fec1f1b166199ef6cf6f868",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "ci",
+      "receipt": "verification/published/clean-11bf8e0f32b8",
+      "record_sha256": "3c8ee72d213c4ac311e382aeab4fd1d219d031f442c9e21a1a4e7d03c73a51e3",
+      "runtime_versions": {
+        "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+        "cmake": "cmake version 3.31.6",
+        "git": "git version 2.55.0"
+      }
+    },
+    {
+      "category": "core",
+      "duration_seconds": 20.906538211,
+      "environment": {
+        "machine": "x86_64",
+        "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.12.3",
+        "python_executable": "python",
+        "raw_stderr_sha256": "84041073c6236ec41087332f058e6e22f317dcb14b39caf4c52f6cd6ac2b2c55",
+        "raw_stdout_sha256": "2f0c9ad708760497e0a0af6d6be972e1dd9730999e3251e6690d7d05a5a65d0d",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "ci",
+      "receipt": "verification/published/core-d6488d81a164",
+      "record_sha256": "7eb1e96dcd0892ad967306e41d7681398f40fdcf187b041126f68430dccfdc51",
+      "runtime_versions": {
+        "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+        "cmake": "cmake version 3.31.6",
+        "git": "git version 2.55.0"
+      }
+    },
+    {
+      "category": "evidence-integrity",
+      "duration_seconds": 1.361787693,
+      "environment": {
+        "machine": "x86_64",
+        "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.12.3",
+        "python_executable": "python",
+        "raw_stderr_sha256": "cfdc74bc4aa5974e507e9dbb1911a891a028388f16c345d11c4a69c3ba786f34",
+        "raw_stdout_sha256": "da1bacbaf0e7dbe382f1bb20236242f0dc2104e1bd9f7984367f607b7ffc7b2a",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "ci",
+      "receipt": "verification/published/evidence-integrity-8694da75478b",
+      "record_sha256": "91be795f8eda427bec31f9c7afd8b9f4bc696c75081c8d214681104e0df5dafa",
+      "runtime_versions": {
+        "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+        "cmake": "cmake version 3.31.6",
+        "git": "git version 2.55.0"
+      }
+    },
+    {
+      "category": "mutation",
+      "duration_seconds": 9.728264628,
+      "environment": {
+        "machine": "x86_64",
+        "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.12.3",
+        "python_executable": "python",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "0924f86878ff690d85e4d0d153952b789b7b8fbd6621dacc721ea5f79666f95c",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "ci",
+      "receipt": "verification/published/mutation-b74055590c28",
+      "record_sha256": "2af1330010db2989677fa6eb2ad184e0ad38dee6bd11ef9a836b22a0b8cd0ed4",
+      "runtime_versions": {
+        "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+        "cmake": "cmake version 3.31.6",
+        "git": "git version 2.55.0"
+      }
+    },
+    {
+      "category": "sanitizers",
+      "duration_seconds": 9.949096324,
+      "environment": {
+        "machine": "x86_64",
+        "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.12.3",
+        "python_executable": "python",
+        "raw_stderr_sha256": "74ae618648341e0d6092b30e61c2d8338a2d4c3be2a8a98588910a63a17bff66",
+        "raw_stdout_sha256": "83e81a93dbc0bb68e3d75392171f896850be9c631f0954ba1adb5f4e84c977a9",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "ci",
+      "receipt": "verification/published/sanitizers-6113003483a1",
+      "record_sha256": "43c77e5138fd8f4f0a716ab4b96e1b6cde231ab257c67385a91106863684e6b1",
+      "runtime_versions": {
+        "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+        "cmake": "cmake version 3.31.6",
+        "git": "git version 2.55.0"
+      }
+    },
+    {
+      "category": "static",
+      "duration_seconds": 16.144738827,
+      "environment": {
+        "machine": "x86_64",
+        "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.12.3",
+        "python_executable": "python",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "17d8b8b4cfaede843771edffaee8e0723398b3f9d0cce90e6a95807a8f9f44e3",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "ci",
+      "receipt": "verification/published/static-eca8e042e542",
+      "record_sha256": "088cb63fed313a5f5d61eb3c505ce8b7b58071a92c881fe736af4424090ebb3a",
+      "runtime_versions": {
+        "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+        "cmake": "cmake version 3.31.6",
+        "git": "git version 2.55.0"
+      }
+    },
+    {
+      "category": "adversarial-inspector",
+      "duration_seconds": 2.0646346,
+      "environment": {
+        "machine": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14",
+        "python_executable": "python.exe",
+        "raw_stderr_sha256": "6c5f46fd577e3a8fde9e258f68db62513c0102bc79b0b203c5ff4e38ab5b19a3",
+        "raw_stdout_sha256": "0368c60e6478e4f414c36b55e1d3f9695f974bd5ec5d78040fbe09b823eb8b9f",
+        "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+      },
+      "origin": "extra",
+      "receipt": "verification/published/adversarial-inspector-77f5f32a31e4",
+      "record_sha256": "14e9ce2a1289d5a984df9a9deee8f5763877c3917529b989488765196641ef2e",
+      "runtime_versions": {
+        "c++": "UNAVAILABLE",
+        "clang++": "UNAVAILABLE",
+        "cmake": "UNAVAILABLE",
+        "git": "git version 2.52.0.windows.1"
+      }
     }
-  }
+  ],
+  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "remote_ci": "verification/published/current-assessment/ci-observation.json",
+  "report": "verification/published/current-assessment/REPORT.md",
+  "schema_version": 2,
+  "scope": "Current immutable source baseline; final independent approval is separately hash-bound by criterion_status.json. Original failures and earlier-source receipts are historical.",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db"
 }

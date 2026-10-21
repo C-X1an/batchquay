@@ -1,0 +1,71 @@
+<project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe scripts/style_check.py
+PASS text hygiene; clang-format is a separate optional command
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+-- Configuring done (0.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: <project-temp>/bqc-01b9e1f0fe/source/build
+cmake --build build -j 2
+ninja: no work to do.
+ctest --test-dir build --verbose --output-on-failure
+UpdateCTestConfiguration  from :<project-temp>/bqc-01b9e1f0fe/source/build/DartConfiguration.tcl
+Test project <project-temp>/bqc-01b9e1f0fe/source/build
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: native
+
+1: Test command: <project-temp>\bqc-01b9e1f0fe\source\build\native_tests.exe
+1: Working Directory: <project-temp>/bqc-01b9e1f0fe/source/build
+1: Test timeout computed to be: 10000000
+1: PASS owner_rejection
+1: PASS reuse_zero_and_stale
+1: PASS same_id_new_generation
+1: PASS arena_bounds
+1: PASS uninitialized_cache_rejected
+1: PASS paged_contiguous_match
+1: PASS admission_atomic
+1: PASS cancel_terminal
+1: PASS chunk_bound
+1: PASS decode_grants_fair
+1: PASS arrival_order_not_lexical
+1: PASS forward_failure_reclaims
+1: PASS transient_resource_peaks
+1: PASS shape_guard
+1: PASS greedy_tie
+1: PASS invalid_ids
+1: PASS duplicate_and_token
+1: NATIVE_TESTS=17
+1/1 Test #1: native ...........................   Passed    0.60 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   0.62 sec
+BQ_BINARY=build/batchquay <project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m unittest discover -s tests -p test_numerics.py -v
+{"sequences": 100, "variants": 3, "logit_values": 176934, "max_absolute_error": 2.9268134893456477e-07, "rms_error": 4.329997188388933e-08, "oracle": "independent full-prefix float64 over FP32 weights"}
+BQ_BINARY=build/batchquay <project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m unittest discover -s tests -p test_system.py -v
+<project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m unittest discover -s tests -p test_evidence.py -v
+BQ_BINARY=build/batchquay <project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m unittest discover -s tests -p test_benchmark.py -v
+<project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m unittest discover -s tests -p test_fetch.py -v
+<project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m compileall -q src tests tools scripts
+<project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe scripts/check_integrity.py
+Acceptance lock fields: ['algorithm', 'files']
+PASS locked acceptance and phase plan
+<project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe scripts/audit_public.py
+PASS local path/content export checks for 186 files. Independent full-history scanner remains separate.
+BQ_BINARY=build/batchquay <project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m tools.demo
+{
+  "report": ".local-runs\\demo\\report.html",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "observed": [
+    "admitted",
+    "denied",
+    "cancelled",
+    "finished",
+    "reclaimed"
+  ]
+}
+Core local verification passed. This is NOT full-product release approval.

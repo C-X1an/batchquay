@@ -1,0 +1,7 @@
+cmake -S . -B build-host-a716 -G Ninja -DCMAKE_BUILD_TYPE=Release
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: <public-repo>/build-host-a716
+cmake --build build-host-a716 -j 2
+ninja: no work to do.
+python.exe -m unittest discover -s tests -p test_evidence.py -v

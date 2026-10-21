@@ -1,0 +1,66 @@
+python -m scripts.clean_verify
+{
+  "status": "PASS",
+  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
+  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "fresh_checkout": true,
+  "fresh_dependency_environment": true,
+  "hash_locked_dependencies": true,
+  "dependency_lock_sha256": "71eac220eba0ba4811603da260cecba34ffc54a1fa176acce4c07d79cc232e1b",
+  "steps": [
+    {
+      "name": "clone",
+      "exit_code": 0,
+      "duration_seconds": 0.06800494699999149,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3a637436024300b305b2f184d18ec45c766750fd7ddd11c5511b9ca29f7c9a6"
+    },
+    {
+      "name": "checkout",
+      "exit_code": 0,
+      "duration_seconds": 0.0064464139999955705,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "474dbb3855e59084dcf5b6a676aeee978a238a7c22cf37a80c1aa2974368633e"
+    },
+    {
+      "name": "dependency-install",
+      "exit_code": 0,
+      "duration_seconds": 2.040645612000006,
+      "stdout_sha256": "d8f0be613ae172afebd3e291256a7cf175848ce76b3bd1bc4e05eecfda89b71d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "dependency-check",
+      "exit_code": 0,
+      "duration_seconds": 0.22439554899999337,
+      "stdout_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "build",
+      "exit_code": 0,
+      "duration_seconds": 4.038668306000005,
+      "stdout_sha256": "2d28ae513b3d5dee1d70836a12c204faccd62e222841aa5b05c248eace58f735",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "tests",
+      "exit_code": 0,
+      "duration_seconds": 13.200342841000008,
+      "stdout_sha256": "c2277d20306da08880b73ccd4757050cd429cf26bbd3b0678a482b9c9bd760e2",
+      "stderr_sha256": "fd7f5916ebd9f9fce8495de8bf02592763c706110440e9e6a1098fb2265d15fd"
+    },
+    {
+      "name": "demo",
+      "exit_code": 0,
+      "duration_seconds": 0.06879847299998687,
+      "stdout_sha256": "3be406fc11cfe8843b18c90db6b7748dfc3953be2c7d7e08dc6ca18ad3ee02aa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "scope": "Fresh committed clone and fresh isolated dependency environment; same operating system and toolchain. Not a clean machine image.",
+  "retained_environment_id": "bqc-25e48dcb46",
+  "command_records": "Exact command arrays and raw child streams retained locally in .local-runs/clean/steps.json and step files."
+}

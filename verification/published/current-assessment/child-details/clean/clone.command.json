@@ -1,0 +1,17 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "core.autocrlf=false",
+    "clone",
+    "--no-hardlinks",
+    "<public-repo>",
+    "<project-temp>\\bqc-01b9e1f0fe\\source"
+  ],
+  "duration_seconds": 0.2704430000158027,
+  "exit_code": 0,
+  "name": "clone",
+  "stderr_sha256": "d03cb8a6b4ffafed98cf182e8668447aef45a6d97127795764d43ba7b37b7130",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stem": "clone"
+}

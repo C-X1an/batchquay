@@ -1,181 +1,235 @@
 {
-  "schema_version": 2,
-  "source_sha256": "5c14a96615365a6d4bc65547913aab0b4883130820830a8283582b6765cbd8cb",
-  "release_sha256": "7e22617cbf30e0f2cb161b1d2b3700b66417c5e4dd715867ecdef362f8f3ae7f",
-  "git_commit": "87725a0e23b529782289022562e700346033f78f",
-  "git_tree": "9ed820eefd86da8e85bb4327bf2fa2e5049967b7",
+  "as_of": "2026-10-21",
   "criteria": {
     "AC-001": {
-      "status": "NOT_RUN",
-      "requirement": "FR-001",
       "label": "tiny-numerics",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "FR-001",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-002": {
-      "status": "NOT_RUN",
-      "requirement": "FR-002",
       "label": "cache-equivalence",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "FR-002",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-003": {
-      "status": "NOT_RUN",
-      "requirement": "FR-003",
       "label": "cache-owner",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "FR-003",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-004": {
-      "status": "NOT_RUN",
-      "requirement": "SEC-003",
       "label": "page-reuse",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "SEC-003",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-005": {
-      "status": "NOT_RUN",
-      "requirement": "REL-001",
       "label": "reclaim",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "REL-001",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-006": {
-      "status": "NOT_RUN",
-      "requirement": "FR-004",
       "label": "rounds",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "FR-004",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-007": {
-      "status": "NOT_RUN",
-      "requirement": "FR-005",
       "label": "cancel",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "FR-005",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-008": {
-      "status": "NOT_RUN",
-      "requirement": "PERF-003",
       "label": "fairness",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "PERF-003",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-009": {
-      "status": "NOT_RUN",
-      "requirement": "PERF-002",
       "label": "admission",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "PERF-002",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-010": {
-      "status": "NOT_RUN",
-      "requirement": "FR-006",
       "label": "protocol",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "FR-006",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-011": {
-      "status": "NOT_RUN",
-      "requirement": "SEC-002",
       "label": "model-loader",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "SEC-002",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-012": {
-      "status": "NOT_RUN",
-      "requirement": "FR-007",
       "label": "real-model",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/real-model-5c92111762da"
+      ],
+      "requirement": "FR-007",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-013": {
-      "status": "NOT_RUN",
-      "requirement": "FR-007",
       "label": "model-convert",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/real-model-5c92111762da"
+      ],
+      "requirement": "FR-007",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-014": {
-      "status": "NOT_RUN",
-      "requirement": "SEC-001",
       "label": "authority",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/public-audit-56e2bf56ee9d"
+      ],
+      "requirement": "SEC-001",
+      "scope": "Trusted local controller only; no network inference adapter or remote authentication claim.",
+      "status": "PASS"
     },
     "AC-015": {
-      "status": "NOT_RUN",
-      "requirement": "FR-008",
       "label": "inspector",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4",
+        "verification/published/browser-914167c36789"
+      ],
+      "requirement": "FR-008",
+      "scope": "Actual native synthetic trace, escaping regressions and exact-HTML sandboxed desktop/mobile keyboard checks; extra hostile-display HTTP navigation is also retained.",
+      "status": "PASS"
     },
     "AC-016": {
-      "status": "NOT_RUN",
-      "requirement": "NFR-001",
       "label": "clean",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/clean-27cc8e85ad46"
+      ],
+      "requirement": "NFR-001",
+      "scope": "Fresh committed clone and fresh hash-locked Windows reference environment on the same host/toolchain. Additional Linux fresh-core environment is in CI evidence.",
+      "status": "PASS"
     },
     "AC-017": {
-      "status": "NOT_RUN",
-      "requirement": "NFR-003",
       "label": "sanitizers",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/sanitizers-6113003483a1"
+      ],
+      "requirement": "NFR-003",
+      "scope": "Actual supported Linux Clang ASan/UBSan native, parser and lifecycle execution; not inferred from Windows.",
+      "status": "PASS"
     },
     "AC-018": {
-      "status": "NOT_RUN",
-      "requirement": "SEC-004",
       "label": "public-audit",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/public-audit-56e2bf56ee9d",
+        "verification/published/security-online-ac699ced8a95"
+      ],
+      "requirement": "SEC-004",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-019": {
-      "status": "NOT_RUN",
-      "requirement": "PERF-001",
       "label": "benchmark",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/benchmark-052a7d17d95f"
+      ],
+      "requirement": "PERF-001",
+      "scope": "Six fixed synthetic workloads, three variants,18warmups and90measurements. Native round-visible timings and OS high-water RSS; no pretrained performance claim.",
+      "status": "PASS"
     },
     "AC-020": {
-      "status": "NOT_RUN",
-      "requirement": "REL-002",
       "label": "restart",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "REL-002",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-021": {
-      "status": "NOT_RUN",
-      "requirement": "NFR-002",
       "label": "version",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4"
+      ],
+      "requirement": "NFR-002",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     },
     "AC-022": {
-      "status": "NOT_RUN",
-      "requirement": "FR-009",
       "label": "batching",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/core-2b46d041e3d4",
+        "verification/published/benchmark-052a7d17d95f"
+      ],
+      "requirement": "FR-009",
+      "scope": "Sequential token scheduling and paired exact outputs; no fused-batching claim.",
+      "status": "PASS"
     },
     "AC-023": {
-      "status": "NOT_RUN",
-      "requirement": "FR-001",
       "label": "mutation",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/mutation-e8e69ac532f4"
+      ],
+      "requirement": "FR-001",
+      "scope": "Two selected semantic mutations, not a global mutation score. Full child-command details are retained separately.",
+      "status": "PASS"
     },
     "AC-024": {
-      "status": "NOT_RUN",
-      "requirement": "NFR-001",
       "label": "evidence-integrity",
-      "receipts": [],
-      "scope": "Final committed-source public release receipt pending; historical/development observations are not current release approval."
+      "receipts": [
+        "verification/published/evidence-integrity-b46a7107f7ba"
+      ],
+      "requirement": "NFR-001",
+      "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
+      "status": "PASS"
     }
   },
-  "independent_review": null,
+  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
+  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "independent_review": {
+    "artifact": "verification/published/independent-review-a14/report.json",
+    "sha256": "565b5ca3a099e91c11e174e7770f89d7586f214242a46935e8a394ccf4e0a234"
+  },
   "overall": "NOT_RELEASE_READY",
-  "as_of": "2026-10-20",
-  "remote_publication": "NOT_DONE"
+  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "remote_publication": "VERIFIED",
+  "schema_version": 2,
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db"
 }

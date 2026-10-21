@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "review_type": "independent-final",
+  "execution_mode": "separate-read-only-session",
+  "reviewer": "Independent read-only automated verifier",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
+  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "disposition": "CHANGES_REQUIRED",
+  "completed_utc": "2026-10-21T06:56:22Z",
+  "scope": [
+    "source",
+    "acceptance",
+    "evidence",
+    "release-scope"
+  ],
+  "assessment": "All 24 locked acceptance criteria have supporting execution evidence, and their fixed contracts independently validate. The prior material findings are closed or covered by the accepted exception. Approval is withheld for a remaining public documentation contradiction: two documents describe the current benchmark as four workloads, whereas the implementation, retained evidence and other current documentation establish six. This discrepancy does not invalidate the measurements. Correct those descriptions and rebind the affected release scope before final approval. No new material native-runtime defect was demonstrated. This assessment concerns experimental release eligibility, not production or security certification.",
+  "exception": {
+    "path": "TEST_SPEC_EXCEPTION_TERMINAL_REPLAY.md",
+    "sha256": "75272c4d73af9475850ac480949ca14b49d3028d9e32bfd2e4a1a26af3686048",
+    "disposition": "ACCEPTED",
+    "rationale": "The exact exception explicitly covers terminal cancellation, the absent completed-result ledger, TH-015 and lost-response retry/output-attribution risks. Independent child-process probes confirmed reclamation before cancellation acknowledgment, no subsequent cancelled-generation output, newer-generation reuse, terminal E_NOT_FOUND, stale-generation E_STALE and old-session rejection after restart. AC-005/007/020/021 remain satisfied; exactly-once delivery is not established."
+  },
+  "findings": [
+    {
+      "id": "PRIOR-RELEASE-BINDING",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "Fixed criterion contracts, semantic checks, sealed receipts, source/release identities and hashed independent-review requirements replace the original unrelated-receipt and Boolean-review acceptance.",
+      "evidence": [
+        "scripts/release_verify.py",
+        "scripts/evidence.py",
+        "verification/criterion_evidence_map.json",
+        "tests/test_evidence.py"
+      ]
+    },
+    {
+      "id": "PRIOR-ESCAPING-CACHE-VIEWS",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Arena access copies values into caller-owned storage. Stale handles cannot obtain or modify reassigned storage through an escaping arena span.",
+      "evidence": [
+        "src/cache.hpp",
+        "src/cache.cpp",
+        "tests/native_tests.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-PARTIAL-FORWARD-RECLAMATION",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Failure is injected after physical allocation, with explicit page and reservation reclamation assertions. The native regression passed independently.",
+      "evidence": [
+        "tests/native_tests.cpp",
+        "src/scheduler.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-SCHEDULER-ORDER",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "The ready deque preserves arrival order across bounded rounds and removes terminal work. Reverse-lexical arrival and later-arrival checks passed.",
+      "evidence": [
+        "src/scheduler.cpp",
+        "tests/native_tests.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-TERMINAL-REPLAY",
+      "priority": "MEDIUM",
+      "status": "ACCEPTED",
+      "summary": "The exact corrected exception resolves the documented conflict while preserving generation-bound cancellation and restart behavior.",
+      "evidence": [
+        "TEST_SPEC_EXCEPTION_TERMINAL_REPLAY.md",
+        "src/scheduler.cpp",
+        "src/main.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-SESSION-ATTRIBUTION",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "Control responses and nested lifecycle events carry the process session. Independent probes confirmed attribution and restart rejection.",
+      "evidence": [
+        "src/main.cpp",
+        "tests/test_system.py"
+      ]
+    },
+    {
+      "id": "PRIOR-OVERSIZE-DRAIN",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "Discard work is bounded. A 20,000-byte input independently produced hello/error, E_LIMIT and fatal exit 2.",
+      "evidence": [
+        "src/main.cpp",
+        "tests/test_system.py"
+      ]
+    },
+    {
+      "id": "PRIOR-REPLACEMENT-VERIFICATION",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "Command matching rejects alternate recipes, dry runs and unsafe assignments. Execution sanitization removes inherited Make, compiler and Python overrides; inspected regressions exercised actual replacement commands.",
+      "evidence": [
+        "scripts/execution.py",
+        "scripts/release_verify.py",
+        "scripts/clean_verify.py",
+        "scripts/negative_controls.py",
+        "tests/test_evidence.py"
+      ]
+    },
+    {
+      "id": "PRIOR-PUBLICATION-SCOPE",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "The final publication verifier inventories the complete candidate, scans all referenced history and checks inventory/byte stability. Its invocation follows release-evidence validation. Future execution remains outstanding.",
+      "evidence": [
+        "scripts/publication_verify.py",
+        "scripts/release_verify.py",
+        "RELEASE_READINESS.md"
+      ]
+    },
+    {
+      "id": "PRIOR-BENCHMARK-CONSISTENCY",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Retained native outputs establish exact parity and recomputed timing summaries. False parity, altered TTFT, missing warmups, duplicate measurements and raw corruption were independently rejected.",
+      "evidence": [
+        "scripts/benchmark_evidence.py",
+        "verification/published/benchmark-052a7d17d95f",
+        "tests/test_benchmark.py"
+      ]
+    },
+    {
+      "id": "PRIOR-TRANSIENT-RESOURCE-PEAKS",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "High-water counters capture allocation before terminal reclamation. Independent three-variant probes confirmed parity and the transient three-page paged peak.",
+      "evidence": [
+        "src/cache.cpp",
+        "src/scheduler.cpp",
+        "tools/benchmark_driver.cpp",
+        "tests/native_tests.cpp"
+      ]
+    },
+    {
+      "id": "PRIOR-ORIGINAL-STREAM-VERIFICATION",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "All 17 local originals verified. In-memory corruption and missing-original probes failed as required. Public bundles intentionally omit originals while retaining their bindings.",
+      "evidence": [
+        "scripts/evidence.py",
+        "tests/test_evidence.py",
+        "verification/evidence_index.json"
+      ]
+    },
+    {
+      "id": "PRIOR-INSPECTOR-RELOCATION",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "Published reports retain trace.json beside unchanged HTML. The retained adversarial browser execution verifies actual HTTP link navigation and response equality.",
+      "evidence": [
+        "scripts/evidence.py",
+        "tests/test_evidence.py",
+        "verification/published/adversarial-inspector-77f5f32a31e4"
+      ]
+    },
+    {
+      "id": "PRIOR-WORKLOAD-SUBSET",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Release validation independently binds all six definitions, inputs and arrivals. The consistently pruned 30-row subset and changed budgets, inputs and arrivals were independently rejected. Regression execution uses all six workloads.",
+      "evidence": [
+        "scripts/benchmark_evidence.py",
+        "tests/test_benchmark.py",
+        "tools/benchmark_measurements.py",
+        "verification/published/core-2b46d041e3d4"
+      ]
+    },
+    {
+      "id": "PRIOR-ARTIFACT-OVERWRITE",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Semantic artifacts are captured as per-receipt snapshots. Earlier failures remain historical and are not promoted to current passes. Original native, numerical and conversion assertions were retained or strengthened.",
+      "evidence": [
+        "scripts/evidence.py",
+        "tests/test_evidence.py",
+        "tests/test_numerics.py",
+        "tests/native_tests.cpp",
+        "verification/published/current-assessment/REPORT.md"
+      ]
+    },
+    {
+      "id": "FINAL-CURRENT-BENCHMARK-DOCUMENTATION",
+      "priority": "LOW",
+      "status": "OPEN",
+      "summary": "CLAIMS_EVIDENCE.md:10 describes four workloads and concurrency 1/4/8; VERIFICATION_REPORT.md:5 calls the current benchmark four workloads. Current source and evidence establish six workloads covering 1/2/4/8/16 requests. Correct these current-scope statements or explicitly identify them as historical, then update affected bindings. Measurements remain valid.",
+      "evidence": [
+        "CLAIMS_EVIDENCE.md:10",
+        "VERIFICATION_REPORT.md:5",
+        "README.md:64",
+        "LIMITATIONS.md:13",
+        "verification/published/current-assessment/REPORT.md",
+        "verification/published/benchmark-052a7d17d95f"
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-001",
+      "status": "PASS",
+      "rationale": "Current 100-sequence dense-oracle evidence satisfies the locked max/RMS limits. Additional independent read-only comparisons passed."
+    },
+    {
+      "id": "AC-002",
+      "status": "PASS",
+      "rationale": "Retained tests compare every position across contiguous, paged and recomputed execution for 100 seeded sequences of lengths 1..32."
+    },
+    {
+      "id": "AC-003",
+      "status": "PASS",
+      "rationale": "Wrong-owner load, store and release reject without changing ownership; native checks passed independently."
+    },
+    {
+      "id": "AC-004",
+      "status": "PASS",
+      "rationale": "Reuse clears payloads, retained copies do not alias arena storage, and stale load/store/release reject."
+    },
+    {
+      "id": "AC-005",
+      "status": "PASS",
+      "rationale": "Completion, cancellation and failure after physical allocation reclaim pages and reservations; independent native/lifecycle checks passed."
+    },
+    {
+      "id": "AC-006",
+      "status": "PASS",
+      "rationale": "Prefill is bounded to four positions per round, with arrival-ordered service of eligible requests."
+    },
+    {
+      "id": "AC-007",
+      "status": "PASS",
+      "rationale": "Cancellation reclaims state before acknowledgment. Repeated independent ticks produced no subsequent cancelled-generation events."
+    },
+    {
+      "id": "AC-008",
+      "status": "PASS",
+      "rationale": "Native completed-round grant accounting enforces the one-grant fairness tolerance and passed independently."
+    },
+    {
+      "id": "AC-009",
+      "status": "PASS",
+      "rationale": "Reservation exhaustion denies new admission without changing existing state; maximum-position tests also passed in retained runs."
+    },
+    {
+      "id": "AC-010",
+      "status": "PASS",
+      "rationale": "Retained parser campaigns and independent malformed/version/oversize probes establish bounded typed rejection before mutation."
+    },
+    {
+      "id": "AC-011",
+      "status": "PASS",
+      "rationale": "Loader validation and retained structural/nonfinite corruption campaigns reject unsupported input; supported Linux sanitizer evidence covers these paths."
+    },
+    {
+      "id": "AC-012",
+      "status": "PASS",
+      "rationale": "Verified actual pretrained evidence covers 20 fixed sequences, 326 positions and 16,023,552 logits: maximum error 0.0002955962646495891, weighted mean 0.000008623001204748004 and 311/311 confident top-1 matches. This is distinct from synthetic tests and performance."
+    },
+    {
+      "id": "AC-013",
+      "status": "PASS",
+      "rationale": "Source weights and both retained converted files were independently rehashed. Both 538,060,076-byte conversions match SHA256 d2420bf6c20490b91db1ecff3ffeabbf949f0a24fd428a27e3bff593cb14490e."
+    },
+    {
+      "id": "AC-014",
+      "status": "PASS",
+      "rationale": "The controller is explicitly trusted and owner fields are not authentication. No remote inference adapter exists; conditional adapter spoofing tests do not apply."
+    },
+    {
+      "id": "AC-015",
+      "status": "PASS",
+      "rationale": "Source-bound native traces show success, denial, cancellation and reclamation. Exact-HTML browser evidence, screenshots, escaping tests and actual HTTP/keyboard navigation are retained. The hostile display fixture is explicitly non-native."
+    },
+    {
+      "id": "AC-016",
+      "status": "PASS",
+      "rationale": "Host and Linux originals support fresh committed checkouts, new hash-locked environments, build, meaningful tests and demo. This is fresh-environment reproduction on existing toolchains, not a clean-machine claim."
+    },
+    {
+      "id": "AC-017",
+      "status": "PASS",
+      "rationale": "Digest-verified Linux CI originals show Clang ASan/UBSan compilation, 17 native cases and nine parser/lifecycle tests without sanitizer findings."
+    },
+    {
+      "id": "AC-018",
+      "status": "PASS",
+      "rationale": "Source-baseline history/export scans, detection canary, advisory checks and approved notice inventories validate. Read-only inspection found no private-content patterns in the current candidate or referenced history. Final publication scanning remains a separate required action."
+    },
+    {
+      "id": "AC-019",
+      "status": "PASS",
+      "rationale": "All six workloads, three variants, 18 warmups, 90 measurements and 324 raw companions validate with exact parity and recomputed summaries. The separate open finding concerns stale public workload descriptions."
+    },
+    {
+      "id": "AC-020",
+      "status": "PASS",
+      "rationale": "Independent kill/restart probing confirmed a different session, empty state and rejection of the old session."
+    },
+    {
+      "id": "AC-021",
+      "status": "PASS",
+      "rationale": "Unknown protocol/model versions and invalid records have explicit rejection coverage; fatal oversized input independently exited 2."
+    },
+    {
+      "id": "AC-022",
+      "status": "PASS",
+      "rationale": "Source, claims and paired outputs consistently distinguish sequential token scheduling from fused execution. No fused-backend evidence or claim is substituted."
+    },
+    {
+      "id": "AC-023",
+      "status": "PASS",
+      "rationale": "Original child streams demonstrate baseline PASS, semantic failure after owner-guard removal and attention-scale mutation, then restored PASS. These are two selected controls, not a global mutation score."
+    },
+    {
+      "id": "AC-024",
+      "status": "PASS",
+      "rationale": "Retained integrity regressions and independent RAM-backed probes reject altered originals, raw companions, substituted receipts and unsafe commands. Pure release verification remains fail-closed."
+    }
+  ],
+  "actual_checks": [
+    {
+      "command": "git read-only identity/status/history inspection and git diff --check",
+      "exit_code": 0,
+      "observation": "Supplied commit, tree and both content identities match. Remote tracking identifies the same baseline. Changes remain confined to the evidence envelope; final bindings were unchanged."
+    },
+    {
+      "command": "python -B -m scripts.check_integrity and read-only phase consistency guard",
+      "exit_code": 0,
+      "observation": "Locked acceptance and canonical/private phase consistency passed."
+    },
+    {
+      "command": "python -B - (receipt, archive, child-detail and fixed-contract validation harnesses)",
+      "exit_code": 0,
+      "observation": "Verified 17 public bundles against retained originals, 346 semantic artifacts, all 24 contracts and 51 child-detail hashes. The 104476-byte Linux archive matches its supplied digest; imported original streams match archive bytes. Pure verify_release returns only overall-not-ready and missing-review errors."
+    },
+    {
+      "command": "python -B - (RAM-backed benchmark and evidence negative probes)",
+      "exit_code": 0,
+      "observation": "Rejected the 30-row subset, changed budgets/inputs/arrivals, false parity, changed TTFT, missing warmups, duplicate measurements, corrupted raw data, rehashed changed child input, missing originals and original-stream corruption. Unsafe command forms and unrelated receipts were rejected."
+    },
+    {
+      "command": "native_tests (existing executable)",
+      "exit_code": 0,
+      "observation": "All 17 named native cases passed."
+    },
+    {
+      "command": "python -B - (read-only native protocol, numerical and transient-resource harness)",
+      "exit_code": 0,
+      "observation": "Lifecycle/reuse/restart/session/parser checks passed. Four additional sequences across three execution variants compared 5994 logits: max absolute error 2.0423172952810376e-7 and RMS 3.9453995051667904e-8. Three transient benchmark children had identical outputs and confirmed the three-page paged peak."
+    },
+    {
+      "command": "python -B - (two existing read-only evidence tests)",
+      "exit_code": 0,
+      "observation": "Unrelated-receipt substitution and hostile-string escaping tests passed."
+    },
+    {
+      "command": "python -B - (weight/conversion rehashing and installed-notice validation)",
+      "exit_code": 0,
+      "observation": "Pinned source weights and both conversion hashes matched. Actual installed notices validated for all 35 reference and four browser distributions, with exact lock coverage."
+    },
+    {
+      "command": "python -B scripts/audit_public.py and read-only complete-inventory/history privacy harness",
+      "exit_code": 0,
+      "observation": "Local audit passed. Independent inventory inspection covered 689 candidate files and 239 referenced history blobs with no private-content/routing-pattern findings. It included three build-named child-detail files skipped by the local audit heuristic."
+    },
+    {
+      "command": "python -B - (optional fresh pretrained reference comparison attempt)",
+      "exit_code": 1,
+      "observation": "Dependency import stopped because no writable temporary directory was available. No reference comparison ran in this attempt. The independently validated original pretrained evidence remains the basis for AC-012."
+    }
+  ],
+  "unexecuted": [
+    "No builds, fixture-writing suites, collectors, new conversions, dependency installations or evidence capture were executed.",
+    "Linux sanitizer/static campaigns, fresh-environment reproduction, full benchmark collection and browser navigation were inspected through original records rather than rerun.",
+    "Saved browser screenshots were inspected; no fresh interactive browser session was performed.",
+    "The optional fresh pretrained reference comparison did not reach execution.",
+    "make release-verify, final complete-export/history scanner execution, evidence-only publication and subsequent remote verification were not performed."
+  ],
+  "limitations": [
+    "The open documentation contradiction prevents approval under the requested assessment rules; it does not invalidate the six-workload measurements.",
+    "Hashes establish local byte bindings, not signatures, provider attestation or human certification.",
+    "Existing executable checks establish local source association, not an independent compilation.",
+    "The prior interrupted assessment remains a failed partial attempt and supplies no final approval.",
+    "Historical failures and expected mutation failures remain scoped to their actual runs. Mocked unit responses do not count as pretrained integration.",
+    "No performance advantage, pretrained performance, fused batching, GPU behavior, HTTP inference/authentication, production traffic/availability or language quality is established.",
+    "The final publication audit must cover the entire then-current candidate and referenced history. This assessment attests no future commit or push.",
+    "No source, evidence, Git, report-file or settings writes were performed."
+  ]
+}

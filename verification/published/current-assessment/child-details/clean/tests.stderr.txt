@@ -1,0 +1,56 @@
+test_reference_causal_extension (test_numerics.NumericalTests.test_reference_causal_extension) ... ok
+test_seeded_full_prefix_equivalence (test_numerics.NumericalTests.test_seeded_full_prefix_equivalence)
+100 sequences, 3 model shapes/seeds, 3 native execution variants. ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.060s
+
+OK
+test_admission_and_maximum_position_bound (test_system.SystemTests.test_admission_and_maximum_position_bound) ... ok
+test_cancel_and_stale_generation (test_system.SystemTests.test_cancel_and_stale_generation) ... ok
+test_extreme_oversize_record_closes_protocol (test_system.SystemTests.test_extreme_oversize_record_closes_protocol) ... ok
+test_interleaving_matches_isolated_execution (test_system.SystemTests.test_interleaving_matches_isolated_execution) ... ok
+test_invalid_cli_token_rejected (test_system.SystemTests.test_invalid_cli_token_rejected) ... ok
+test_kill_restart_rejects_old_session (test_system.SystemTests.test_kill_restart_rejects_old_session) ... ok
+test_loader_rejects_structural_and_nonfinite_damage (test_system.SystemTests.test_loader_rejects_structural_and_nonfinite_damage) ... ok
+test_malformed_protocol_finite_campaign (test_system.SystemTests.test_malformed_protocol_finite_campaign) ... ok
+test_response_session_attribution (test_system.SystemTests.test_response_session_attribution) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.740s
+
+OK
+test_changed_output_is_rejected (test_evidence.EvidenceTests.test_changed_output_is_rejected) ... ok
+test_executed_replacement_make_recipe_is_rejected (test_evidence.EvidenceTests.test_executed_replacement_make_recipe_is_rejected) ... ok
+test_git_sha1_and_sha256_object_ids_are_valid (test_evidence.EvidenceTests.test_git_sha1_and_sha256_object_ids_are_valid) ... ok
+test_inherited_recipe_replacement_is_removed_from_execution (test_evidence.EvidenceTests.test_inherited_recipe_replacement_is_removed_from_execution) ... ok
+test_path_escape_is_rejected (test_evidence.EvidenceTests.test_path_escape_is_rejected) ... ok
+test_public_stream_retains_raw_and_discloses_path_transform (test_evidence.EvidenceTests.test_public_stream_retains_raw_and_discloses_path_transform) ... ok
+test_published_native_report_keeps_observations_link (test_evidence.EvidenceTests.test_published_native_report_keeps_observations_link) ... ok
+test_raw_stream_corruption_and_missing_original_are_rejected (test_evidence.EvidenceTests.test_raw_stream_corruption_and_missing_original_are_rejected) ... ok
+test_record_output_and_artifact_tampering_are_rejected (test_evidence.EvidenceTests.test_record_output_and_artifact_tampering_are_rejected) ... ok
+test_report_escapes_untrusted_strings (test_evidence.EvidenceTests.test_report_escapes_untrusted_strings) ... ok
+test_source_manifest_tamper_is_rejected (test_evidence.EvidenceTests.test_source_manifest_tamper_is_rejected) ... ok
+test_source_output_overwrite_preserves_snapshot_then_tamper_is_rejected (test_evidence.EvidenceTests.test_source_output_overwrite_preserves_snapshot_then_tamper_is_rejected) ... ok
+test_unit_fixture_cannot_be_published_as_integration (test_evidence.EvidenceTests.test_unit_fixture_cannot_be_published_as_integration) ... ok
+test_unrelated_receipt_substitution_is_rejected (test_evidence.EvidenceTests.test_unrelated_receipt_substitution_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 12.477s
+
+OK
+test_claimed_parity_without_native_outputs_is_rejected (test_benchmark.BenchmarkTests.test_claimed_parity_without_native_outputs_is_rejected) ... ok
+test_native_evidence_then_parity_timing_and_stream_corruption (test_benchmark.BenchmarkTests.test_native_evidence_then_parity_timing_and_stream_corruption) ... ok
+test_transient_peak_precedes_terminal_reclamation (test_benchmark.BenchmarkTests.test_transient_peak_precedes_terminal_reclamation) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 29.538s
+
+OK
+test_changed_completed_artifact_is_rejected (test_fetch.FetchTests.test_changed_completed_artifact_is_rejected) ... ok
+test_resume_preserves_verified_files_after_network_failure (test_fetch.FetchTests.test_resume_preserves_verified_files_after_network_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.073s
+
+OK

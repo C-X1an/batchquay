@@ -1,0 +1,17 @@
+{
+  "command": [
+    "cmake",
+    "--build",
+    "build",
+    "--target",
+    "native_tests",
+    "batchquay",
+    "-j",
+    "2"
+  ],
+  "duration_seconds": 5.118889199919067,
+  "exit_code": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "caa925db21a6f998295099ed962bb0f16f2581cc4a955bbb6825b8e3f44822e3",
+  "stem": "owner-build-1"
+}

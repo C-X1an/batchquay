@@ -1,0 +1,2 @@
+python.exe scripts/security_online.py
+PASS actual full-history/export scans, detection control, 35 reference and 4 browser distribution advisory/notice checks (one shared package)

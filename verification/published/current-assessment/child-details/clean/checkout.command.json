@@ -1,0 +1,16 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "core.autocrlf=false",
+    "checkout",
+    "--detach",
+    "a14ba115674e33c887393b0ef80addf4cc76ee46"
+  ],
+  "duration_seconds": 0.04317279998213053,
+  "exit_code": 0,
+  "name": "checkout",
+  "stderr_sha256": "474dbb3855e59084dcf5b6a676aeee978a238a7c22cf37a80c1aa2974368633e",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stem": "checkout"
+}

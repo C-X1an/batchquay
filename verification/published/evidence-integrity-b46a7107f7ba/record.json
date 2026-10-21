@@ -1,0 +1,51 @@
+{
+  "artifact_errors": [],
+  "artifacts": [],
+  "category": "evidence-integrity",
+  "command": [
+    "make",
+    "CMAKE=cmake",
+    "BUILD=build-host-a716",
+    "PYTHON=python.exe",
+    "evidence-test"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 6.7341791,
+  "ended_utc": "2026-10-20T17:59:53.419157+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "bfdd3779572062f04486cb904806ff34a317575e5cc1524447382e8f9f225512",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "03db565f203a06a2d1bfef0297b66b95e2f9bc354e2cbd3026ceb16d3fe22a3a",
+    "raw_stdout_sha256": "c123a05848bc6496e5283715a9ebd9b6afe6c769aa07a13f58735e5366a29cd8",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
+  "git_dirty": false,
+  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "name": "evidence-integrity",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "runtime_versions": {
+    "c++": "c++ (GCC) 16.2.0",
+    "clang++": "UNAVAILABLE",
+    "cmake": "cmake version 4.4.4",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "started_utc": "2026-10-20T17:59:46.681834+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "24870a45336676f99c6e40db1069ecd936bd46210985c5fb9ce0076a8bb44653",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "638db41d17c528a75b363fca6190e40f64b956050ec233e45f280a19affcda27",
+  "timed_out": false
+}

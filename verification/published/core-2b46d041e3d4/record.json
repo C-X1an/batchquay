@@ -1,0 +1,64 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 7848,
+      "label": "demo-report",
+      "path": "verification/published/core-2b46d041e3d4/artifacts/report.html",
+      "sha256": "6f4976d375d9e13b04a16e92575f1a0865502fd39260d7608ad5aadbb7a0ab20"
+    },
+    {
+      "bytes": 3785,
+      "label": "demo-trace",
+      "path": "verification/published/core-2b46d041e3d4/artifacts/trace.json",
+      "sha256": "1276e81f1e02ef5641d970a02af7f722fbb9d4c3d7f14d317076ef150532d336"
+    }
+  ],
+  "category": "core",
+  "command": [
+    "make",
+    "CMAKE=cmake",
+    "BUILD=build-host-a716",
+    "PYTHON=python.exe",
+    "verify"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 35.4400628,
+  "ended_utc": "2026-10-20T17:59:43.190249+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "364d4bc566b2853850d7658bef822d9296755b22729e792ab8ec7c2efce2a814",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "6fed4647d6f2c8f1f3d0dab1cefd8bf8fd94bd36481f6407494ef4a85760e235",
+    "raw_stdout_sha256": "adcf42ad38143f3f769aa60126ff439bfc53c03e879790d8556346154d5e7d7d",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
+  "git_dirty": false,
+  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "name": "core",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "runtime_versions": {
+    "c++": "c++ (GCC) 16.2.0",
+    "clang++": "UNAVAILABLE",
+    "cmake": "cmake version 4.4.4",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "started_utc": "2026-10-20T17:59:07.699504+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "19bd5c0d71dc12ffa562060ab4330424167ffb22f79039d2a4b26166ce142fc4",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "71a4e5a409ecee0dffc1fc1ac597f2cd62ee067ffbb09569de03941edc022b33",
+  "timed_out": false
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<python-environment>\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_numerics.py",
+    "-v"
+  ],
+  "duration_seconds": 3.7185459999600425,
+  "exit_code": 0,
+  "stderr_sha256": "1df88047edb443bdbf8fedb2d2212af359b4036d2290f98f68d4ef609e52dddd",
+  "stdout_sha256": "8f362839146527f8763ee1b76c1274bcd651e3e658556a97ae6110236bc754cf",
+  "stem": "numerics-before"
+}
