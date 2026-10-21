@@ -2,7 +2,7 @@
   "schema_version": 1,
   "platform": "CPython 3.12 Windows AMD64",
   "scope": "Reviewed declared licenses and installed notice hashes for the exact hash-locked reference environment; approval covers verification use, not binary redistribution.",
-  "lock_sha256": "062bdc01a59b85f2b0603a4e992c8a79508b518dbe3868c42d9d1609dc642ba5",
+  "lock_sha256": "f38c9809394b99e24b4b62b2daa3a4293c09193394af5175bc1dd0a1a25868bf",
   "packages": [
     {
       "name": "annotated-doc",
@@ -36,18 +36,19 @@
     },
     {
       "name": "certifi",
-      "version": "2026.10.18",
+      "version": "2026.10.19",
       "license": "MPL-2.0",
       "purpose": "isolated verification dependency; package/wheel/source is not redistributed",
       "approved": true,
       "notices": [
         {
-          "path": "Lib/site-packages/certifi-2026.10.18.dist-info/licenses/LICENSE",
+          "path": "Lib/site-packages/certifi-2026.10.19.dist-info/licenses/LICENSE",
           "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
           "bytes": 989
         }
       ],
-      "source": "https://pypi.org/project/certifi/2026.10.18/"
+      "source": "https://pypi.org/project/certifi/2026.10.19/",
+      "security_update": "GHSA-6q48-6c7w-9gw2; patched CA bundle, unchanged MPL-2.0 notice bytes"
     },
     {
       "name": "click",

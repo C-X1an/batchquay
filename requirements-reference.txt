@@ -7,3 +7,5 @@ safetensors==0.8.0
 # Transformers 5.15.0 declares tokenizers>=0.22.0,<=0.23.0; PyPI has no
 # non-prerelease 0.23.0 artifact, so use the newest published compatible final.
 tokenizers==0.22.2
+# Patched CA bundle for GHSA-6q48-6c7w-9gw2; retain certificate verification.
+certifi==2026.10.19

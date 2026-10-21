@@ -16,7 +16,7 @@
     "seed": 1729,
     "sha256": "43bad1cfb9503daba382829e1ca983c7c819c5d2546a09b1b992ed261a790d9f"
   },
-  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
   "trace": [
     {
       "label": "Admit alpha",
@@ -25,7 +25,7 @@
         "generation": 1,
         "id": "a",
         "owner": "alpha",
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -35,7 +35,7 @@
         "generation": 2,
         "id": "b",
         "owner": "beta",
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -43,7 +43,7 @@
       "response": {
         "code": "E_CAPACITY",
         "event": "error",
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -57,7 +57,7 @@
             "id": "a",
             "index": 2,
             "owner": "alpha",
-            "session": "06d14cc9f017f35f643049081d958cad"
+            "session": "110b8b79657d378d4239e0c28ee93d7c"
           },
           {
             "event": "prefill",
@@ -65,10 +65,10 @@
             "id": "b",
             "index": 3,
             "owner": "beta",
-            "session": "06d14cc9f017f35f643049081d958cad"
+            "session": "110b8b79657d378d4239e0c28ee93d7c"
           }
         ],
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -79,7 +79,7 @@
         "id": "b",
         "index": 0,
         "owner": "beta",
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -93,11 +93,11 @@
             "id": "a",
             "index": 1,
             "owner": "alpha",
-            "session": "06d14cc9f017f35f643049081d958cad",
+            "session": "110b8b79657d378d4239e0c28ee93d7c",
             "token": 2
           }
         ],
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -111,11 +111,11 @@
             "id": "a",
             "index": 2,
             "owner": "alpha",
-            "session": "06d14cc9f017f35f643049081d958cad",
+            "session": "110b8b79657d378d4239e0c28ee93d7c",
             "token": 2
           }
         ],
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -129,7 +129,7 @@
             "id": "a",
             "index": 3,
             "owner": "alpha",
-            "session": "06d14cc9f017f35f643049081d958cad",
+            "session": "110b8b79657d378d4239e0c28ee93d7c",
             "token": 36
           },
           {
@@ -138,10 +138,10 @@
             "id": "a",
             "index": 3,
             "owner": "alpha",
-            "session": "06d14cc9f017f35f643049081d958cad"
+            "session": "110b8b79657d378d4239e0c28ee93d7c"
           }
         ],
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     },
     {
@@ -152,7 +152,7 @@
         "live": 0,
         "physical": 0,
         "reserved": 0,
-        "session": "06d14cc9f017f35f643049081d958cad"
+        "session": "110b8b79657d378d4239e0c28ee93d7c"
       }
     }
   ]

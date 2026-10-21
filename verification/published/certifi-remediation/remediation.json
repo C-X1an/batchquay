@@ -1,0 +1,42 @@
+{
+  "advisory": "https://github.com/advisories/GHSA-6q48-6c7w-9gw2",
+  "after": {
+    "artifact": "advisory-after.json",
+    "known_vulnerabilities": 0,
+    "scanned_distributions": 35,
+    "sha256": "dd789ddf899dc4c9a03a99057f3df66793b8d41ea4341fb22b084ec3726dde15"
+  },
+  "before": {
+    "artifact": "advisory-before.json",
+    "finding_ids": [
+      "PYSEC-2026-4320"
+    ],
+    "original_sha256": "92ae14e9a29d27bf36c4372f16a9ce230cddfb51862dd12477d517d4e1b30e7a",
+    "publication_transform": "Advisory prose omitted and JSON formatted; original bytes retained privately. Finding data unchanged.",
+    "sha256": "13aca054870f4e25abb335d12bef4bd63dd6e80e5eba63a7dd2d88bf20846061"
+  },
+  "license": {
+    "license_bytes": 989,
+    "license_member": "certifi-2026.10.19.dist-info/licenses/LICENSE",
+    "license_sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+  },
+  "new_version": "2026.10.19",
+  "notice_bytes_unchanged": true,
+  "old_version": "2026.10.18",
+  "preflight": {
+    "exit_code": 0,
+    "git_dirty": true,
+    "scope": "Working-tree execution; final source-bound gates will be rerun after commit.",
+    "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b"
+  },
+  "reference_lock_sha256": "f38c9809394b99e24b4b62b2daa3a4293c09193394af5175bc1dd0a1a25868bf",
+  "scope": "Observed dependency remediation and working-tree preflight; final committed-source eligibility remains in the criterion index. No release approval is asserted here.",
+  "wheel": {
+    "bytes": 136464,
+    "filename": "certifi-2026.10.19-py3-none-any.whl",
+    "metadata_sha256": "5b6ba21c20c09f5e4ca52bf8251de25fafbdb56909c60e3ba44d4f2b6ef5d319",
+    "metadata_url": "https://pypi.org/pypi/certifi/2026.10.19/json",
+    "wheel_sha256": "42d35340cc5b9ba78e818ddbff0c5b1c2b779de448a340fd1b989f5fa8670e1b",
+    "wheel_url": "https://files.pythonhosted.org/packages/c4/51/29046e48f693c54e5b7412216d447a1d8362c9653148d98c02cdf65fa733/certifi-2026.10.19-py3-none-any.whl"
+  }
+}

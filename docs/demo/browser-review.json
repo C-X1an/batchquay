@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
-  "html_sha256": "4b79e8c49be7f02327e8e062df50d94cec071b4770f9f3ff15bfe57975146a21",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "html_sha256": "0a405a2deee4d910f947b0878e88a85295fc3a0e50aaeeaa83ac4a29eb3818e2",
   "mode": "Actual sandbox-enabled headless browser; owned HTML loaded through set_content. DOM/layout/keyboard and screenshots tested; file-URL and externally hosted navigation not tested.",
   "views": [
     {
