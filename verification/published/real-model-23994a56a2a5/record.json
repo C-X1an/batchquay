@@ -1,0 +1,58 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 11230,
+      "label": "pretrained-result",
+      "path": "verification/published/real-model-23994a56a2a5/artifacts/latest-pretrained.json",
+      "sha256": "7696e5954552cf69639ba08da09b5bc3f34e2401bf9d5f77bc772517dc5f9c78"
+    }
+  ],
+  "category": "real-model",
+  "command": [
+    "make",
+    "CMAKE=cmake",
+    "BUILD=build-host-a716",
+    "PYTHON=python.exe",
+    "real-model"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 106.4014097,
+  "ended_utc": "2026-10-21T08:09:01.244898+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "7d8b38b8e0fef65caca6f53476a48297891e1879391adacbcbacf456b52e102e",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "6264ce5eba9675a7005ce86c43f4e9864d88e2c12c68b01d8d8e303de1335d47",
+    "raw_stdout_sha256": "6628b3a6318c5d277d7db9348f5b957a3b0b532c0ecf606d7666391044510bc2",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "ecc74c969bc72460b3243c5881e209bd592828c7",
+  "git_dirty": false,
+  "git_tree": "5b7aebdc8b62b739188fca1cc6ae2e662e9d509d",
+  "name": "real-model",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "57b861dc10fe60ab361c3ef43f6eeb5186385cccec4b14031ffc66c12140905a",
+  "runtime_versions": {
+    "c++": "c++ (GCC) 16.2.0",
+    "clang++": "UNAVAILABLE",
+    "cmake": "cmake version 4.4.4",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "started_utc": "2026-10-21T08:07:14.768190+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "08d76cd951ad14e121a50506701837165b493e5a6a80e8fdfbd81e29fb2d6903",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "09b452600c0a0cae25d5f2d6319fa1a6bf4c3d03cbf316e4422257608d140ccc",
+  "timed_out": false
+}

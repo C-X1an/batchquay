@@ -1,0 +1,158 @@
+cmake -S . -B build-host-a716 -G Ninja -DCMAKE_BUILD_TYPE=Release
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: <public-repo>/build-host-a716
+cmake --build build-host-a716 -j 2
+ninja: no work to do.
+BQ_BINARY=build-host-a716/batchquay python.exe -m tools.benchmark
+{
+  "status": "PASS",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "repetitions": 5,
+  "summary": [
+    {
+      "workload": "short-single",
+      "variant": "serial-recompute",
+      "elapsed_median_ms": 8.74,
+      "elapsed_minimum_ms": 8.257,
+      "elapsed_maximum_ms": 9.613,
+      "peak_rss_maximum_bytes": 5124096
+    },
+    {
+      "workload": "short-single",
+      "variant": "contiguous",
+      "elapsed_median_ms": 1.527,
+      "elapsed_minimum_ms": 1.379,
+      "elapsed_maximum_ms": 1.73,
+      "peak_rss_maximum_bytes": 5120000
+    },
+    {
+      "workload": "short-single",
+      "variant": "paged",
+      "elapsed_median_ms": 1.539,
+      "elapsed_minimum_ms": 1.363,
+      "elapsed_maximum_ms": 1.572,
+      "peak_rss_maximum_bytes": 4997120
+    },
+    {
+      "workload": "long-single",
+      "variant": "serial-recompute",
+      "elapsed_median_ms": 1126.992,
+      "elapsed_minimum_ms": 1051.119,
+      "elapsed_maximum_ms": 1394.036,
+      "peak_rss_maximum_bytes": 5263360
+    },
+    {
+      "workload": "long-single",
+      "variant": "contiguous",
+      "elapsed_median_ms": 20.152,
+      "elapsed_minimum_ms": 19.122,
+      "elapsed_maximum_ms": 28.262,
+      "peak_rss_maximum_bytes": 5173248
+    },
+    {
+      "workload": "long-single",
+      "variant": "paged",
+      "elapsed_median_ms": 27.529,
+      "elapsed_minimum_ms": 22.563,
+      "elapsed_maximum_ms": 32.348,
+      "peak_rss_maximum_bytes": 5095424
+    },
+    {
+      "workload": "mixed-four",
+      "variant": "serial-recompute",
+      "elapsed_median_ms": 1299.853,
+      "elapsed_minimum_ms": 1258.886,
+      "elapsed_maximum_ms": 1355.33,
+      "peak_rss_maximum_bytes": 5255168
+    },
+    {
+      "workload": "mixed-four",
+      "variant": "contiguous",
+      "elapsed_median_ms": 33.478,
+      "elapsed_minimum_ms": 32.384,
+      "elapsed_maximum_ms": 34.356,
+      "peak_rss_maximum_bytes": 5931008
+    },
+    {
+      "workload": "mixed-four",
+      "variant": "paged",
+      "elapsed_median_ms": 37.8,
+      "elapsed_minimum_ms": 35.435,
+      "elapsed_maximum_ms": 38.747,
+      "peak_rss_maximum_bytes": 5251072
+    },
+    {
+      "workload": "mixed-eight",
+      "variant": "serial-recompute",
+      "elapsed_median_ms": 2061.293,
+      "elapsed_minimum_ms": 1971.631,
+      "elapsed_maximum_ms": 2110.172,
+      "peak_rss_maximum_bytes": 5324800
+    },
+    {
+      "workload": "mixed-eight",
+      "variant": "contiguous",
+      "elapsed_median_ms": 56.407,
+      "elapsed_minimum_ms": 52.895,
+      "elapsed_maximum_ms": 69.292,
+      "peak_rss_maximum_bytes": 6979584
+    },
+    {
+      "workload": "mixed-eight",
+      "variant": "paged",
+      "elapsed_median_ms": 61.283,
+      "elapsed_minimum_ms": 56.487,
+      "elapsed_maximum_ms": 74.883,
+      "peak_rss_maximum_bytes": 5304320
+    },
+    {
+      "workload": "mixed-two",
+      "variant": "serial-recompute",
+      "elapsed_median_ms": 2029.251,
+      "elapsed_minimum_ms": 1992.967,
+      "elapsed_maximum_ms": 2080.617,
+      "peak_rss_maximum_bytes": 5337088
+    },
+    {
+      "workload": "mixed-two",
+      "variant": "contiguous",
+      "elapsed_median_ms": 37.625,
+      "elapsed_minimum_ms": 31.785,
+      "elapsed_maximum_ms": 40.964,
+      "peak_rss_maximum_bytes": 5427200
+    },
+    {
+      "workload": "mixed-two",
+      "variant": "paged",
+      "elapsed_median_ms": 40.115,
+      "elapsed_minimum_ms": 38.11,
+      "elapsed_maximum_ms": 42,
+      "peak_rss_maximum_bytes": 5324800
+    },
+    {
+      "workload": "mixed-sixteen",
+      "variant": "serial-recompute",
+      "elapsed_median_ms": 37883.878,
+      "elapsed_minimum_ms": 29148.64,
+      "elapsed_maximum_ms": 46985.027,
+      "peak_rss_maximum_bytes": 5595136
+    },
+    {
+      "workload": "mixed-sixteen",
+      "variant": "contiguous",
+      "elapsed_median_ms": 217.463,
+      "elapsed_minimum_ms": 186.236,
+      "elapsed_maximum_ms": 280.17,
+      "peak_rss_maximum_bytes": 9150464
+    },
+    {
+      "workload": "mixed-sixteen",
+      "variant": "paged",
+      "elapsed_median_ms": 228.649,
+      "elapsed_minimum_ms": 205.402,
+      "elapsed_maximum_ms": 276.266,
+      "peak_rss_maximum_bytes": 6180864
+    }
+  ]
+}

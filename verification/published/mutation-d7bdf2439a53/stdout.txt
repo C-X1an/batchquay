@@ -1,0 +1,23 @@
+cmake -S . -B build-host-a716 -G Ninja -DCMAKE_BUILD_TYPE=Release
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: <public-repo>/build-host-a716
+cmake --build build-host-a716 -j 2
+ninja: no work to do.
+BQ_BUILD=build-host-a716 BQ_BINARY=build-host-a716/batchquay python.exe -m scripts.negative_controls
+{
+  "sequence": "PASS -> expected FAIL -> PASS",
+  "selected_mutations": [
+    {
+      "name": "owner",
+      "exit_code": 1,
+      "verdict": "KILLED_BY_EXPECTED_TEST_FAILURE"
+    },
+    {
+      "name": "attention-scale",
+      "exit_code": 1,
+      "verdict": "KILLED_BY_EXPECTED_TEST_FAILURE"
+    }
+  ],
+  "scope": "two selected critical invariants; not a global mutation score"
+}

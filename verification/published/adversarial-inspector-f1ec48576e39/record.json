@@ -1,0 +1,80 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 186874,
+      "label": "browser-desktop",
+      "path": "verification/published/adversarial-inspector-f1ec48576e39/artifacts/desktop.png",
+      "sha256": "5e65db950776f1c7eee2374dcfe74b797ee9d7245143057bb5b337a80c21fbfd"
+    },
+    {
+      "bytes": 165144,
+      "label": "browser-mobile",
+      "path": "verification/published/adversarial-inspector-f1ec48576e39/artifacts/mobile.png",
+      "sha256": "b09fbbb267f05d616ccf1ce9f1187fc81aaab0734c770a1261b23e302313882c"
+    },
+    {
+      "bytes": 950,
+      "label": "browser-result",
+      "path": "verification/published/adversarial-inspector-f1ec48576e39/artifacts/browser-review.json",
+      "sha256": "d0ca600aacc81e600ffda00e20570f5ff6bd1799395634e9f949d758ee305408"
+    },
+    {
+      "bytes": 8249,
+      "label": "demo-report",
+      "path": "verification/published/adversarial-inspector-f1ec48576e39/artifacts/report.html",
+      "sha256": "1696c39fe1037b8150f04d9c6cff7a61c562d9f907e325ec6c0238c0a3860d7f"
+    },
+    {
+      "bytes": 4219,
+      "label": "demo-trace",
+      "path": "verification/published/adversarial-inspector-f1ec48576e39/artifacts/trace.json",
+      "sha256": "b320f0b68c12f35a59c7a25bc34be3f11c6fbd5987b1d2b7bfb90cba9310d846"
+    }
+  ],
+  "category": "adversarial-inspector",
+  "command": [
+    "../../../../../.bqt-20261020/browser-venv/Scripts/python.exe",
+    "-c",
+    "\nimport copy,hashlib,http.server,json,threading\nfrom pathlib import Path\nfrom playwright.sync_api import sync_playwright\nfrom tools.demo import produce,render\nfrom scripts.evidence import identity,manifest\nout=Path('.local-runs/adversarial-inspector');produce(out)\ntrace=json.loads((out/'trace.json').read_bytes());native=copy.deepcopy(trace['trace'])\nmarker='<script>alert(\"display-fixture\")</script><img src=\"https://invalid.example/fixture\">'\ntrace['trace'].append({'label':'Hostile display fixture (not native output): '+marker,'response':{'display_fixture':marker}})\ntrace['adversarial_display_fixture']={'native_rows':len(native),'fixture_rows':1,'fixture_is_native_output':False}\n(out/'trace.json').write_bytes((json.dumps(trace,indent=2)+'\\n').encode())\n(out/'report.html').write_bytes(render(trace['trace'],trace['source_sha256']).encode())\nhandler=lambda *args,**kwargs:http.server.SimpleHTTPRequestHandler(*args,directory=str(out),**kwargs)\nserver=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler)\nthreading.Thread(target=server.serve_forever,daemon=True).start()\nviews=[]\ntry:\n    with sync_playwright() as runtime:\n        browser=runtime.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True,chromium_sandbox=True)\n        for view,width in [('desktop',1440),('mobile',390)]:\n            page=browser.new_page(viewport={'width':width,'height':900})\n            page.goto(f'http://127.0.0.1:{server.server_port}/report.html',wait_until='load')\n            assert page.locator('script,iframe,object,embed,img').count()==0\n            assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')\n            rows=page.locator('tbody tr')\n            assert rows.count()==len(native)+1\n            for index,item in enumerate(native):\n                assert json.loads(rows.nth(index).locator('pre').inner_text())==item['response']\n            assert marker in rows.last.inner_text()\n            page.keyboard.press('Tab');assert page.locator(':focus').get_attribute('href')=='#trace'\n            page.keyboard.press('Enter');assert page.locator(':focus').get_attribute('id')=='trace'\n            page.screenshot(path=str(out/(view+'.png')),full_page=True)\n            with page.expect_response(lambda response:response.url.endswith('/trace.json')) as observed:\n                page.get_by_role('link',name='Raw observations').press('Enter')\n            assert observed.value.status==200 and observed.value.json()==trace\n            views.append({'view':view,'width':width,'escaped_fixture_visible':True,'active_injected_nodes':0,'keyboard_skip_verified':True,'raw_link_response_verified':True})\n            page.close()\n        browser.close()\nfinally:\n    server.shutdown();server.server_close()\nresult={'status':'PASS','source_sha256':identity(manifest()),'html_sha256':hashlib.sha256((out/'report.html').read_bytes()).hexdigest(),'native_rows':len(native),'fixture_rows':1,'fixture_is_native_output':False,'views':views,'scope':'Actual native synthetic trace plus explicitly labelled hostile display fixture; sandbox-enabled Chrome, real loopback HTTP navigation, response equality and keyboard checks. Static test server only; no inference HTTP adapter.'}\n(out/'browser-review.json').write_bytes((json.dumps(result,indent=2)+'\\n').encode())\nprint(json.dumps(result))\n"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 3.3061362,
+  "ended_utc": "2026-10-21T08:05:12.583214+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "95909cc4c1aad3807d8a75a9f334c7c535fa389265db3b1b91c83ccc2822143e",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "58c21a3240aba48382dc22705256e6d3e603a417b828fffec736ad900d448a1c",
+    "raw_stdout_sha256": "a573b85b48ec148666480ff103e1f0a0f1124b662fafa3ec0c3a060eef44a936",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "ecc74c969bc72460b3243c5881e209bd592828c7",
+  "git_dirty": false,
+  "git_tree": "5b7aebdc8b62b739188fca1cc6ae2e662e9d509d",
+  "name": "adversarial-inspector",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "57b861dc10fe60ab361c3ef43f6eeb5186385cccec4b14031ffc66c12140905a",
+  "runtime_versions": {
+    "c++": "UNAVAILABLE",
+    "clang++": "UNAVAILABLE",
+    "cmake": "UNAVAILABLE",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "started_utc": "2026-10-21T08:05:09.142860+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "b04f34340dbcfec8efd3d05dac733b9cc61c460b1217a744cd04119f7f2f5eb1",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "e1c873a8da96a118ed3e4ddc62605247df4ebcdf77b300d8525e2a80d87cea19",
+  "timed_out": false
+}

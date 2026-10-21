@@ -5,12 +5,12 @@
     "core.autocrlf=false",
     "checkout",
     "--detach",
-    "a14ba115674e33c887393b0ef80addf4cc76ee46"
+    "ecc74c969bc72460b3243c5881e209bd592828c7"
   ],
-  "duration_seconds": 0.04317279998213053,
+  "duration_seconds": 0.07352050009649247,
   "exit_code": 0,
   "name": "checkout",
-  "stderr_sha256": "474dbb3855e59084dcf5b6a676aeee978a238a7c22cf37a80c1aa2974368633e",
+  "stderr_sha256": "40125962449134b5f1fcee281cd2bff0f6cfc70e06b44ad8d6ff130401d3a26d",
   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stem": "checkout"
 }

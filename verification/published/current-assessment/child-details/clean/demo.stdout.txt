@@ -1,13 +1,13 @@
 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 -- Configuring done (0.1s)
 -- Generating done (0.0s)
--- Build files have been written to: <project-temp>/bqc-01b9e1f0fe/source/build
+-- Build files have been written to: <project-temp>/bqc-9bf485d8c5/source/build
 cmake --build build -j 2
 ninja: no work to do.
-BQ_BINARY=build/batchquay <project-temp>/bqc-01b9e1f0fe/venv/Scripts/python.exe -m tools.demo
+BQ_BINARY=build/batchquay <project-temp>/bqc-9bf485d8c5/venv/Scripts/python.exe -m tools.demo
 {
   "report": ".local-runs\\demo\\report.html",
-  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
   "observed": [
     "admitted",
     "denied",

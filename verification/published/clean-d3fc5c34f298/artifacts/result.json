@@ -1,0 +1,65 @@
+{
+  "command_records": "Exact command arrays and raw child streams retained locally in .local-runs/clean/steps.json and step files.",
+  "dependency_lock_sha256": "f38c9809394b99e24b4b62b2daa3a4293c09193394af5175bc1dd0a1a25868bf",
+  "fresh_checkout": true,
+  "fresh_dependency_environment": true,
+  "git_commit": "ecc74c969bc72460b3243c5881e209bd592828c7",
+  "git_tree": "5b7aebdc8b62b739188fca1cc6ae2e662e9d509d",
+  "hash_locked_dependencies": true,
+  "release_sha256": "57b861dc10fe60ab361c3ef43f6eeb5186385cccec4b14031ffc66c12140905a",
+  "retained_environment_id": "bqc-9bf485d8c5",
+  "scope": "Fresh committed clone and fresh isolated dependency environment; same operating system and toolchain. Not a clean machine image.",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "status": "PASS",
+  "steps": [
+    {
+      "duration_seconds": 0.9373561999527737,
+      "exit_code": 0,
+      "name": "clone",
+      "stderr_sha256": "d742848a41330dddea203d28f0ba48787f02ddfe79b19a7f108fbe7586d74324",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "duration_seconds": 0.07352050009649247,
+      "exit_code": 0,
+      "name": "checkout",
+      "stderr_sha256": "40125962449134b5f1fcee281cd2bff0f6cfc70e06b44ad8d6ff130401d3a26d",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "duration_seconds": 297.6542418000754,
+      "exit_code": 0,
+      "name": "dependency-install",
+      "stderr_sha256": "ade59f9fc0f032c1139c2a224ae1810004b36072bdf7a0ac5a3414b8952838a4",
+      "stdout_sha256": "9c416f64df4ff71eec8628bd7aaddd17b359cfa33617174ab6b6dd56461c3bbe"
+    },
+    {
+      "duration_seconds": 1.9884841000894085,
+      "exit_code": 0,
+      "name": "dependency-check",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+    },
+    {
+      "duration_seconds": 15.535357299959287,
+      "exit_code": 0,
+      "name": "build",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c8938002ff2bf0a571aa557068abdf583c101d2e332e40df98b0d9a48c7d9ca2"
+    },
+    {
+      "duration_seconds": 55.37051130004693,
+      "exit_code": 0,
+      "name": "tests",
+      "stderr_sha256": "766f508ec7b80358dbc483aa5f5d9ca2038db560b449ffd9aa3b5666601b3de5",
+      "stdout_sha256": "c0f0975b32456e03f991891af1344a0a18f5929c25c4aa9a22a3d609b8bb9bfc"
+    },
+    {
+      "duration_seconds": 0.9188348000170663,
+      "exit_code": 0,
+      "name": "demo",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "aa53aafd48ed22e80a61cb113e4f8a309696ec8568616fbdd43d5055613ca4e3"
+    }
+  ]
+}

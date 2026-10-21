@@ -1,0 +1,12 @@
+{
+  "files": {
+    "artifact:demo-report:verification/published/core-24f27c07323d/artifacts/report.html": "c4a3c2ab298381019813c95786814cf668b4ce1a43d14118a73fca271bd15ddd",
+    "artifact:demo-trace:verification/published/core-24f27c07323d/artifacts/trace.json": "f55d0b68bf0a16abb0965bf30020959f3a4ac21fa9ce7054e6353901200d2023",
+    "record.json": "07266ee448dd9fe2a9eae74e9fa1862650b82d91386a9ae16cc451494c0a3ee3",
+    "release_manifest.json": "2e60ec962ba2f84baed7840f89b825615f2a3f0a45846d0c2f4ceffb48f6997c",
+    "source_manifest.json": "12e2add29b36bbe4fb42f719ad957d14ef809cdd68a9901ea7d4f5722e15f229",
+    "stderr.txt": "2e50120f115bf806ebeff99b593dcf6581e3bf747688352dfd914ef0e711ae51",
+    "stdout.txt": "1079d6491b55d102d8ed140f562c0e2b89aaa17d4677d2104b3b3f78a0dbc293"
+  },
+  "schema_version": 1
+}

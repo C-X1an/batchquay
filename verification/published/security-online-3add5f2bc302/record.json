@@ -1,0 +1,70 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 3352,
+      "label": "advisory-report",
+      "path": "verification/published/security-online-3add5f2bc302/artifacts/advisory-report.json",
+      "sha256": "082e0d425b56b9ecab590de6d04e46acce82d9f7a32e8b18b4c0535fa3d14099"
+    },
+    {
+      "bytes": 68,
+      "label": "gitleaks-report",
+      "path": "verification/published/security-online-3add5f2bc302/artifacts/gitleaks-report.json",
+      "sha256": "4d644889e1bf95b5c4e40a448a1a03fac15df26c4053fda5cd0ab5c318e65ee8"
+    },
+    {
+      "bytes": 50192,
+      "label": "license-inventory",
+      "path": "verification/published/security-online-3add5f2bc302/artifacts/license-inventory.json",
+      "sha256": "82315de24ca84ec2159e838bdf226abf57c6413d6b40fc6e66c1742ac9854aa2"
+    }
+  ],
+  "category": "security-online",
+  "command": [
+    "make",
+    "CMAKE=cmake",
+    "BUILD=build-host-a716",
+    "PYTHON=python.exe",
+    "security-online"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 12.4273966,
+  "ended_utc": "2026-10-21T08:07:12.173367+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "8de4d3a954a2032f7d1aee8ee8f39e6c0417ef0d63de5ee530199049b16d6a13",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_stdout_sha256": "00ce3b81d9455298e7e4cd69af3b2ce3d303a23a60d260c0127927c3dbadf5d0",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "ecc74c969bc72460b3243c5881e209bd592828c7",
+  "git_dirty": false,
+  "git_tree": "5b7aebdc8b62b739188fca1cc6ae2e662e9d509d",
+  "name": "security-online",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "57b861dc10fe60ab361c3ef43f6eeb5186385cccec4b14031ffc66c12140905a",
+  "runtime_versions": {
+    "c++": "c++ (GCC) 16.2.0",
+    "clang++": "UNAVAILABLE",
+    "cmake": "cmake version 4.4.4",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "started_utc": "2026-10-21T08:06:59.674027+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "b40345363ab2de18220fc06601c44f30facf380ccd7fa8603fc9796ada5e98ec",
+  "timed_out": false
+}

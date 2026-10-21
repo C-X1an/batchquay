@@ -1,23 +1,24 @@
 {
-  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
-  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "git_commit": "ecc74c969bc72460b3243c5881e209bd592828c7",
+  "git_tree": "5b7aebdc8b62b739188fca1cc6ae2e662e9d509d",
+  "host_environment": "verification/published/current-assessment/host-environment.json",
   "measurements": "verification/published/current-assessment/measurements.json",
   "receipts": [
     {
       "category": "core",
-      "duration_seconds": 35.4400628,
+      "duration_seconds": 52.9397192,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
-        "raw_stderr_sha256": "6fed4647d6f2c8f1f3d0dab1cefd8bf8fd94bd36481f6407494ef4a85760e235",
-        "raw_stdout_sha256": "adcf42ad38143f3f769aa60126ff439bfc53c03e879790d8556346154d5e7d7d",
+        "raw_stderr_sha256": "1424ca9be79f20b2c53f1acf403ce1c5634d4e72fa9ebe89964302caf6093a62",
+        "raw_stdout_sha256": "890019caa8adbf6be23f0cd801dff06484c0dc15df975c30dba03c7c9bed3c0a",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/core-2b46d041e3d4",
-      "record_sha256": "7901d4963b558324615d189b4d01f6bd546fcb64acb24a8f43b3736f925cf04a",
+      "receipt": "verification/published/core-24f27c07323d",
+      "record_sha256": "07266ee448dd9fe2a9eae74e9fa1862650b82d91386a9ae16cc451494c0a3ee3",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -27,19 +28,19 @@
     },
     {
       "category": "conversion",
-      "duration_seconds": 2.5579214,
+      "duration_seconds": 4.0554786,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
-        "raw_stderr_sha256": "214a9eb64d0259947de8ca9c5ee8a8797e2c3c2e65280e5ab2b6c5af4b47d3ba",
+        "raw_stderr_sha256": "d60657db6e61c714fb74b93dd36d40ad644229de82a42f4ed30a66ff4736ba4d",
         "raw_stdout_sha256": "397e7acaafe717feefc972c51f2711a7c1b9b563cc11e1727fe711dea3276356",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/conversion-49added133ff",
-      "record_sha256": "0a6a75375d060a268417fec0d4fd3f28d3840748ab408dc19d1dc2913e44c928",
+      "receipt": "verification/published/conversion-ec8079166cc6",
+      "record_sha256": "a527e619ba505ae772be0dae54c9d63e713ba5f278bde628292a1f3617de0f64",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -49,19 +50,19 @@
     },
     {
       "category": "evidence-integrity",
-      "duration_seconds": 6.7341791,
+      "duration_seconds": 10.9889192,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
-        "raw_stderr_sha256": "03db565f203a06a2d1bfef0297b66b95e2f9bc354e2cbd3026ceb16d3fe22a3a",
+        "raw_stderr_sha256": "b06bc59d0b9e7d867a8132e275b26738bc183087e2af06ffbf35965fda63ecb2",
         "raw_stdout_sha256": "c123a05848bc6496e5283715a9ebd9b6afe6c769aa07a13f58735e5366a29cd8",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/evidence-integrity-b46a7107f7ba",
-      "record_sha256": "49610ec86429dc02b340d47f63fdd50ac460b3ac7ffeb8b2e2a08d07250f72fc",
+      "receipt": "verification/published/evidence-integrity-456d045dc252",
+      "record_sha256": "e0af7de732047b61ca6eef6477425e9c96b47a0181609f54cfdfaedcb63fe468",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -71,19 +72,19 @@
     },
     {
       "category": "browser",
-      "duration_seconds": 1.5244681,
+      "duration_seconds": 2.1117783,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
         "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "raw_stdout_sha256": "bd33e8543d17d0a3aa9edafa49649457bc093c260000494b02f5723e7b7839d7",
+        "raw_stdout_sha256": "bd2f2d37335be9ac3877c40eedc58446734ae849dae768b6183997345d921105",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/browser-914167c36789",
-      "record_sha256": "37d6c7b2a8051a5af79d59d7f0dfcca195ce2f4f681adfe5e73cfd7ac25e6725",
+      "receipt": "verification/published/browser-dceed5dc3bd4",
+      "record_sha256": "56d6f3d917acb4d33ba1423283e1052703022932915d5f8acad6729ab7fcfcdc",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -93,19 +94,19 @@
     },
     {
       "category": "clean",
-      "duration_seconds": 369.2335697,
+      "duration_seconds": 386.3958816,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
         "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "raw_stdout_sha256": "3646f5d2f6ed23aa20a94474a4e9aff80cdb878b8777d6c2d9261558564cd8e7",
+        "raw_stdout_sha256": "579e8aa7a307bc70da8db1ee4975fc8d58038f1104949830ee16f32ad8e0bc8f",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/clean-27cc8e85ad46",
-      "record_sha256": "9d2f821e87bc591cf8fd7e51347a6111a786eacfd19f1dda93fa543c45794005",
+      "receipt": "verification/published/clean-d3fc5c34f298",
+      "record_sha256": "e11c159777894aede774f1f5f67451b439a865e2c47bec4c498458b81a3a13d9",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -115,7 +116,7 @@
     },
     {
       "category": "security-online",
-      "duration_seconds": 5.9807369,
+      "duration_seconds": 12.4273966,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
@@ -126,8 +127,8 @@
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/security-online-ac699ced8a95",
-      "record_sha256": "ee035dcc58ce32f7e2f25cc91cac20141f355592886738d7c2536341fa1f277d",
+      "receipt": "verification/published/security-online-3add5f2bc302",
+      "record_sha256": "f6843cc08e4861e2a6344c4a0b7da423c1e5a35f9522b14636dc00a5d65b6139",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -137,19 +138,19 @@
     },
     {
       "category": "public-audit",
-      "duration_seconds": 0.5018098,
+      "duration_seconds": 1.1041483,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
         "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "raw_stdout_sha256": "f299d022ae3d5760c0e233061f81f70d2f009aa00c4e83813d6fbfe2c6ed3377",
+        "raw_stdout_sha256": "8ad62f300493350d81dd35378983ac118396974946ecc45df0024e1cc8e08c92",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/public-audit-56e2bf56ee9d",
-      "record_sha256": "98caab341583a7a5b901608c86005d67d16a64183a82921bcb17cd698f15a03a",
+      "receipt": "verification/published/public-audit-3d44fa69d244",
+      "record_sha256": "2e00892af4fbe737934f943a4b3c63a0384bf5e638a40ea01e84a6784beda710",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -159,19 +160,19 @@
     },
     {
       "category": "real-model",
-      "duration_seconds": 58.9955441,
+      "duration_seconds": 106.4014097,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
-        "raw_stderr_sha256": "704503e89bdf8579e35c6985f978a5f2ab51a6d91bcb62fc169c18fd704623bc",
-        "raw_stdout_sha256": "b45671c0c891960236445c6c2175aaeff9f5a75fe7b1980dcfe135313da74a56",
+        "raw_stderr_sha256": "6264ce5eba9675a7005ce86c43f4e9864d88e2c12c68b01d8d8e303de1335d47",
+        "raw_stdout_sha256": "6628b3a6318c5d277d7db9348f5b957a3b0b532c0ecf606d7666391044510bc2",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/real-model-5c92111762da",
-      "record_sha256": "a6346cf498a25ad2f4e864c1c1b2c6f14637a3c5a4e56e373b2712750ce38373",
+      "receipt": "verification/published/real-model-23994a56a2a5",
+      "record_sha256": "79ef8e623990db73d9771723eac7c534dec2f3e3a5339dfbdd860fd11a66f920",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -181,19 +182,19 @@
     },
     {
       "category": "benchmark",
-      "duration_seconds": 134.9442614,
+      "duration_seconds": 277.1845573,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
         "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "raw_stdout_sha256": "bc5a1f99626b7c0f816ed6bb5e37946224f4f8bacdda8d020e4df6db4864be8d",
+        "raw_stdout_sha256": "995e6052d0429b4378f70327902135088766a749dc85cc070d63154a88a7acdb",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/benchmark-052a7d17d95f",
-      "record_sha256": "ff50116d5775f487283685bc0f608d36d151a6d79fbe170b7146764460cc784a",
+      "receipt": "verification/published/benchmark-032e8ce253cc",
+      "record_sha256": "59f85f7a0507ba8b3872d2017974281e78a18f564cf12b441635fd839c318eea",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -203,7 +204,7 @@
     },
     {
       "category": "mutation",
-      "duration_seconds": 23.6986396,
+      "duration_seconds": 34.214675,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
@@ -214,8 +215,8 @@
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "host",
-      "receipt": "verification/published/mutation-e8e69ac532f4",
-      "record_sha256": "fd7b68d0572e2b293f0bc821bc62db06064153e81426cae8bb380b40d3928a3c",
+      "receipt": "verification/published/mutation-d7bdf2439a53",
+      "record_sha256": "3a3dc4c1c45326c731c5abbc442965c344871584731405c4d089864316df0e35",
       "runtime_versions": {
         "c++": "c++ (GCC) 16.2.0",
         "clang++": "UNAVAILABLE",
@@ -225,19 +226,19 @@
     },
     {
       "category": "clean",
-      "duration_seconds": 21.846712312,
+      "duration_seconds": 28.769543955,
       "environment": {
         "machine": "x86_64",
         "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
         "python": "3.12.3",
         "python_executable": "python",
         "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "raw_stdout_sha256": "f8e91a5d8edf8cc0ea7f4f4979fc37fedd56e8c26fec1f1b166199ef6cf6f868",
+        "raw_stdout_sha256": "c473e04c5fe9ea9a636e6603b38dddf08ec32e59d9df7a16205441e0c265d805",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "ci",
-      "receipt": "verification/published/clean-11bf8e0f32b8",
-      "record_sha256": "3c8ee72d213c4ac311e382aeab4fd1d219d031f442c9e21a1a4e7d03c73a51e3",
+      "receipt": "verification/published/clean-9d36514b2358",
+      "record_sha256": "863d94d32e0d1ef9f89fc18b18aec2772c5f3ca5c2f4de80f6bd0c13a37ac66b",
       "runtime_versions": {
         "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
         "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
@@ -247,19 +248,19 @@
     },
     {
       "category": "core",
-      "duration_seconds": 20.906538211,
+      "duration_seconds": 30.547842064,
       "environment": {
         "machine": "x86_64",
         "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
         "python": "3.12.3",
         "python_executable": "python",
-        "raw_stderr_sha256": "84041073c6236ec41087332f058e6e22f317dcb14b39caf4c52f6cd6ac2b2c55",
-        "raw_stdout_sha256": "2f0c9ad708760497e0a0af6d6be972e1dd9730999e3251e6690d7d05a5a65d0d",
+        "raw_stderr_sha256": "c2ad5fa520ac06171d4f8511eb17120c5e0c48b569840cf5be3dc9dca617501b",
+        "raw_stdout_sha256": "b87bce90f7994118a812c2adf73da2fc70d02070c16f50fe073498bbe1564aca",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "ci",
-      "receipt": "verification/published/core-d6488d81a164",
-      "record_sha256": "7eb1e96dcd0892ad967306e41d7681398f40fdcf187b041126f68430dccfdc51",
+      "receipt": "verification/published/core-6731ac4cf45d",
+      "record_sha256": "c24720d3a35407fb017d982c679403013ec5ff68cd8ef13bc56de12c7f813e75",
       "runtime_versions": {
         "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
         "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
@@ -269,19 +270,19 @@
     },
     {
       "category": "evidence-integrity",
-      "duration_seconds": 1.361787693,
+      "duration_seconds": 1.81596408,
       "environment": {
         "machine": "x86_64",
         "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
         "python": "3.12.3",
         "python_executable": "python",
-        "raw_stderr_sha256": "cfdc74bc4aa5974e507e9dbb1911a891a028388f16c345d11c4a69c3ba786f34",
+        "raw_stderr_sha256": "bd4af1fcbd49c637d89b8d6c443e3b777fc48277633c4e2b27407ce2f5c2dd54",
         "raw_stdout_sha256": "da1bacbaf0e7dbe382f1bb20236242f0dc2104e1bd9f7984367f607b7ffc7b2a",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "ci",
-      "receipt": "verification/published/evidence-integrity-8694da75478b",
-      "record_sha256": "91be795f8eda427bec31f9c7afd8b9f4bc696c75081c8d214681104e0df5dafa",
+      "receipt": "verification/published/evidence-integrity-1f83a1a01ffb",
+      "record_sha256": "2d56cecf4703b2c4a9fec6b06129ba9ccbe8fd22f89e8ef0dd9d808f5944731c",
       "runtime_versions": {
         "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
         "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
@@ -291,7 +292,7 @@
     },
     {
       "category": "mutation",
-      "duration_seconds": 9.728264628,
+      "duration_seconds": 13.020773435,
       "environment": {
         "machine": "x86_64",
         "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
@@ -302,8 +303,8 @@
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "ci",
-      "receipt": "verification/published/mutation-b74055590c28",
-      "record_sha256": "2af1330010db2989677fa6eb2ad184e0ad38dee6bd11ef9a836b22a0b8cd0ed4",
+      "receipt": "verification/published/mutation-83694366ba19",
+      "record_sha256": "914cce7d4e9817c45955d0546fa0e2515d96b802b849275ddfc36773b50819a6",
       "runtime_versions": {
         "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
         "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
@@ -313,19 +314,19 @@
     },
     {
       "category": "sanitizers",
-      "duration_seconds": 9.949096324,
+      "duration_seconds": 10.210491368,
       "environment": {
         "machine": "x86_64",
         "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
         "python": "3.12.3",
         "python_executable": "python",
-        "raw_stderr_sha256": "74ae618648341e0d6092b30e61c2d8338a2d4c3be2a8a98588910a63a17bff66",
-        "raw_stdout_sha256": "83e81a93dbc0bb68e3d75392171f896850be9c631f0954ba1adb5f4e84c977a9",
+        "raw_stderr_sha256": "240b5e769b6470b15fa503d6791b60751ed9906aac079301c88b7f3f7521920e",
+        "raw_stdout_sha256": "9d421b913678d6d754d6e2efcf4149b2105e18d6c9f409b015a518afc0b34e3d",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "ci",
-      "receipt": "verification/published/sanitizers-6113003483a1",
-      "record_sha256": "43c77e5138fd8f4f0a716ab4b96e1b6cde231ab257c67385a91106863684e6b1",
+      "receipt": "verification/published/sanitizers-2eadf94918f5",
+      "record_sha256": "4f50fff0b0b0f5639c35a1a830d19b5ad2bde99607997910a199a3a0ffc83bac",
       "runtime_versions": {
         "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
         "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
@@ -335,7 +336,7 @@
     },
     {
       "category": "static",
-      "duration_seconds": 16.144738827,
+      "duration_seconds": 20.607454068,
       "environment": {
         "machine": "x86_64",
         "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
@@ -346,8 +347,8 @@
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "ci",
-      "receipt": "verification/published/static-eca8e042e542",
-      "record_sha256": "088cb63fed313a5f5d61eb3c505ce8b7b58071a92c881fe736af4424090ebb3a",
+      "receipt": "verification/published/static-89d21b2af42b",
+      "record_sha256": "c4d2b2db8d9db1fa5fed92b53027b23f4503964a51669d8b682ded640e46383a",
       "runtime_versions": {
         "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
         "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
@@ -357,19 +358,19 @@
     },
     {
       "category": "adversarial-inspector",
-      "duration_seconds": 2.0646346,
+      "duration_seconds": 3.3061362,
       "environment": {
         "machine": "AMD64",
         "os": "Windows-11-10.0.26200-SP0",
         "python": "3.12.14",
         "python_executable": "python.exe",
-        "raw_stderr_sha256": "6c5f46fd577e3a8fde9e258f68db62513c0102bc79b0b203c5ff4e38ab5b19a3",
-        "raw_stdout_sha256": "0368c60e6478e4f414c36b55e1d3f9695f974bd5ec5d78040fbe09b823eb8b9f",
+        "raw_stderr_sha256": "58c21a3240aba48382dc22705256e6d3e603a417b828fffec736ad900d448a1c",
+        "raw_stdout_sha256": "a573b85b48ec148666480ff103e1f0a0f1124b662fafa3ec0c3a060eef44a936",
         "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
       },
       "origin": "extra",
-      "receipt": "verification/published/adversarial-inspector-77f5f32a31e4",
-      "record_sha256": "14e9ce2a1289d5a984df9a9deee8f5763877c3917529b989488765196641ef2e",
+      "receipt": "verification/published/adversarial-inspector-f1ec48576e39",
+      "record_sha256": "0c6d8b9187a36ed11f1d3592028a45420876adbe88a8d42f5dce3a7697bae63d",
       "runtime_versions": {
         "c++": "UNAVAILABLE",
         "clang++": "UNAVAILABLE",
@@ -378,10 +379,10 @@
       }
     }
   ],
-  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "release_sha256": "57b861dc10fe60ab361c3ef43f6eeb5186385cccec4b14031ffc66c12140905a",
   "remote_ci": "verification/published/current-assessment/ci-observation.json",
   "report": "verification/published/current-assessment/REPORT.md",
   "schema_version": 2,
   "scope": "Current immutable source baseline; final independent approval is separately hash-bound by criterion_status.json. Original failures and earlier-source receipts are historical.",
-  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db"
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b"
 }

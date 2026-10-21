@@ -1,0 +1,159 @@
+{
+  "model": {
+    "bytes": 21164,
+    "config": {
+      "dim": 16,
+      "epsilon": 1e-05,
+      "heads": 4,
+      "hidden": 32,
+      "kv_heads": 2,
+      "layers": 2,
+      "max_positions": 256,
+      "rope_theta": 10000.0,
+      "vocab": 37
+    },
+    "kind": "SYNTHETIC_RANDOM_WEIGHTS",
+    "seed": 1729,
+    "sha256": "43bad1cfb9503daba382829e1ca983c7c819c5d2546a09b1b992ed261a790d9f"
+  },
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "trace": [
+    {
+      "label": "Admit alpha",
+      "response": {
+        "event": "accepted",
+        "generation": 1,
+        "id": "a",
+        "owner": "alpha",
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "Admit beta",
+      "response": {
+        "event": "accepted",
+        "generation": 2,
+        "id": "b",
+        "owner": "beta",
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "Deny over-capacity work",
+      "response": {
+        "code": "E_CAPACITY",
+        "event": "error",
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "Prefill one bounded round",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "prefill",
+            "generation": 1,
+            "id": "a",
+            "index": 2,
+            "owner": "alpha",
+            "session": "a6a3eed5e1e371768a2141706d87852f"
+          },
+          {
+            "event": "prefill",
+            "generation": 2,
+            "id": "b",
+            "index": 3,
+            "owner": "beta",
+            "session": "a6a3eed5e1e371768a2141706d87852f"
+          }
+        ],
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "Cancel beta",
+      "response": {
+        "event": "cancelled",
+        "generation": 2,
+        "id": "b",
+        "index": 0,
+        "owner": "beta",
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "Decode round 1",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "token",
+            "generation": 1,
+            "id": "a",
+            "index": 1,
+            "owner": "alpha",
+            "session": "a6a3eed5e1e371768a2141706d87852f",
+            "token": 2
+          }
+        ],
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "Decode round 2",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "token",
+            "generation": 1,
+            "id": "a",
+            "index": 2,
+            "owner": "alpha",
+            "session": "a6a3eed5e1e371768a2141706d87852f",
+            "token": 2
+          }
+        ],
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "Decode round 3",
+      "response": {
+        "event": "round",
+        "events": [
+          {
+            "event": "token",
+            "generation": 1,
+            "id": "a",
+            "index": 3,
+            "owner": "alpha",
+            "session": "a6a3eed5e1e371768a2141706d87852f",
+            "token": 36
+          },
+          {
+            "event": "finished",
+            "generation": 1,
+            "id": "a",
+            "index": 3,
+            "owner": "alpha",
+            "session": "a6a3eed5e1e371768a2141706d87852f"
+          }
+        ],
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    },
+    {
+      "label": "All terminal resources reclaimed",
+      "response": {
+        "capacity": 4,
+        "event": "status",
+        "live": 0,
+        "physical": 0,
+        "reserved": 0,
+        "session": "a6a3eed5e1e371768a2141706d87852f"
+      }
+    }
+  ]
+}

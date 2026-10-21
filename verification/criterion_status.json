@@ -4,7 +4,7 @@
     "AC-001": {
       "label": "tiny-numerics",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "FR-001",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -13,7 +13,7 @@
     "AC-002": {
       "label": "cache-equivalence",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "FR-002",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -22,7 +22,7 @@
     "AC-003": {
       "label": "cache-owner",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "FR-003",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -31,7 +31,7 @@
     "AC-004": {
       "label": "page-reuse",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "SEC-003",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -40,7 +40,7 @@
     "AC-005": {
       "label": "reclaim",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "REL-001",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -49,7 +49,7 @@
     "AC-006": {
       "label": "rounds",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "FR-004",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -58,7 +58,7 @@
     "AC-007": {
       "label": "cancel",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "FR-005",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -67,7 +67,7 @@
     "AC-008": {
       "label": "fairness",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "PERF-003",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -76,7 +76,7 @@
     "AC-009": {
       "label": "admission",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "PERF-002",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -85,7 +85,7 @@
     "AC-010": {
       "label": "protocol",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "FR-006",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -94,7 +94,7 @@
     "AC-011": {
       "label": "model-loader",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "SEC-002",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -103,7 +103,7 @@
     "AC-012": {
       "label": "real-model",
       "receipts": [
-        "verification/published/real-model-5c92111762da"
+        "verification/published/real-model-23994a56a2a5"
       ],
       "requirement": "FR-007",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -112,7 +112,7 @@
     "AC-013": {
       "label": "model-convert",
       "receipts": [
-        "verification/published/real-model-5c92111762da"
+        "verification/published/real-model-23994a56a2a5"
       ],
       "requirement": "FR-007",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -121,7 +121,7 @@
     "AC-014": {
       "label": "authority",
       "receipts": [
-        "verification/published/public-audit-56e2bf56ee9d"
+        "verification/published/public-audit-3d44fa69d244"
       ],
       "requirement": "SEC-001",
       "scope": "Trusted local controller only; no network inference adapter or remote authentication claim.",
@@ -130,8 +130,8 @@
     "AC-015": {
       "label": "inspector",
       "receipts": [
-        "verification/published/core-2b46d041e3d4",
-        "verification/published/browser-914167c36789"
+        "verification/published/core-24f27c07323d",
+        "verification/published/browser-dceed5dc3bd4"
       ],
       "requirement": "FR-008",
       "scope": "Actual native synthetic trace, escaping regressions and exact-HTML sandboxed desktop/mobile keyboard checks; extra hostile-display HTTP navigation is also retained.",
@@ -140,7 +140,7 @@
     "AC-016": {
       "label": "clean",
       "receipts": [
-        "verification/published/clean-27cc8e85ad46"
+        "verification/published/clean-d3fc5c34f298"
       ],
       "requirement": "NFR-001",
       "scope": "Fresh committed clone and fresh hash-locked Windows reference environment on the same host/toolchain. Additional Linux fresh-core environment is in CI evidence.",
@@ -149,7 +149,7 @@
     "AC-017": {
       "label": "sanitizers",
       "receipts": [
-        "verification/published/sanitizers-6113003483a1"
+        "verification/published/sanitizers-2eadf94918f5"
       ],
       "requirement": "NFR-003",
       "scope": "Actual supported Linux Clang ASan/UBSan native, parser and lifecycle execution; not inferred from Windows.",
@@ -158,8 +158,8 @@
     "AC-018": {
       "label": "public-audit",
       "receipts": [
-        "verification/published/public-audit-56e2bf56ee9d",
-        "verification/published/security-online-ac699ced8a95"
+        "verification/published/public-audit-3d44fa69d244",
+        "verification/published/security-online-3add5f2bc302"
       ],
       "requirement": "SEC-004",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -168,7 +168,7 @@
     "AC-019": {
       "label": "benchmark",
       "receipts": [
-        "verification/published/benchmark-052a7d17d95f"
+        "verification/published/benchmark-032e8ce253cc"
       ],
       "requirement": "PERF-001",
       "scope": "Six fixed synthetic workloads, three variants,18warmups and90measurements. Native round-visible timings and OS high-water RSS; no pretrained performance claim.",
@@ -177,7 +177,7 @@
     "AC-020": {
       "label": "restart",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "REL-002",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -186,7 +186,7 @@
     "AC-021": {
       "label": "version",
       "receipts": [
-        "verification/published/core-2b46d041e3d4"
+        "verification/published/core-24f27c07323d"
       ],
       "requirement": "NFR-002",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
@@ -195,8 +195,8 @@
     "AC-022": {
       "label": "batching",
       "receipts": [
-        "verification/published/core-2b46d041e3d4",
-        "verification/published/benchmark-052a7d17d95f"
+        "verification/published/core-24f27c07323d",
+        "verification/published/benchmark-032e8ce253cc"
       ],
       "requirement": "FR-009",
       "scope": "Sequential token scheduling and paired exact outputs; no fused-batching claim.",
@@ -205,7 +205,7 @@
     "AC-023": {
       "label": "mutation",
       "receipts": [
-        "verification/published/mutation-e8e69ac532f4"
+        "verification/published/mutation-d7bdf2439a53"
       ],
       "requirement": "FR-001",
       "scope": "Two selected semantic mutations, not a global mutation score. Full child-command details are retained separately.",
@@ -214,22 +214,22 @@
     "AC-024": {
       "label": "evidence-integrity",
       "receipts": [
-        "verification/published/evidence-integrity-b46a7107f7ba"
+        "verification/published/evidence-integrity-456d045dc252"
       ],
       "requirement": "NFR-001",
       "scope": "Executed current-source integration with the fixed command/semantic contract; inspect the bound records, outputs and tests.",
       "status": "PASS"
     }
   },
-  "git_commit": "a14ba115674e33c887393b0ef80addf4cc76ee46",
-  "git_tree": "e800644b29e155a8a52273170aa1d4c02b1ac7fb",
+  "git_commit": "ecc74c969bc72460b3243c5881e209bd592828c7",
+  "git_tree": "5b7aebdc8b62b739188fca1cc6ae2e662e9d509d",
   "independent_review": {
-    "artifact": "verification/published/independent-review-a14/report.json",
-    "sha256": "565b5ca3a099e91c11e174e7770f89d7586f214242a46935e8a394ccf4e0a234"
+    "artifact": "verification/published/independent-review-ecc/report.json",
+    "sha256": "2591e3cb495a1ecfda9ec59bc2a86613764cbc6028be80abdaf2b781cd0944f5"
   },
-  "overall": "NOT_RELEASE_READY",
-  "release_sha256": "82814a8e4e699507f383c35498715dba1000d38782c718093ad3dfda5164137f",
+  "overall": "RELEASE_READY",
+  "release_sha256": "57b861dc10fe60ab361c3ef43f6eeb5186385cccec4b14031ffc66c12140905a",
   "remote_publication": "VERIFIED",
   "schema_version": 2,
-  "source_sha256": "cc01a3e9b6aa9621b783ccc9093f4cc618afbf993c50505e7c9652d2f90892db"
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b"
 }

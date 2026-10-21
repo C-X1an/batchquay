@@ -1,0 +1,21 @@
+{
+  "benchmark_binary_sha256": "81fc35f4e0872a9fb77336644ad3fc5cb9edb03b30501b982eba444d61b41dc6",
+  "cpu": {
+    "Name": "13th Gen Intel(R) Core(TM) i9-13900H",
+    "NumberOfCores": 14,
+    "NumberOfLogicalProcessors": 20
+  },
+  "native_compile_flags": [
+    "-O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow"
+  ],
+  "observed_utc": "2026-10-21T08:21:08.3946959Z",
+  "os": {
+    "BuildNumber": "26200",
+    "Caption": "Microsoft Windows 11 Pro",
+    "OSArchitecture": "64-bit",
+    "Version": "10.0.26200"
+  },
+  "physical_memory_bytes": 34048978944,
+  "scope": "Host observed after these retained runs. Shared desktop, no affinity/frequency/background-load isolation. No host name, serial number, account or device identifiers recorded.",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b"
+}

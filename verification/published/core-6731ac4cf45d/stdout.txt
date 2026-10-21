@@ -1,0 +1,88 @@
+python scripts/style_check.py
+PASS text hygiene; clang-format is a separate optional command
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: <python-base>/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (1.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: <public-repo>/build
+cmake --build build -j 2
+[1/10] Building CXX object CMakeFiles/bq.dir/src/cache.cpp.o
+[2/10] Building CXX object CMakeFiles/bq.dir/src/model.cpp.o
+[3/10] Building CXX object CMakeFiles/bq.dir/src/scheduler.cpp.o
+[4/10] Building CXX object CMakeFiles/batchquay.dir/src/main.cpp.o
+[5/10] Building CXX object CMakeFiles/native_tests.dir/tests/native_tests.cpp.o
+[6/10] Building CXX object CMakeFiles/bq_benchmark.dir/tools/benchmark_driver.cpp.o
+[7/10] Linking CXX static library libbq.a
+[8/10] Linking CXX executable native_tests
+[9/10] Linking CXX executable batchquay
+[10/10] Linking CXX executable bq_benchmark
+ctest --test-dir build --verbose --output-on-failure
+Internal ctest changing into directory: <public-repo>/build
+UpdateCTestConfiguration  from :<public-repo>/build/DartConfiguration.tcl
+UpdateCTestConfiguration  from :<public-repo>/build/DartConfiguration.tcl
+Test project <public-repo>/build
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: native
+
+1: Test command: <public-repo>/build/native_tests
+1: Working Directory: <public-repo>/build
+1: Test timeout computed to be: 10000000
+1: PASS owner_rejection
+1: PASS reuse_zero_and_stale
+1: PASS same_id_new_generation
+1: PASS arena_bounds
+1: PASS uninitialized_cache_rejected
+1: PASS paged_contiguous_match
+1: PASS admission_atomic
+1: PASS cancel_terminal
+1: PASS chunk_bound
+1: PASS decode_grants_fair
+1: PASS arrival_order_not_lexical
+1: PASS forward_failure_reclaims
+1: PASS transient_resource_peaks
+1: PASS shape_guard
+1: PASS greedy_tie
+1: PASS invalid_ids
+1: PASS duplicate_and_token
+1: NATIVE_TESTS=17
+1/1 Test #1: native ...........................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.08 sec
+BQ_BINARY=build/batchquay python -m unittest discover -s tests -p test_numerics.py -v
+{"sequences": 100, "variants": 3, "logit_values": 176934, "max_absolute_error": 2.9268134915660937e-07, "rms_error": 4.329997188318141e-08, "oracle": "independent full-prefix float64 over FP32 weights"}
+BQ_BINARY=build/batchquay python -m unittest discover -s tests -p test_system.py -v
+python -m unittest discover -s tests -p test_evidence.py -v
+BQ_BINARY=build/batchquay python -m unittest discover -s tests -p test_benchmark.py -v
+python -m unittest discover -s tests -p test_fetch.py -v
+python -m compileall -q src tests tools scripts
+python scripts/check_integrity.py
+Acceptance lock fields: ['algorithm', 'files']
+PASS locked acceptance and phase plan
+python scripts/audit_public.py
+PASS local path/content export checks for 693 files. Independent full-history scanner remains separate.
+BQ_BINARY=build/batchquay python -m tools.demo
+{
+  "report": ".local-runs/demo/report.html",
+  "source_sha256": "6907da7009d263ada9673c59a172cac7bdb0d4c0bc59886d8982f116d472804b",
+  "observed": [
+    "admitted",
+    "denied",
+    "cancelled",
+    "finished",
+    "reclaimed"
+  ]
+}
+Core local verification passed. This is NOT full-product release approval.

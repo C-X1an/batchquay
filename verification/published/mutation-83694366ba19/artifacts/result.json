@@ -1,0 +1,16 @@
+{
+  "sequence": "PASS -> expected FAIL -> PASS",
+  "selected_mutations": [
+    {
+      "name": "owner",
+      "exit_code": 1,
+      "verdict": "KILLED_BY_EXPECTED_TEST_FAILURE"
+    },
+    {
+      "name": "attention-scale",
+      "exit_code": 1,
+      "verdict": "KILLED_BY_EXPECTED_TEST_FAILURE"
+    }
+  ],
+  "scope": "two selected critical invariants; not a global mutation score"
+}

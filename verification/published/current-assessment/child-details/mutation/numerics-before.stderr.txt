@@ -3,6 +3,6 @@ test_seeded_full_prefix_equivalence (test_numerics.NumericalTests.test_seeded_fu
 100 sequences, 3 model shapes/seeds, 3 native execution variants. ... ok
 
 ----------------------------------------------------------------------
-Ran 2 tests in 3.514s
+Ran 2 tests in 4.452s
 
 OK

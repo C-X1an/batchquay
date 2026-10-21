@@ -2,7 +2,7 @@
   "command": [
     "<public-repo>\\build-host-a716\\native_tests.exe"
   ],
-  "duration_seconds": 0.01766479993239045,
+  "duration_seconds": 0.016575099900364876,
   "exit_code": 0,
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stdout_sha256": "43a289020d31ccb9fd4599bd3d0b4cc4543b5c12c239167e287de17cebe9cfc6",

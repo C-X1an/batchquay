@@ -1,0 +1,1 @@
+{"variant":"paged","load_ms":0.459,"elapsed_ms":1.433,"peak_rss_bytes":5001216,"logical_cache_bytes":11264,"allocated_kv_bytes":12288,"peak_owned_pages":3,"reserved_page_bound":3,"rounds":9,"requests":[{"ttft_ms":0.645,"output":[16,17,17,17,17,17,17,17],"token_observed_ms":[0.645,0.768,0.892,1.025,1.161,1.301,1.428,1.432]}]}

@@ -1,8 +1,8 @@
 [1/8] Building CXX object CMakeFiles/bq.dir/src/cache.cpp.obj
 [2/8] Building CXX object CMakeFiles/bq.dir/src/model.cpp.obj
 [3/8] Building CXX object CMakeFiles/bq.dir/src/scheduler.cpp.obj
-[4/8] Linking CXX static library libbq.a
-[5/8] Building CXX object CMakeFiles/batchquay.dir/src/main.cpp.obj
+[4/8] Building CXX object CMakeFiles/batchquay.dir/src/main.cpp.obj
+[5/8] Linking CXX static library libbq.a
 [6/8] Linking CXX executable batchquay.exe
 [7/8] Building CXX object CMakeFiles/native_tests.dir/tests/native_tests.cpp.obj
 [8/8] Linking CXX executable native_tests.exe
