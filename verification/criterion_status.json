@@ -223,11 +223,8 @@
   },
   "git_commit": "ecc74c969bc72460b3243c5881e209bd592828c7",
   "git_tree": "5b7aebdc8b62b739188fca1cc6ae2e662e9d509d",
-  "independent_review": {
-    "artifact": "verification/published/independent-review-ecc/report.json",
-    "sha256": "2591e3cb495a1ecfda9ec59bc2a86613764cbc6028be80abdaf2b781cd0944f5"
-  },
-  "overall": "RELEASE_READY",
+  "independent_review": null,
+  "overall": "NOT_RELEASE_READY",
   "release_sha256": "57b861dc10fe60ab361c3ef43f6eeb5186385cccec4b14031ffc66c12140905a",
   "remote_publication": "VERIFIED",
   "schema_version": 2,
