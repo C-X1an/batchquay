@@ -1,7 +1,0 @@
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /mnt/data/batchquay-package/public-repo/build
-cmake --build build -j 2
-ninja: no work to do.
-python3 -m tools.real_model

@@ -1,53 +1,46 @@
-# Verification status — 2026-10-20
+# Verification and reproducibility
 
-Read the current criterion index for committed-source release eligibility. The dated observations below describe historical development checkpoints. Real pinned-checkpoint conformance and repeated conversion have passed locally. Separate read-only reviews preceded integration fixes and later challenged evidence validation and benchmark accounting; their findings and follow-up remain part of the release work. The earlier missing-dependency/DNS/scanner failures are retained, not relabelled as success.
+The [criterion index](verification/criterion_status.json) records the assessed source commit, source and release hashes, all 24 locked criteria, and the exact independent review artifact. The [evidence index](verification/evidence_index.json) identifies its actual command receipts. Check those bindings before treating a result as evidence for a different checkout.
 
-The current benchmark measures six paired synthetic workloads covering 1/2/4/8/16 simultaneous requests, with warmups, five repetitions, exact greedy-output parity, native high-water RSS and KV payload counters captured before reclamation. Native resource regression reproduces the three-page transient previously hidden by round-end sampling. Release regression tests reject an actually executed replacement make recipe, altered artifacts, false parity, inconsistent timing, missing warmups and duplicated repetitions.
+The [measured assessment](verification/published/current-assessment/REPORT.md) contains the source-bound conformance results and all six synthetic benchmark workloads. Its [machine-readable measurements](verification/published/current-assessment/measurements.json), [host environment](verification/published/current-assessment/host-environment.json) and [CI observation](verification/published/current-assessment/ci-observation.json) explain the execution scope. The indexed benchmark bundle retains every warmup, repetition and native companion file, including unfavorable timings.
 
-Full-release eligibility requires fresh committed reproduction, supported-Linux gates, current public receipts, complete-candidate audit and final independent review. The current index records their actual status. The material below is preserved historical author evidence for its stated source; its counts, blocked status and same-host reproduction are not current-source approval.
+## Run the gates
 
----
+Use GCC, GNU Make, CMake, Ninja, Git and Python 3.12 on a supported host. Install the [hash-locked core dependencies](requirements-core.lock) in a fresh virtual environment. The Windows reference lock and browser lock support the separate pretrained and browser gates; see [operations](OPERATIONS.md) and [third-party notices](THIRD_PARTY_NOTICES.md).
 
-# Verification report
+```sh
+make bootstrap
+make verify
+make conversion-test
+make sanitize lint
+make mutation
+make benchmark
+make clean-verify
+make security-online
+make real-model
+make release-verify
+```
 
-Research date: 2026-10-19, Asia/Singapore. Actual command timestamps are UTC in receipts (the initial author runs occurred on 2026-10-18 UTC / 2026-10-19 Singapore). No independently executed Codex or remote CI result is claimed.
+`make verify` checks the core build, native and Python tests, numerical oracle, process behavior, evidence integrity, bounded export policy and actual native demo. Linux Clang is required for sanitizer checks. Conversion and real-model execution require the reference environment and the pinned checkpoint; synthetic oracle success does not establish pretrained-model conformance.
 
-## Source and environment
-Checked code/contracts source SHA-256: `8fa2a6c5e66eea460b2619c984c2be02e2f7edec239515a0ae82d2019daa846b`.
-Initial verified Git commit: `9c773daeabf4be83e14992ce365e9bd4022a9fda`. Later publication-only documentation/evidence commits do not change this explicitly defined code/contracts hash; do not mistake it for a full-tree or final-HEAD verification claim.
+`make release-verify` additionally checks all criterion-specific command and semantic contracts, exact current source and release bindings, the genuine independent assessment, and the complete current publication candidate plus Git history. It requires Gitleaks on PATH. It fails when any required evidence is missing, stale or invalid. The [test matrix](TEST_MATRIX.md), [acceptance contract](ACCEPTANCE_SPEC.md) and [benchmark method](BENCHMARKS.md) define the required behavior.
 
-Linux 6.18.55 x86_64, GCC 14.2, Clang 17, CMake 3.31.6, Python 3.13.5. Actual local numerical/reference-conversion packages: NumPy 2.3.5, Torch 2.10.0+cpu, Safetensors 0.7.0. Transformers/tokenizers absent. Recommended current pins in requirements files are a different, not-yet-provisioned target environment.
+## Inspect a receipt
 
-## Executed successfully
-33 named native/Python checks across the core and synthetic-conversion suites. Numerical evidence compared 100 seeded sequences of lengths 1..32 across three model configurations, and contiguous, paged and recomputed execution. 176,934 logit values were compared against a separately expressed dense full-prefix oracle. Maximum absolute difference: **2.9268134849047556e-7**; RMS difference: **4.329997188272048e-8**. Limits were 3e-5 and 3e-6 respectively.
+Find a bundle's `receipt` path in the evidence index, then run:
 
-Real child-process checks covered interleaved-vs-isolated output, capacity denial, cancellation/stale generation, malformed commands, damaged model files and process kill/restart. Native tests covered page ownership, epochs, clearing/reuse, reclamation including injected forward failure, bounded prefill and decode grants.
+```sh
+python3 scripts/evidence.py verify verification/published/BUNDLE_FROM_INDEX
+```
 
-Clang AddressSanitizer/UndefinedBehaviorSanitizer checks and static analysis passed for their recorded finite scope. Two selected temporary mutations (ownership check removal and attention scaling error) established baseline PASS -> expected semantic FAIL -> restored PASS in isolated source trees. This is not a global mutation coverage number.
+The bundle includes the actual command, exit status, environment, source/release manifests, captured output and named semantic artifacts. Published streams disclose any local-path and line-ending transformation; original streams remain separate. Hashes bind the retained bytes locally. They are not signatures or third-party attestation.
 
-The real demo produced admission, denial, cancellation, completion and zero final reservations/pages. Browser QA loaded its owned HTML with `set_content`, checked first keyboard focus, desktop/mobile overflow and embedded resources, and captured actual screenshots. Filesystem URL navigation was restricted by the author environment; no browser-security setting was disabled.
+The live [Core verification workflow](https://github.com/C-X1an/batchquay/actions/workflows/core.yml) runs the core, sanitizers, static analysis, selected semantic mutations and a fresh committed checkout with new hash-locked core dependencies. The README badge follows real push runs on `main`; it does not replace full release verification.
 
-A **fresh committed source checkout passed on the same host and installed dependencies**. This is deliberately narrower than the required fresh dependency installation/reproduction gate.
+## Failures and public scope
 
-## Actual small benchmark, including the unfavorable result
-All variants processed the same 64-position tiny synthetic workload. One warmup per variant, then five fresh-process repetitions per variant with rotated order; output values matched exactly. Process wall time includes loading and JSON output. Raw observations: [benchmark JSON](verification/published/observations/benchmark.json).
+[Run 39745310021](https://github.com/C-X1an/batchquay/actions/runs/39745310021) failed after the presentation update introduced four SVGs outside the export allowlist. The evidence test exposed that refusal. The policy explicitly permits those four reviewed assets while preserving unknown-path, symlink, generated/private-file and secret checks. The failing run remains available as a failure; later results must be read from their own runs.
 
-|Variant|Median ms|Min ms|Max ms|
-|---|---:|---:|---:|
-|contiguous|4.383|3.893|5.582|
-|paged|5.474|5.118|5.777|
-|serial-recompute|29.519|27.008|29.790|
+The public tree retains source, build and reproduction tools, tests, contracts, documentation, demo, licenses and one indexed evidence set. Superseded duplicate bundles and the obsolete author observation manifest were archived before removal from the current tree. Existing Git history is preserved. The [Certifi remediation](verification/published/certifi-remediation/remediation.json) keeps the actual advisory finding and before/after results visible.
 
-Paged execution was slower than contiguous execution in this tiny measurement. The result does not establish a universal regression or advantage. CPU affinity was not pinned, the host was shared, the model was synthetic and only one workload was measured. RSS, serving TTFT, p99 latency, energy and production capacity were NOT MEASURED. Full reference-host evaluation remains PARTIAL.
-
-## Failed, blocked and interrupted work
-Actual model-download attempt failed with temporary DNS resolution failure. Actual real-model target failed because Transformers was not installed. Actual online-security target refused to proceed without gitleaks/pip-audit. Their nonzero command receipts are retained; no success was substituted. Pinned real-model execution and deterministic real-model conversion remain BLOCKED.
-
-Two author-side bundled command invocations were interrupted before complete receipts for their next command were written. Those incomplete attempt directories are not published as PASS evidence. Static analysis and clean-checkout verification were rerun individually and completed with their own receipts. The cause of the outer interruptions is not established as a product defect or a passed run. Earlier compiler/style and analyzer findings were corrected and rerun, not suppressed.
-
-No independent-agent review, fresh dependency installation, resolved-transitive hash lock, full-history secret/advisory scan, complete license inventory, hosted CI, public repository creation or service deployment has been established.
-
-## Reproduce and interpret
-See README.md for commands and TEST_MATRIX.md for criterion mapping. Receipts include actual command arrays, exits, timestamp/duration, tool versions, Git metadata and source/stdout/stderr hashes. `python3 scripts/evidence.py verify verification/published/core` verifies the current defined source and recorded output bytes. A changed output or source manifest is rejected. Hashes are local byte bindings, not independent attestation against someone who controls the source and all records.
-
-The overall product release gate is intentionally FAIL: 19 locally passing criteria, 2 FAIL, 3 BLOCKED, and independent verification NOT RUN. `make verify` does not override `make release-verify`.
+The measured runtime is experimental, single-host and CPU-only. Synthetic workload latency is distinct from pretrained throughput or language quality. No GPU, fused GEMM, HTTP inference deployment, production capacity, universal speed advantage or security certification is claimed; see [limitations](LIMITATIONS.md).

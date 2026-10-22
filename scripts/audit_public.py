@@ -5,6 +5,7 @@ import subprocess
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 allowed_dirs={'src','tests','tools','scripts','models','verification','docs','.github'}
+allowed_assets={'assets/hero-dark.svg','assets/hero-light.svg','assets/mark.svg','assets/social-preview.svg'}
 ignored={'.git','.local-runs','.agent-local','__pycache__'}
 patterns=[re.compile(rb'ghp_[A-Za-z0-9]{30,}'),re.compile(rb'github_pat_[A-Za-z0-9_]{35,}'),
           re.compile(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----')]
@@ -23,7 +24,7 @@ for path in root.rglob('*'):
         continue
     if path.is_symlink(): problems.append(str(relative)+': symlink requires explicit review');continue
     if not path.is_file(): continue
-    if len(relative.parts)>1 and relative.parts[0] not in allowed_dirs:
+    if len(relative.parts)>1 and relative.parts[0] not in allowed_dirs and relative.as_posix() not in allowed_assets:
         problems.append(str(relative)+': outside public allowlist')
     if path.suffix in {'.docx','.pem','.key','.token','.safetensors','.bqw','.zip','.partial'} or path.name.startswith('.env'):
         problems.append(str(relative)+': private/generated artifact')

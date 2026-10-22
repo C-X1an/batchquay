@@ -227,7 +227,7 @@
     "artifact": "verification/published/independent-review-landing/report.json",
     "sha256": "b1e48b333b46c5bce86b82b370c09a5b586d86b76f8e102027a2e724ae41d3de"
   },
-  "overall": "RELEASE_READY",
+  "overall": "NOT_RELEASE_READY",
   "release_sha256": "032f7f8d69b38497a77baa07a347a81733d94ab93faf927df9eeedda4bbcac73",
   "remote_publication": "VERIFIED",
   "schema_version": 2,

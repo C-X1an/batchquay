@@ -1,1 +1,0 @@
-{"sequences": 100, "variants": 3, "logit_values": 176934, "max_absolute_error": 2.9268134849047556e-07, "rms_error": 4.329997188272048e-08, "oracle": "independent full-prefix float64 over FP32 weights"}

@@ -1,2 +1,0 @@
-BLOCKED: install reviewed gitleaks and pip-audit in the verification environment; scan full history and resolved requirements. No scanner result exists yet.
-make: *** [Makefile:38: security-online] Error 1
