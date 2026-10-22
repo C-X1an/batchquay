@@ -1,0 +1,58 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 2876,
+      "label": "clean-result",
+      "path": "verification/published/clean-ab4e6282e95d/artifacts/result.json",
+      "sha256": "065b90d6dd827323350f109f5b6f711b372c35fb9606ecb332564ecae47b3991"
+    }
+  ],
+  "category": "clean",
+  "command": [
+    "make",
+    "PYTHON=python",
+    "CMAKE=cmake",
+    "BUILD=build",
+    "clean-verify"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 27.529081958,
+  "ended_utc": "2026-10-22T17:25:38.855719+00:00",
+  "environment": {
+    "machine": "x86_64",
+    "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "7413e86fc984a06a842ab7b499a59e4bd91b54fad991aaed38101902bba01bca",
+    "python": "3.12.3",
+    "python_executable": "python",
+    "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_stdout_sha256": "88d126764ba308f38ce208a2f629a368d231a6207c6af9471537fcfcd988f58d",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "56840f1972065a0854f261bcf2b0902bb47cd48c",
+  "git_dirty": false,
+  "git_tree": "2cd4416d72af7a981b0786714f9d4364f3f9ed56",
+  "name": "clean",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "d46fec5d9d0781cdd33f4668ae2d6026fcf00011274473a7e62674e98c9b594d",
+  "runtime_versions": {
+    "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "cmake": "cmake version 3.31.6",
+    "git": "git version 2.55.0"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "62c25dfc5db2dcf7ee24c5c074ddb67eea3055ea74b81aa30ba23e94ba74f0c2",
+  "started_utc": "2026-10-22T17:25:11.325049+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "88d126764ba308f38ce208a2f629a368d231a6207c6af9471537fcfcd988f58d",
+  "timed_out": false
+}

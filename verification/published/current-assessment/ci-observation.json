@@ -1,16 +1,16 @@
 {
   "artifact": {
-    "archive_sha256": "c04f15fe45080de5f2062dd077960ffe3810d29038f5203e302a50fbf8fbbed8",
-    "artifact_id": 12336035557,
-    "bytes": 104572,
-    "extraction_directory": "artifact-12336035557",
-    "head_sha": "05007149398de6a0b1c5c65ce255f3082d532800",
+    "archive_sha256": "c11a59db2dd4d7ec3bfa46e1da10be5fcd1b1e15a3482d1f70afd0217d125401",
+    "artifact_id": 12443874790,
+    "bytes": 105941,
+    "extraction_directory": "artifact-12443874790",
+    "head_sha": "56840f1972065a0854f261bcf2b0902bb47cd48c",
     "members": 102,
-    "run_id": 39578438934
+    "run_id": 39821713717
   },
   "conclusion": "success",
-  "head_sha": "05007149398de6a0b1c5c65ce255f3082d532800",
-  "html_url": "https://github.com/C-X1an/batchquay/actions/runs/39578438934",
+  "head_sha": "56840f1972065a0854f261bcf2b0902bb47cd48c",
+  "html_url": "https://github.com/C-X1an/batchquay/actions/runs/39821713717",
   "jobs": [
     {
       "conclusion": "success",
@@ -61,8 +61,8 @@
   ],
   "raw_stream_scope": "Original raw files downloaded in the digest-verified public CI archive; no reconstruction. Git bundles intentionally omit them.",
   "repository": "C-X1an/batchquay",
-  "run_id": 39578438934,
+  "run_id": 39821713717,
   "schema_version": 1,
   "status": "completed",
-  "updated_at": "2026-10-21T09:39:10Z"
+  "updated_at": "2026-10-22T17:25:43Z"
 }

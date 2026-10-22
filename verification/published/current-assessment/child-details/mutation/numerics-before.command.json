@@ -10,9 +10,9 @@
     "test_numerics.py",
     "-v"
   ],
-  "duration_seconds": 4.614626000053249,
+  "duration_seconds": 6.5510077999970235,
   "exit_code": 0,
-  "stderr_sha256": "d5fb26232add890197ef4a671873e58c968b3bd5b058cb63a9fcbce13ecf2a99",
+  "stderr_sha256": "494292d1108b112ae4fb3a325132a252b6870bf5c86b7a3ed05420828f0d2098",
   "stdout_sha256": "8f362839146527f8763ee1b76c1274bcd651e3e658556a97ae6110236bc754cf",
   "stem": "numerics-before"
 }

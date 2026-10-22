@@ -1,11 +1,11 @@
 {
   "command": [
-    "<project-temp>\\bqc-f8a191f639\\venv\\Scripts\\python.exe",
+    "<project-temp>\\bqc-ca90d5ce5a\\venv\\Scripts\\python.exe",
     "-m",
     "pip",
     "check"
   ],
-  "duration_seconds": 2.0569072000216693,
+  "duration_seconds": 1.6286849999996775,
   "exit_code": 0,
   "name": "dependency-check",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "artifact:browser-desktop:verification/published/adversarial-inspector-239fc9f6a1a3/artifacts/desktop.png": "a84639c6a6105f531267d368169c2a9f744db2dfcc6b77c425a31e440f600f65",
+    "artifact:browser-mobile:verification/published/adversarial-inspector-239fc9f6a1a3/artifacts/mobile.png": "e7a7f3c3c204a201ccc078fc44c28cc35e5d9b112a8ff395aa0934fb47bc74df",
+    "artifact:browser-result:verification/published/adversarial-inspector-239fc9f6a1a3/artifacts/browser-review.json": "40a60457c5e8dc725a910e749bac3173b19ba09bde5b46c76e97154677ffac79",
+    "artifact:demo-report:verification/published/adversarial-inspector-239fc9f6a1a3/artifacts/report.html": "4c2e4aea796ef16fdc8e097e15c40d09c6321eaf28d9b9eb94009977ae1efc33",
+    "artifact:demo-trace:verification/published/adversarial-inspector-239fc9f6a1a3/artifacts/trace.json": "27fab2b5149b4e4acf5e3a6af1abde6e161160e4ca2c5ae230fbdb89540e08a8",
+    "record.json": "ebfce641103cf86b108dbd03c905481c6bad3695903a4ac17949aad720a3eac7",
+    "release_manifest.json": "3fc0974aeee683fc55a0f07632167fff61b30c9930eee6b3854f6099d11c3050",
+    "source_manifest.json": "c396aae1c26c7519effe82ea9968d51eeb24515cfa2075f76303e9eecc19cc00",
+    "stderr.txt": "e4368b8f6f8ef79c80966e08bda1c64486f8209707bd0bcead65c0a37829eaec",
+    "stdout.txt": "183c997deb18fb4fb1b2bf2a41568f61d77d51cb9507d4d4ef85b3f1ea35e360"
+  },
+  "schema_version": 1
+}

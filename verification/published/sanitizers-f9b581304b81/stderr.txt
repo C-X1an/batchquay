@@ -1,0 +1,14 @@
+test_admission_and_maximum_position_bound (test_system.SystemTests.test_admission_and_maximum_position_bound) ... ok
+test_cancel_and_stale_generation (test_system.SystemTests.test_cancel_and_stale_generation) ... ok
+test_extreme_oversize_record_closes_protocol (test_system.SystemTests.test_extreme_oversize_record_closes_protocol) ... ok
+test_interleaving_matches_isolated_execution (test_system.SystemTests.test_interleaving_matches_isolated_execution) ... ok
+test_invalid_cli_token_rejected (test_system.SystemTests.test_invalid_cli_token_rejected) ... ok
+test_kill_restart_rejects_old_session (test_system.SystemTests.test_kill_restart_rejects_old_session) ... ok
+test_loader_rejects_structural_and_nonfinite_damage (test_system.SystemTests.test_loader_rejects_structural_and_nonfinite_damage) ... ok
+test_malformed_protocol_finite_campaign (test_system.SystemTests.test_malformed_protocol_finite_campaign) ... ok
+test_response_session_attribution (test_system.SystemTests.test_response_session_attribution) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.162s
+
+OK

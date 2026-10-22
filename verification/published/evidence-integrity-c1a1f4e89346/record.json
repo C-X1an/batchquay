@@ -1,0 +1,51 @@
+{
+  "artifact_errors": [],
+  "artifacts": [],
+  "category": "evidence-integrity",
+  "command": [
+    "make",
+    "PYTHON=python",
+    "CMAKE=cmake",
+    "BUILD=build",
+    "evidence-test"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 1.876271975,
+  "ended_utc": "2026-10-22T17:25:11.186297+00:00",
+  "environment": {
+    "machine": "x86_64",
+    "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "e758c4cc20bfb43e2e9133ccfff45be8ba7c93d5dc87282a3074e0b6d4c74e67",
+    "python": "3.12.3",
+    "python_executable": "python",
+    "raw_stderr_sha256": "91ee80dbdfbed44a445347ab36214ccf11b64e4cd128a38021538f5f942d07e9",
+    "raw_stdout_sha256": "da1bacbaf0e7dbe382f1bb20236242f0dc2104e1bd9f7984367f607b7ffc7b2a",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "56840f1972065a0854f261bcf2b0902bb47cd48c",
+  "git_dirty": false,
+  "git_tree": "2cd4416d72af7a981b0786714f9d4364f3f9ed56",
+  "name": "evidence-integrity",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "d46fec5d9d0781cdd33f4668ae2d6026fcf00011274473a7e62674e98c9b594d",
+  "runtime_versions": {
+    "c++": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang++": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "cmake": "cmake version 3.31.6",
+    "git": "git version 2.55.0"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "62c25dfc5db2dcf7ee24c5c074ddb67eea3055ea74b81aa30ba23e94ba74f0c2",
+  "started_utc": "2026-10-22T17:25:09.309473+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "91ee80dbdfbed44a445347ab36214ccf11b64e4cd128a38021538f5f942d07e9",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "683b41fc5582d35bd8c513b82f31380b925878285a17e21c0f8849640a20bd16",
+  "timed_out": false
+}

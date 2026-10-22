@@ -1,0 +1,1 @@
+{"variant":"contiguous","load_ms":0.42,"elapsed_ms":1.427,"peak_rss_bytes":5668864,"logical_cache_bytes":11264,"allocated_kv_bytes":262144,"peak_owned_pages":0,"reserved_page_bound":3,"rounds":9,"requests":[{"ttft_ms":0.638,"output":[16,17,17,17,17,17,17,17],"token_observed_ms":[0.638,0.762,0.907,1.047,1.18,1.297,1.412,1.426]}]}

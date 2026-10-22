@@ -1,0 +1,13 @@
+{
+  "files": {
+    "artifact:browser-desktop:verification/published/browser-730dcd1038c8/artifacts/desktop.png": "b53e1f23a6d3cfe5eb97ceb30f7200347c32ab635af102d809c4f5a82215aab3",
+    "artifact:browser-mobile:verification/published/browser-730dcd1038c8/artifacts/mobile.png": "38cf38d88f968a68c231ade1bb4082d04161347860cab549c4039ef2e45a467e",
+    "artifact:browser-result:verification/published/browser-730dcd1038c8/artifacts/browser-review.json": "e2fc28b5a67f3cfe0420b31b9e6bc6bd3987e31653ba13cedb33b51c38a29ec9",
+    "record.json": "45e41f43a447dead2617d76603a9607ed7d9df21194d2680e87ebe1cbd353a12",
+    "release_manifest.json": "3fc0974aeee683fc55a0f07632167fff61b30c9930eee6b3854f6099d11c3050",
+    "source_manifest.json": "c396aae1c26c7519effe82ea9968d51eeb24515cfa2075f76303e9eecc19cc00",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "e2fc28b5a67f3cfe0420b31b9e6bc6bd3987e31653ba13cedb33b51c38a29ec9"
+  },
+  "schema_version": 1
+}

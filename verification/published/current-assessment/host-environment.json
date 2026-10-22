@@ -8,14 +8,14 @@
   "native_compile_flags": [
     "-O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow"
   ],
-  "observed_utc": "2026-10-21T09:54:57.5117590Z",
+  "observed_utc": "2026-10-22T17:39:07.8798734Z",
   "os": {
-    "BuildNumber": "26200",
+    "BuildNumber": "26300",
     "Caption": "Microsoft Windows 11 Pro",
     "OSArchitecture": "64-bit",
-    "Version": "10.0.26200"
+    "Version": "10.0.26300"
   },
   "physical_memory_bytes": 34048978944,
   "scope": "Host observed after these retained runs. Shared desktop, no affinity/frequency/background-load isolation. No host name, serial number, account or device identifiers recorded.",
-  "source_sha256": "7c1606370a8c3309dd38d2ac0dcf845e82fe4eb48a46916dbf31fb241cedf1fd"
+  "source_sha256": "62c25dfc5db2dcf7ee24c5c074ddb67eea3055ea74b81aa30ba23e94ba74f0c2"
 }

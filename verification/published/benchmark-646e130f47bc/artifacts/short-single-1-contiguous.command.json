@@ -1,0 +1,10 @@
+{
+  "command": [
+    "build-host-a716/bq_benchmark.exe",
+    "contiguous",
+    ".local-runs/benchmark/measurement.bqw"
+  ],
+  "exit_code": 0,
+  "input": "1\n4 8 3 10 17 24\n",
+  "process_wall_ms": 14.2415
+}

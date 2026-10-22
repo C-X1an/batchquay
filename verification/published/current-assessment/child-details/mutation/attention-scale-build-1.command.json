@@ -9,7 +9,7 @@
     "-j",
     "2"
   ],
-  "duration_seconds": 4.725833600037731,
+  "duration_seconds": 6.777279800000542,
   "exit_code": 0,
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stdout_sha256": "caa925db21a6f998295099ed962bb0f16f2581cc4a955bbb6825b8e3f44822e3",

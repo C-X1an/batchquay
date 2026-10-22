@@ -1,0 +1,11 @@
+{
+  "files": {
+    "artifact:mutation-result:verification/published/mutation-fa38720c3cc5/artifacts/result.json": "83818fbb494de85e9b294a6b9c19093d12b011067c34b8aa70e82bca1eecc33f",
+    "record.json": "7906b6939094bd15c7360bb385e0c95dd7938922d18ecae5919c39c75a78bcd5",
+    "release_manifest.json": "3fc0974aeee683fc55a0f07632167fff61b30c9930eee6b3854f6099d11c3050",
+    "source_manifest.json": "c396aae1c26c7519effe82ea9968d51eeb24515cfa2075f76303e9eecc19cc00",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "cf0220809d81c298b93c909537e1e4136027344de3fd13e4b3127c9a33f9a11c"
+  },
+  "schema_version": 1
+}

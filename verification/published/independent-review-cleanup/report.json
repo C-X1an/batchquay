@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "review_type": "independent-final",
+  "execution_mode": "separate-read-only-session",
+  "reviewer": "Independent source and evidence verifier",
+  "source_sha256": "62c25dfc5db2dcf7ee24c5c074ddb67eea3055ea74b81aa30ba23e94ba74f0c2",
+  "release_sha256": "d46fec5d9d0781cdd33f4668ae2d6026fcf00011274473a7e62674e98c9b594d",
+  "git_commit": "56840f1972065a0854f261bcf2b0902bb47cd48c",
+  "git_tree": "2cd4416d72af7a981b0786714f9d4364f3f9ed56",
+  "disposition": "APPROVED",
+  "completed_utc": "2026-10-22T17:48:36+00:00",
+  "scope": [
+    "source",
+    "acceptance",
+    "evidence",
+    "release-scope"
+  ],
+  "assessment": "The exact current source and candidate release scope support all 24 locked criteria. IR-001 through IR-004 are closed; no OPEN finding remains. Approval covers this source-bound assessment, not subsequent review integration, final export scanning, release execution, publication or CI.",
+  "exception": {
+    "path": "TEST_SPEC_EXCEPTION_TERMINAL_REPLAY.md",
+    "sha256": "75272c4d73af9475850ac480949ca14b49d3028d9e32bfd2e4a1a26af3686048",
+    "disposition": "ACCEPTED",
+    "rationale": "The trusted controller may intentionally reuse a terminal owner/request ID under a newer generation. The exact exception explicitly overrides completed-ledger and already-terminal cancellation promises, documents E_NOT_FOUND/E_STALE behavior, and discloses regenerated-output and attribution risks. Cancellation remains terminal for its generation; restart changes the session. No completed-result ledger, exactly-once delivery or authentication is established."
+  },
+  "findings": [
+    {
+      "id": "IR-001",
+      "priority": "HIGH",
+      "status": "CLOSED",
+      "summary": "The export policy adds exactly four reviewed SVG paths; it does not allow arbitrary assets. Their original bytes are preserved. Nine retained boundary observations validate baseline PASS and expected FAIL/restored PASS for unknown SVG, private directory, forbidden extension and fake secret. Tests and execution controls are unchanged. Original failed CI directly identifies the inherited-recipe test failure; current genuine core execution passes that test.",
+      "evidence": [
+        "scripts/audit_public.py",
+        "tests/test_evidence.py",
+        "assets/hero-dark.svg",
+        "assets/hero-light.svg",
+        "assets/mark.svg",
+        "assets/social-preview.svg",
+        "verification/published/core-58e51e268e9b",
+        "https://github.com/C-X1an/batchquay/actions/runs/39745310021",
+        "https://github.com/C-X1an/batchquay/actions/runs/39821713717"
+      ]
+    },
+    {
+      "id": "IR-002",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Historical approval is not reused. All four current bindings were copied and independently validated against Git and actual manifests. Seventeen new bundles match retained originals and raw streams; actual source CI succeeded. The observed original dynamic badge returned HTTP 200 and passing text. Readiness and final-review binding correctly remain pending integration of this assessment.",
+      "evidence": [
+        "verification/criterion_status.json",
+        "verification/evidence_index.json",
+        "verification/published/current-assessment/ci-observation.json",
+        ".github/workflows/core.yml",
+        "README.md",
+        "https://github.com/C-X1an/batchquay/actions/runs/39821713717"
+      ]
+    },
+    {
+      "id": "IR-003",
+      "priority": "MEDIUM",
+      "status": "CLOSED",
+      "summary": "Current guides direct readers to the indexed commands and measurements, disclose failure chronology and experimental limits, and retain synthetic-demo labeling. The obsolete observation manifest was archived and removed; recorded demo assets are unchanged. All 141 checked local documentation links resolve.",
+      "evidence": [
+        "VERIFICATION_REPORT.md",
+        "verification/published/README.md",
+        "verification/published/current-assessment/REPORT.md",
+        "verification/published/current-assessment/measurements.json",
+        "docs/demo/README.md",
+        "docs/demo/trace.json"
+      ]
+    },
+    {
+      "id": "IR-004",
+      "priority": "LOW",
+      "status": "CLOSED",
+      "summary": "The original 1,597-file inventory and archive validate. Archive-before-removal checks account for 986 historical files totaling 5,216,993 bytes, followed by 448 replaced files from 17 superseded bundles. Existing history and the presentation commit remain ancestors. The 611-file candidate retains source, tests, contracts, licenses, demo/artwork, reproduction tools and one complete indexed proof set with Certifi remediation. One earlier assessment is temporarily retained for replacement; its retirement and the subsequent final scan are not attested.",
+      "evidence": [
+        "verification/evidence_index.json",
+        "verification/published/current-assessment/child-details.json",
+        "verification/published/benchmark-646e130f47bc",
+        "verification/published/certifi-remediation/remediation.json",
+        "https://github.com/C-X1an/batchquay/commit/f1b2576895d14b71a61e20ce497336f1d673e7d5",
+        "https://github.com/C-X1an/batchquay/commit/56840f1972065a0854f261bcf2b0902bb47cd48c"
+      ]
+    },
+    {
+      "id": "CURRENT-TECHNICAL-EVIDENCE",
+      "priority": "INFO",
+      "status": "CLOSED",
+      "summary": "All 39 implementation/test/tool/script files match the prior technical assessment except the narrow audited asset-policy change. Locked definitions and exception bytes match. Fresh native execution passed 17 cases. Current numerical, ownership, lifecycle, parser, reproduction, sanitizer, benchmark, browser and integrity evidence validates; 17 RAM negative probes rejected false or incomplete evidence.",
+      "evidence": [
+        "src/model.cpp",
+        "src/cache.cpp",
+        "src/scheduler.cpp",
+        "src/main.cpp",
+        "tests/native_tests.cpp",
+        "scripts/execution.py",
+        "scripts/release_verify.py",
+        "scripts/benchmark_evidence.py",
+        "verification/acceptance.lock.json",
+        "verification/phase_plan.sha256",
+        "verification/evidence_index.json"
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-001",
+      "status": "PASS",
+      "rationale": "Current independent tiny-oracle evidence reports maximum error 2.9268134893456477e-7 and RMS 4.329997188388933e-8, within both locked limits."
+    },
+    {
+      "id": "AC-002",
+      "status": "PASS",
+      "rationale": "Every-position comparisons cover 100 seeded sequences, three execution variants and 176,934 logits."
+    },
+    {
+      "id": "AC-003",
+      "status": "PASS",
+      "rationale": "Owner read/write/release rejection and unchanged-owner-state checks validate; fresh native ownership execution passed."
+    },
+    {
+      "id": "AC-004",
+      "status": "PASS",
+      "rationale": "Clear-before-reuse, stale handles and retained-copy isolation validate in current evidence and fresh native execution."
+    },
+    {
+      "id": "AC-005",
+      "status": "PASS",
+      "rationale": "Current terminal and forward-failure checks establish exact reservation/page reclamation; fresh native checks passed."
+    },
+    {
+      "id": "AC-006",
+      "status": "PASS",
+      "rationale": "Bounded prefill and arrival-ordered interleaving validate; fresh native chunk and ordering checks passed."
+    },
+    {
+      "id": "AC-007",
+      "status": "PASS",
+      "rationale": "Cancellation invalidates before acknowledgment and prevents later output for that generation under the accepted exact exception."
+    },
+    {
+      "id": "AC-008",
+      "status": "PASS",
+      "rationale": "Completed-round decode-grant fairness validates, including fresh native execution; equal latency is not claimed."
+    },
+    {
+      "id": "AC-009",
+      "status": "PASS",
+      "rationale": "Capacity denial preserves admitted state; reservation and maximum-position checks validate."
+    },
+    {
+      "id": "AC-010",
+      "status": "PASS",
+      "rationale": "Current malformed/oversized protocol campaigns verify typed rejection and unchanged state; extreme discard exhaustion exits explicitly."
+    },
+    {
+      "id": "AC-011",
+      "status": "PASS",
+      "rationale": "Current loader tests reject structural, version, dimension and nonfinite corruption; supported-Linux sanitizer evidence validates."
+    },
+    {
+      "id": "AC-012",
+      "status": "PASS",
+      "rationale": "All 20 fixed sequences validate: 326 positions and 16,023,552 logits; maximum error 0.0002955962646495891, weighted mean 8.623001204748004e-6 and 311/311 confident top-1 matches."
+    },
+    {
+      "id": "AC-013",
+      "status": "PASS",
+      "rationale": "Revision 4e53f736cbb20a9a0f56b4c4bf378d9f306ff915 and source/config hashes validate. Both actual 538,060,076-byte conversions rehash to d2420bf6c20490b91db1ecff3ffeabbf949f0a24fd428a27e3bff593cb14490e."
+    },
+    {
+      "id": "AC-014",
+      "status": "PASS",
+      "rationale": "Source and contracts establish one trusted local controller, no inference network adapter and no owner-label authentication claim."
+    },
+    {
+      "id": "AC-015",
+      "status": "PASS",
+      "rationale": "Actual native synthetic success/denial/cancellation traces and exact-report desktop/mobile keyboard evidence validate. Supplemental hostile-display execution retains nine native rows plus one explicitly non-native fixture and actual raw-link response checks."
+    },
+    {
+      "id": "AC-016",
+      "status": "PASS",
+      "rationale": "Fresh committed host/Linux reproductions validate install/build/tests/demo. The host installed 35 exact reference distributions with wheel hashes matching the lock."
+    },
+    {
+      "id": "AC-017",
+      "status": "PASS",
+      "rationale": "Successful Linux CI originals establish actual Clang ASan/UBSan native, parser and lifecycle execution without retained diagnostics."
+    },
+    {
+      "id": "AC-018",
+      "status": "PASS",
+      "rationale": "Current complete-export/history audit bindings and fresh privacy inspection validate 611 files and 1,258 historical blobs plus metadata. Advisory/license evidence and Certifi remediation validate; the later final export scan remains unexecuted."
+    },
+    {
+      "id": "AC-019",
+      "status": "PASS",
+      "rationale": "All six fixed synthetic workloads retain 18 warmups, 90 measurements and 324 native companions. Recomputed timing/resource summaries, command inputs and exact output parity validate."
+    },
+    {
+      "id": "AC-020",
+      "status": "PASS",
+      "rationale": "Current process-kill/restart checks establish empty new state and rejection of old-session commands."
+    },
+    {
+      "id": "AC-021",
+      "status": "PASS",
+      "rationale": "Version, invalid-record, fatal-exit and session-attribution checks validate against unchanged implementation/tests."
+    },
+    {
+      "id": "AC-022",
+      "status": "PASS",
+      "rationale": "Interleaved and isolated outputs agree; claims accurately distinguish token scheduling from fused batching."
+    },
+    {
+      "id": "AC-023",
+      "status": "PASS",
+      "rationale": "Ownership and attention-scale mutations retain baseline PASS, expected semantic FAIL and restored PASS with verified host/CI child commands and streams."
+    },
+    {
+      "id": "AC-024",
+      "status": "PASS",
+      "rationale": "Current integrity regressions and fresh RAM corruption probes reject altered output, semantic artifacts and original raw streams; replacement command forms are rejected."
+    }
+  ],
+  "actual_checks": [
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Recomputed source/release manifests, matched all four exact input bindings and Git objects, verified only excluded-envelope changes, compared 39 implementation files with the prior assessed source, and checked original assessment and exception digests."
+    },
+    {
+      "command": "python -B scripts/check_integrity.py",
+      "exit_code": 0,
+      "observation": "Locked acceptance and canonical phase definitions passed."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "The separate phase-consistency check passed. Verified 17 sealed public bundles, 17 retained originals with raw streams and 346 artifact bindings; all 24 fixed command/semantic contracts passed."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Rehashed the 102-member original successful Linux CI archive, matched six imported raw-stream sets, verified successful job/step metadata and 17 original CI child commands. Verified 51 published child-detail files, 17 host child commands and 34 original host streams."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Rehashed pinned source/config and both actual conversions; matched 35 freshly installed distributions and wheel hashes to the reference lock. Checked 190 installed license notices and Certifi patched-wheel publisher metadata, MPL notice and before/after remediation bindings."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Recomputed tiny/pretrained and six-workload benchmark coverage; all 324 native companions validated. Seventeen RAM probes rejected altered parity, timing, warmups, repetitions, workload coverage/inputs, fixed sequences, conversion hashes, command substitutions and output/artifact/raw-stream corruption."
+    },
+    {
+      "command": ".\\build-host-a716\\native_tests.exe",
+      "exit_code": 0,
+      "observation": "Existing native executable passed all 17 named cases without a build or filesystem-fixture suite."
+    },
+    {
+      "command": "python -B scripts/audit_public.py",
+      "exit_code": 0,
+      "observation": "Current local path/content export audit passed for 611 files."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Validated original and removal archives, nine boundary-control observations, current complete-export scanner command/stream bindings, and the retained actual badge fetch. Fresh privacy inspection covered 611 files, 1,258 historical blobs and Git metadata; 141 local documentation links resolved."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Final pure verify_release() returned exactly pending overall readiness and missing hashed final review, with no other error. Exact bindings, 24 unique PASS criteria and supplemental native/display-fixture boundaries were rechecked."
+    },
+    {
+      "command": "python -B -",
+      "exit_code": 0,
+      "observation": "Validated this newly authored report in RAM against the supplied schema, exact binding strings, 24 unique criterion IDs/statuses, accepted exception bytes and public-safe content constraints."
+    }
+  ],
+  "unexecuted": [
+    "Bind this original assessment, retire the superseded assessment and integrate only excluded evidence-envelope changes.",
+    "Run the actual final release gate and complete final export/history/secret/license scan after integration.",
+    "Publish the final commit and independently check its remote tree, navigation, newest CI and dynamic badge."
+  ],
+  "limitations": [
+    "Experimental-release assessment, not production readiness or human security certification.",
+    "Hashes are local integrity bindings, not external attestation. This review performed no source, evidence, Git, settings, installation or build writes.",
+    "Fresh execution was limited to read-only checks and the existing native test binary. Fixture-writing suites, collectors, browser actions and full release execution were not repeated.",
+    "Browser and remote conclusions concern inspected retained actual observations. Temporary static test servers do not establish an inference HTTP deployment.",
+    "Synthetic benchmark/demo success does not establish pretrained performance or useful language generation. No GPU, fused execution, authentication, production traffic or availability claim is approved.",
+    "Fresh dependency environments reused existing hosts/toolchains; benchmarks used a shared CPU host without affinity/frequency isolation.",
+    "The original CI and local FAIL/2 remain failures. Current approval does not attest subsequent review binding, assessment retirement, final scanning, release execution, push or CI."
+  ]
+}

@@ -1,14 +1,14 @@
-<project-temp>/bqc-f8a191f639/venv/Scripts/python.exe scripts/style_check.py
+<project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe scripts/style_check.py
 PASS text hygiene; clang-format is a separate optional command
 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
--- Configuring done (0.1s)
+-- Configuring done (0.2s)
 -- Generating done (0.1s)
--- Build files have been written to: <project-temp>/bqc-f8a191f639/source/build
+-- Build files have been written to: <project-temp>/bqc-ca90d5ce5a/source/build
 cmake --build build -j 2
 ninja: no work to do.
 ctest --test-dir build --verbose --output-on-failure
-UpdateCTestConfiguration  from :<project-temp>/bqc-f8a191f639/source/build/DartConfiguration.tcl
-Test project <project-temp>/bqc-f8a191f639/source/build
+UpdateCTestConfiguration  from :<project-temp>/bqc-ca90d5ce5a/source/build/DartConfiguration.tcl
+Test project <project-temp>/bqc-ca90d5ce5a/source/build
 Constructing a list of tests
 Done constructing a list of tests
 Updating test list for fixtures
@@ -18,8 +18,8 @@ Checking test dependency graph end
 test 1
     Start 1: native
 
-1: Test command: <project-temp>\bqc-f8a191f639\source\build\native_tests.exe
-1: Working Directory: <project-temp>/bqc-f8a191f639/source/build
+1: Test command: <project-temp>\bqc-ca90d5ce5a\source\build\native_tests.exe
+1: Working Directory: <project-temp>/bqc-ca90d5ce5a/source/build
 1: Test timeout computed to be: 10000000
 1: PASS owner_rejection
 1: PASS reuse_zero_and_stale
@@ -39,27 +39,27 @@ test 1
 1: PASS invalid_ids
 1: PASS duplicate_and_token
 1: NATIVE_TESTS=17
-1/1 Test #1: native ...........................   Passed    0.29 sec
+1/1 Test #1: native ...........................   Passed    0.18 sec
 
 100% tests passed out of 1
 
-Total Test time (real) =   0.31 sec
-BQ_BINARY=build/batchquay <project-temp>/bqc-f8a191f639/venv/Scripts/python.exe -m unittest discover -s tests -p test_numerics.py -v
+Total Test time (real) =   0.20 sec
+BQ_BINARY=build/batchquay <project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe -m unittest discover -s tests -p test_numerics.py -v
 {"sequences": 100, "variants": 3, "logit_values": 176934, "max_absolute_error": 2.9268134893456477e-07, "rms_error": 4.329997188388933e-08, "oracle": "independent full-prefix float64 over FP32 weights"}
-BQ_BINARY=build/batchquay <project-temp>/bqc-f8a191f639/venv/Scripts/python.exe -m unittest discover -s tests -p test_system.py -v
-<project-temp>/bqc-f8a191f639/venv/Scripts/python.exe -m unittest discover -s tests -p test_evidence.py -v
-BQ_BINARY=build/batchquay <project-temp>/bqc-f8a191f639/venv/Scripts/python.exe -m unittest discover -s tests -p test_benchmark.py -v
-<project-temp>/bqc-f8a191f639/venv/Scripts/python.exe -m unittest discover -s tests -p test_fetch.py -v
-<project-temp>/bqc-f8a191f639/venv/Scripts/python.exe -m compileall -q src tests tools scripts
-<project-temp>/bqc-f8a191f639/venv/Scripts/python.exe scripts/check_integrity.py
+BQ_BINARY=build/batchquay <project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe -m unittest discover -s tests -p test_system.py -v
+<project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe -m unittest discover -s tests -p test_evidence.py -v
+BQ_BINARY=build/batchquay <project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe -m unittest discover -s tests -p test_benchmark.py -v
+<project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe -m unittest discover -s tests -p test_fetch.py -v
+<project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe -m compileall -q src tests tools scripts
+<project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe scripts/check_integrity.py
 Acceptance lock fields: ['algorithm', 'files']
 PASS locked acceptance and phase plan
-<project-temp>/bqc-f8a191f639/venv/Scripts/python.exe scripts/audit_public.py
-PASS local path/content export checks for 1143 files. Independent full-history scanner remains separate.
-BQ_BINARY=build/batchquay <project-temp>/bqc-f8a191f639/venv/Scripts/python.exe -m tools.demo
+<project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe scripts/audit_public.py
+PASS local path/content export checks for 611 files. Independent full-history scanner remains separate.
+BQ_BINARY=build/batchquay <project-temp>/bqc-ca90d5ce5a/venv/Scripts/python.exe -m tools.demo
 {
   "report": ".local-runs\\demo\\report.html",
-  "source_sha256": "7c1606370a8c3309dd38d2ac0dcf845e82fe4eb48a46916dbf31fb241cedf1fd",
+  "source_sha256": "62c25dfc5db2dcf7ee24c5c074ddb67eea3055ea74b81aa30ba23e94ba74f0c2",
   "observed": [
     "admitted",
     "denied",

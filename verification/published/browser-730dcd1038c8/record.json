@@ -1,0 +1,72 @@
+{
+  "artifact_errors": [],
+  "artifacts": [
+    {
+      "bytes": 172518,
+      "label": "browser-desktop",
+      "path": "verification/published/browser-730dcd1038c8/artifacts/desktop.png",
+      "sha256": "b53e1f23a6d3cfe5eb97ceb30f7200347c32ab635af102d809c4f5a82215aab3"
+    },
+    {
+      "bytes": 153278,
+      "label": "browser-mobile",
+      "path": "verification/published/browser-730dcd1038c8/artifacts/mobile.png",
+      "sha256": "38cf38d88f968a68c231ade1bb4082d04161347860cab549c4039ef2e45a467e"
+    },
+    {
+      "bytes": 651,
+      "label": "browser-result",
+      "path": "verification/published/browser-730dcd1038c8/artifacts/browser-review.json",
+      "sha256": "e2fc28b5a67f3cfe0420b31b9e6bc6bd3987e31653ba13cedb33b51c38a29ec9"
+    }
+  ],
+  "category": "browser",
+  "command": [
+    "../../../../../.bqt-20261020/browser-venv/Scripts/python.exe",
+    "-m",
+    "tools.browser_check",
+    "--directory",
+    ".local-runs/demo",
+    "--executable",
+    "C:/Program Files/Google/Chrome/Application/chrome.exe"
+  ],
+  "cwd": "public repository root",
+  "duration_seconds": 5.6638839,
+  "ended_utc": "2026-10-22T17:20:26.614320+00:00",
+  "environment": {
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26300-SP0",
+    "publication_transform": "artifact paths relocated; all stream and artifact bytes unchanged; raw local streams excluded",
+    "published_from_record_sha256": "e922353941c38219bd9cc7d24e7f91a2783dd0f59fa08fa2b6ed7675a418c337",
+    "python": "3.12.14",
+    "python_executable": "python.exe",
+    "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_stdout_sha256": "75cfbefd25fdc7a36bac763625c22cf85fc5270d7d11d8acc2e1e39d43fccf00",
+    "stream_transform": "known-absolute-local-path-prefixes-v1 plus LF line endings; originals retained separately and omitted from published Git bundles"
+  },
+  "evidence_class": "integration",
+  "exit_code": 0,
+  "git_commit": "56840f1972065a0854f261bcf2b0902bb47cd48c",
+  "git_dirty": false,
+  "git_tree": "2cd4416d72af7a981b0786714f9d4364f3f9ed56",
+  "name": "browser",
+  "release_manifest_file": "release_manifest.json",
+  "release_sha256": "d46fec5d9d0781cdd33f4668ae2d6026fcf00011274473a7e62674e98c9b594d",
+  "runtime_versions": {
+    "c++": "c++ (GCC) 16.2.0",
+    "clang++": "UNAVAILABLE",
+    "cmake": "cmake version 4.4.4",
+    "git": "git version 2.52.0.windows.1"
+  },
+  "schema_version": 2,
+  "scope": "local mutable hash binding; no external attestation, independent review, or hosted-CI claim",
+  "source_manifest_file": "source_manifest.json",
+  "source_sha256": "62c25dfc5db2dcf7ee24c5c074ddb67eea3055ea74b81aa30ba23e94ba74f0c2",
+  "started_utc": "2026-10-22T17:20:20.869310+00:00",
+  "status": "PASS",
+  "stderr_file": "stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_file": "stdout.txt",
+  "stdout_sha256": "e2fc28b5a67f3cfe0420b31b9e6bc6bd3987e31653ba13cedb33b51c38a29ec9",
+  "timed_out": false
+}

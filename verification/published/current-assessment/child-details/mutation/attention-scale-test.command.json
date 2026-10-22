@@ -10,9 +10,9 @@
     "test_numerics.py",
     "-v"
   ],
-  "duration_seconds": 0.4356961000012234,
+  "duration_seconds": 0.7439725999975053,
   "exit_code": 1,
-  "stderr_sha256": "a1b1088b3c37ee7c27d7db03517308e97022524d4ff3c05f33b0e2c0de5e8e35",
+  "stderr_sha256": "d0bb267325c9e9017c9edefae5ec591aee0b1862777edca3035bc0215d906ac5",
   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stem": "attention-scale-test"
 }

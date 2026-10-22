@@ -9,9 +9,9 @@
     "Ninja",
     "-DCMAKE_BUILD_TYPE=Release"
   ],
-  "duration_seconds": 1.5223378000082448,
+  "duration_seconds": 1.8540561000008893,
   "exit_code": 0,
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout_sha256": "34e9b67d30c53c46b30c014daca9ba39e120ddcefc075ffee630d81969e865c7",
+  "stdout_sha256": "c3fc3899a28c66f7c3ef167d6152431ead095838d890b2d2afd598c401d096a7",
   "stem": "attention-scale-build-0"
 }

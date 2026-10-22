@@ -1,5 +1,0 @@
-python.exe scripts/check_integrity.py
-Acceptance lock fields: ['algorithm', 'files']
-PASS locked acceptance and phase plan
-python.exe scripts/audit_public.py
-PASS local path/content export checks for 1143 files. Independent full-history scanner remains separate.

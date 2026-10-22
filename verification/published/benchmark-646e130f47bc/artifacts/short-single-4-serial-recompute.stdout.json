@@ -1,0 +1,1 @@
+{"variant":"serial-recompute","load_ms":0.598,"elapsed_ms":10.508,"peak_rss_bytes":5660672,"logical_cache_bytes":11264,"allocated_kv_bytes":262144,"peak_owned_pages":0,"reserved_page_bound":3,"rounds":9,"requests":[{"ttft_ms":2.723,"output":[16,17,17,17,17,17,17,17],"token_observed_ms":[2.723,3.565,4.925,6.625,7.782,9.086,10.504,10.505]}]}

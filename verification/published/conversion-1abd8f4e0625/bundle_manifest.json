@@ -1,0 +1,10 @@
+{
+  "files": {
+    "record.json": "8f58a55aac9b08036a4c0ceab213009ec0ec348e6625ba20371c58a79c444358",
+    "release_manifest.json": "3fc0974aeee683fc55a0f07632167fff61b30c9930eee6b3854f6099d11c3050",
+    "source_manifest.json": "c396aae1c26c7519effe82ea9968d51eeb24515cfa2075f76303e9eecc19cc00",
+    "stderr.txt": "2780790e9bc943a5534e3315c646765e11598b8901459442376dbe5783664f4a",
+    "stdout.txt": "65908cdbe09db259623511a94474096b9738f8b873a9bf5c4261a660339fda53"
+  },
+  "schema_version": 1
+}

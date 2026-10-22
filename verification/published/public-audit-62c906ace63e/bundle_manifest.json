@@ -1,0 +1,11 @@
+{
+  "files": {
+    "artifact:history-scan:verification/published/public-audit-62c906ace63e/artifacts/history-scan.json": "4537dbf2e1c56c54b8a8f3e34870a1811c435090258e1f32cdcf0e894f626e18",
+    "record.json": "597490131c5e9865e098a52c490384971d98db11fe415cd741d1ad9e65c1d0be",
+    "release_manifest.json": "3fc0974aeee683fc55a0f07632167fff61b30c9930eee6b3854f6099d11c3050",
+    "source_manifest.json": "c396aae1c26c7519effe82ea9968d51eeb24515cfa2075f76303e9eecc19cc00",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "d6add99ad312e6ad3ea1e42be5fc10dbda6c26191cef72c40bd4e510bef370b6"
+  },
+  "schema_version": 1
+}
