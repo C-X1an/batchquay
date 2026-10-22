@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 420" width="1360" height="420" role="img" aria-labelledby="title desc">
+<title id="title">BatchQuay — inspect the math, bound the state, explain the result</title>
+<desc id="desc">A stylized schematic of incoming requests flowing through one bounded actor, emitting token and terminal events with separately owned key/value pages that are allocated and reclaimed. Illustration, not a benchmark or screenshot.</desc>
+<defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F5FAFB"/><stop offset="1" stop-color="#EAF4F6"/></linearGradient>
+      <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#137C79"/><stop offset="1" stop-color="#3C69B0"/></linearGradient>
+      <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#BDD6DB" stroke-opacity=".28" stroke-width=".75"/></pattern>
+    </defs><rect x="0" y="0" width="1360" height="420" fill="url(#bg)"/>
+      <rect x="0" y="0" width="1360" height="420" fill="url(#grid)" opacity=".45"/>
+      <circle cx="1310" cy="-55" r="280" fill="#137C79" opacity=".045"/>
+      <circle cx="-55" cy="430" r="285" fill="#3C69B0" opacity=".055"/>
+      <rect x="0" y="0" width="1360" height="5" fill="url(#line)"/>
+      <rect x="70" y="55" width="9" height="9" rx="2" fill="#137C79"/>
+      <text x="93" y="64" font-family="monospace" font-size="13" font-weight="700" letter-spacing="3" fill="#4A6373">SYSTEMS ENGINEERING  /  INFERENCE LAB</text>
+      <text x="68" y="165" font-family="Arial,sans-serif" font-size="80" font-weight="800" letter-spacing="-3.7" fill="#15263B">Batch<tspan fill="#137C79">Quay</tspan></text>
+      <text x="72" y="218" font-family="Arial,sans-serif" font-size="27" font-weight="600" fill="#15263B">Inspect the math.</text>
+      <text x="72" y="253" font-family="Arial,sans-serif" font-size="27" font-weight="600" fill="#15263B">Bound the state.</text>
+      <text x="72" y="288" font-family="Arial,sans-serif" font-size="27" font-weight="600" fill="#15263B">Explain the result.</text>
+      <rect x="70" y="330" width="145" height="36" rx="18" fill="#D9F0ED" stroke="#B8D2D9"/>
+      <text x="142" y="353" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#137C79">C++20 / CPU</text>
+      <rect x="225" y="330" width="158" height="36" rx="18" fill="#D9F0ED" stroke="#B8D2D9"/>
+      <text x="304" y="353" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#4A6373">LOCAL / NO API</text>
+      <rect x="718" y="56" width="576" height="316" rx="23" fill="#FFFFFF" stroke="#B8D2D9" stroke-width="1.4"/>
+      <circle cx="750" cy="90" r="4" fill="#137C79"/>
+      <text x="765" y="95" font-family="monospace" font-size="13" font-weight="700" letter-spacing="1.5" fill="#15263B">EXECUTION / SINGLE PROCESS</text>
+      <text x="1258" y="95" text-anchor="end" font-family="monospace" font-size="12" fill="#4A6373">LOCAL</text>
+      <path d="M751 112H1261" stroke="#B8D2D9" stroke-width="1"/>
+      <text x="747" y="138" font-family="monospace" font-size="11" letter-spacing="1" fill="#4A6373">REQUESTS</text>
+      <rect x="747" y="153" width="106" height="30" rx="8" fill="#EEF6F7" stroke="#B8D2D9"/>
+      <circle cx="764" cy="168" r="4" fill="#137C79"/>
+      <text x="776" y="173" font-family="monospace" font-size="13" fill="#15263B">req / A</text>
+      <rect x="747" y="191" width="106" height="30" rx="8" fill="#EEF6F7" stroke="#B8D2D9"/>
+      <circle cx="764" cy="206" r="4" fill="#3C69B0"/>
+      <text x="776" y="211" font-family="monospace" font-size="13" fill="#15263B">req / B</text>
+      <path d="M864 186H896" stroke="#137C79" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M892 180L901 186L892 192" fill="none" stroke="#137C79" stroke-width="2.4" stroke-linejoin="round"/>
+      <rect x="907" y="146" width="146" height="81" rx="14" fill="#D9F0ED" stroke="#137C79" stroke-opacity=".75" stroke-width="1.6"/>
+      <text x="980" y="172" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" letter-spacing="1" fill="#4A6373">BOUNDED ACTOR</text>
+      <text x="980" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#15263B">prefill / decode</text>
+      <text x="980" y="211" text-anchor="middle" font-family="monospace" font-size="11" fill="#4A6373">rounds</text>
+      <path d="M1062 186H1092" stroke="#137C79" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M1086 180L1096 186L1086 192" fill="none" stroke="#137C79" stroke-width="2.4" stroke-linejoin="round"/>
+      <rect x="1102" y="146" width="158" height="81" rx="14" fill="#EEF6F7" stroke="#B8D2D9"/>
+      <text x="1181" y="173" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" letter-spacing="1" fill="#4A6373">OBSERVABLE</text>
+      <text x="1181" y="197" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#15263B">token / terminal</text>
+      <text x="1181" y="212" text-anchor="middle" font-family="monospace" font-size="11" fill="#4A6373">events</text>
+      <path d="M980 231V252" stroke="#3C69B0" stroke-width="1.6" stroke-dasharray="4 5"/>
+      <circle cx="980" cy="257" r="3" fill="#3C69B0"/>
+      <path d="M747 264H1260" stroke="#B8D2D9" stroke-width="1"/>
+      <text x="748" y="286" font-family="monospace" font-size="12" font-weight="700" letter-spacing="1.2" fill="#4A6373">REQUEST-OWNED KV PAGES</text>
+      <text x="1260" y="286" text-anchor="end" font-family="monospace" font-size="11" fill="#4A6373">OWNER / GENERATION / EPOCH</text>
+      <rect x="746" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#137C79" opacity="0.68"/><rect x="786" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#137C79" opacity="0.68"/><rect x="826" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#137C79" opacity="0.68"/><rect x="866" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#3C69B0" opacity="0.68"/><rect x="906" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#3C69B0" opacity="0.68"/><rect x="946" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#EEF6F7" opacity="1"/><rect x="986" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#137C79" opacity="0.68"/><rect x="1026" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#137C79" opacity="0.68"/><rect x="1066" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#3C69B0" opacity="0.68"/><rect x="1106" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#3C69B0" opacity="0.68"/><rect x="1146" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#EEF6F7" opacity="1"/><rect x="1186" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#EEF6F7" opacity="1"/><rect x="1226" y="303" width="30" height="30" rx="6" stroke="#B8D2D9" fill="#EEF6F7" opacity="1"/><text x="748" y="352" font-family="monospace" font-size="12" fill="#4A6373">ALLOCATE  →  USE  →  RECLAIM</text>
+      <circle cx="1261" cy="346" r="4" fill="#137C79"/>
+</svg>
