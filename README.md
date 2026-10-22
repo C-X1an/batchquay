@@ -44,23 +44,28 @@ The engine uses FP32 weights/activations with selected FP64 reductions. It is **
 
 ## Watch a real execution
 
-The included report was generated from the **real native child process** using deterministic *synthetic* weights. Follow two requests through admission, over-capacity denial, prefill, cancellation, decoding and final reclamation.
+**Not a dashboard mockup.** The storyboard below summarizes the [recorded native C++ execution trace](docs/demo/trace.json): two requests admitted, one capacity denial, interleaved prefill, cancellation, decoding, and complete resource reclamation.
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>Observe the lifecycle</strong><br><br>
-      <code>ADMIT</code> → <code>PREFILL</code> → <code>DECODE</code> → <code>TERMINAL</code><br><br>
-      See the actual <a href="docs/demo/desktop.png">desktop capture</a> and <a href="docs/demo/mobile.png">mobile capture</a>, inspect the <a href="docs/demo/trace.json">raw trace</a>, or read the <a href="docs/demo/README.md">guided walkthrough</a>.
-    </td>
-    <td width="50%" valign="top">
-      <a href="docs/demo/desktop.png"><img src="docs/demo/desktop.png" width="350" alt="Actual recorded desktop inspector showing the BatchQuay execution narrative and native responses. Synthetic weights, not meaningful generated language."></a><br>
-      <sub>Actual native demo capture · synthetic model · no hosted service</sub>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <picture>
+    <source media="(max-width: 700px) and (prefers-color-scheme: dark)" srcset="docs/assets/execution-mobile-dark.svg">
+    <source media="(max-width: 700px) and (prefers-color-scheme: light)" srcset="docs/assets/execution-mobile-light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/execution-desktop-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/execution-desktop-light.svg">
+    <img src="docs/assets/execution-desktop-dark.svg" width="1420" alt="Recorded BatchQuay trace: admit alpha and beta; refuse a third request with E_CAPACITY; prefill both; cancel beta; decode alpha until finished; reclaim resources with live, reserved and physical counts all at zero.">
+  </picture>
+</p>
 
-The committed [offline HTML report](docs/demo/report.html) is a recorded artifact; GitHub may show its source rather than render the interactive document. Open the generated local `report.html` to explore it in a browser.
+<p align="center">
+  <a href="docs/demo/README.md"><strong>Explore the execution →</strong></a> &nbsp;·&nbsp;
+  <a href="docs/demo/trace.json">Raw trace</a> &nbsp;·&nbsp;
+  <a href="docs/demo/desktop.png">Desktop capture</a> &nbsp;·&nbsp;
+  <a href="docs/demo/mobile.png">Mobile capture</a>
+</p>
+
+<p align="center"><sub>Illustrated from real recorded events · Deterministic synthetic weights · No hosted inference service</sub></p>
+
+Run `make demo` and open `.local-runs/demo/report.html` to inspect the **actual local report**. The complete [recorded HTML artifact](docs/demo/report.html) is also public, although GitHub may display it as source instead of rendering the page.
 
 ## Quickstart
 
